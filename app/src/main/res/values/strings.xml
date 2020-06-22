@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">True Or False</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="lblTrue">True</string>
+    <string name="lblFalse">False</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_single_player">SinglePlayerActivity</string>
+    <string name="title_activity_single_player_result">SinglePlayerResultActivity</string>
+    <string name="lblNext">Next</string>
+    <string name="lblSkip">Skip</string>
+    <string name="title_activity_level">LevelActivity</string>
+    <string name="lblLevel">Level</string>
+    <!--  <string name="about_text"><Data><![CDATA[ExpertGames is a leading business software solutions provider that helps mid sized organizations, established corporations & entrepreneurial ventures harness the power of the IT to improve operations and increase revenues.\n\nExpertGames encompasses a huge repository of IT skills that includes but is not limited to the customized development of robust digital signage solutions, web enabled business managementsystems, IT outsourcing services, knowledge management solutions,application services management,e-Business applications & intranet based solutions.\n\nRight from the inception to the conclusion of a project, ExpertGames is your friend, your partner, Your confidante who will work at an unbelievable pace and unmatched dedication to convert your ideas, dreams & requirements to reality. Because of the high degree of emphasis that we place on customer relationship, people and organizations that have chosen ExpertGames as their solutions provider have experienced a satisfaction level like none other. We actually put ourselves in your shoes, view the project from your perspective, understand your targets and goals, and then utilize our expertise in developing a solution that is sustainable, scalable and cost effective.\n\nVersion 1.2\n\nDeveloper: ExpertGames \nGraphics: ExpertGames \nSupport and evangelizing: ExpertGames\nEnhancements: ExpertGames\n\nWeb-Site:www.oceanstechnologies.com]]></Data></string> -->
+    <string name="about_text"><Data><![CDATA[ExpertGames is a leading business software solutions provider that helps mid sized organizations, established corporations & entrepreneurial ventures harness the power of the IT to improve operations and increase revenues.\n\nExpertGames encompasses a huge repository of IT skills that includes but is not limited to the customized development of robust digital signage solutions, web enabled business managementsystems, IT outsourcing services, knowledge management solutions,application services management,e-Business applications & intranet based solutions.\n\nRight from the inception to the conclusion of a project, ExpertGames is your friend, your partner, Your confidante who will work at an unbelievable pace and unmatched dedication to convert your ideas, dreams & requirements to reality. Because of the high degree of emphasis that we place on customer relationship, people and organizations that have chosen ExpertGames as their solutions provider have experienced a satisfaction level like none other. We actually put ourselves in your shoes, view the project from your perspective, understand your targets and goals, and then utilize our expertise in developing a solution that is sustainable, scalable and cost effective.\n\nDeveloper:  ExpertGames \nGraphics:  ExpertGames \nSupport and evangelizing:  ExpertGames\nEnhancements:  ExpertGames\n\nWeb-Site:  www.indomobilegames.com]]> </Data></string>
+
+    <string name="title_activity_about_us">AboutUsActivity</string>
+    <string name="lblAboutUs">About Us</string>
+    <string name="lblSettings">Settings</string>
+
+    <string name="admob_id">a1530f12d9b64ed</string>
+
+    <string name="facebook_id">292082227614348</string>
+    <string name="msg_post_success">Successfully posted on Facebook</string>
+
+    <string name="more_apps">market://search?q=pub:ExpertGames</string>
+    <string name="review_url">market://details?id=com.egames.game.tnf</string>
+    <string name="browser_app_url">https://play.google.com/store/apps/details?id=com.egames.game.tnf</string>
+
+    <string name="admob_banner">ca-app-pub-3759214049372191/6004099224</string>
+    <string name="admob_interstitial">ca-app-pub-3759214049372191/6004099224</string>
+
+    <string name="tablet_string">false</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

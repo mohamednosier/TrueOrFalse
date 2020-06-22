@@ -1,0 +1,3191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<node>
+		<id>1</id>
+		<statement>Melbourne is the capital of Australia.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Canberra is the capital of Australia.</desc>
+	</node>
+	<node>
+		<id>2</id>
+		<statement>New York is the capital of Florida.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Tallahassee is the capital of Florida.</desc>
+	</node>
+	<node>
+		<id>3</id>
+		<statement>Paris is the capital of France.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>4</id>
+		<statement>Tokyo is the largest metropolitan area in the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>5</id>
+		<statement>Mexico City has more inhabitants than New York.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>6</id>
+		<statement>The Brandenburg Gate is in Paris.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Brandenburg Gate is in Berlin.</desc>
+	</node>
+	<node>
+		<id>7</id>
+		<statement>Nairobi is the capital of France.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Nairobi is the capital of Kenya.</desc>
+	</node>
+	<node>
+		<id>8</id>
+		<statement>Kuala Lumpur is the capital of Malaysia.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>9</id>
+		<statement>The world's longest bridge is in the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The world's longest bridge is in China.</desc>
+	</node>
+	<node>
+		<id>10</id>
+		<statement>The tallest skyscraper in the world is found in Venice, Italy.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The tallest skyscraper in the world is found in Dubai.</desc>
+	</node>
+	<node>
+		<id>11</id>
+		<statement>The longest river in the world is the Congo.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The longest river in the world is the Nile.</desc>
+	</node>
+	<node>
+		<id>12</id>
+		<statement>Ecuador is located on the equator.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>13</id>
+		<statement>The Eiffel Tower is a landmark in Paris.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>14</id>
+		<statement>Mount Kilimanjaro is the highest mountain in South America.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Mount Kilimanjaro is the highest mountain in Africa.</desc>
+	</node>
+	<node>
+		<id>15</id>
+		<statement>The Indian Ocean is the largest ocean in the world.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Pacific Ocean is the largest ocean in the world.</desc>
+	</node>
+	<node>
+		<id>16</id>
+		<statement>The Thames is the longest river in Europe.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Volga is the longest river in Europe.</desc>
+	</node>
+	<node>
+		<id>17</id>
+		<statement>The Gobi is a desert.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>18</id>
+		<statement>The Sahara desert is smaller than the Gobi desert.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Sahara desert is the third largest desert on Earth after Antarctica and the Artic.</desc>
+	</node>
+	<node>
+		<id>19</id>
+		<statement>The famous suspension bridge in San Francisco is green.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The famous suspension bridge in San Francisco is "international orange".</desc>
+	</node>
+	<node>
+		<id>20</id>
+		<statement>Copacabana is an area of Rio de Janeiro.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>21</id>
+		<statement>The Tower Bridge is in London.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>22</id>
+		<statement>The Statue of Liberty is one of New York's main landmarks.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>23</id>
+		<statement>The Alps are in Europe.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>24</id>
+		<statement>Mount Everest is in Bolivia.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Mount Everest straddles the border between China and Nepal.</desc>
+	</node>
+	<node>
+		<id>25</id>
+		<statement>The rarest fish on Earth live in the Dead Sea.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are no fish in the Dead Sea.</desc>
+	</node>
+	<node>
+		<id>26</id>
+		<statement>Lake Erie is the deepest lake on Earth.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Lake Baikal is the deepest lake on Earth.</desc>
+	</node>
+	<node>
+		<id>27</id>
+		<statement>The deepest part of the world's oceans is the Mariana Trench.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>28</id>
+		<statement>Greenland has a larger frozen surface than Antarctica.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Antarctica has a significantly larger frozen surface than Greenland.</desc>
+	</node>
+	<node>
+		<id>29</id>
+		<statement>Canada is the country with the largest surface area in the world.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Russia is the country with the largest surface area in the world.</desc>
+	</node>
+	<node>
+		<id>30</id>
+		<statement>Bangkok is the capital of China.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Bangkok is the capital of Thailand.</desc>
+	</node>
+	<node>
+		<id>31</id>
+		<statement>Scandinavia is in the Southern Hemisphere.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Scandinavia is in the Northern Hemisphere.</desc>
+	</node>
+	<node>
+		<id>32</id>
+		<statement>The Zugspitze is the highest mountain in the world.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Zugspitze is the highest mountain in Germany.</desc>
+	</node>
+	<node>
+		<id>33</id>
+		<statement>Hawaii is located in the Pacific Ocean.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>34</id>
+		<statement>Sicily and Sardinia are Italian islands.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>35</id>
+		<statement>Belgium shares a border with Germany.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>36</id>
+		<statement>Stockholm is the capital of Norway.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Stockholm is the capital of Sweden.</desc>
+	</node>
+	<node>
+		<id>37</id>
+		<statement>Russia is the largest country in the world in terms of surface area.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>38</id>
+		<statement>There are 120 states in the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are 50 states in the USA.</desc>
+	</node>
+	<node>
+		<id>39</id>
+		<statement>The Republic of Ireland is not part of the United Kingdom.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>40</id>
+		<statement>Paris is the capital of Austria.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Paris is the capital of France.</desc>
+	</node>
+	<node>
+		<id>41</id>
+		<statement>Geneva is in Switzerland.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>42</id>
+		<statement>The Java Islands belong to New Zealand.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Java Islands belong to Indonesia.</desc>
+	</node>
+	<node>
+		<id>43</id>
+		<statement>Los Angeles is the largest city on the US west coast.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>44</id>
+		<statement>Moscow is the capital of Turkey.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Ankara is the capital of Turkey.</desc>
+	</node>
+	<node>
+		<id>45</id>
+		<statement>The Grand Canyon is the largest ravine in the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>46</id>
+		<statement>Reggae music originated in Jamaica.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>47</id>
+		<statement>Niagara Falls is on the border between the USA and Mexico.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Niagara Falls is on the border between the USA and Canada.</desc>
+	</node>
+	<node>
+		<id>48</id>
+		<statement>The Eurotunnel joins France and England.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>49</id>
+		<statement>The Panama Canal was constructed as a passage for ships.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>50</id>
+		<statement>The capital of Brazil is Buenos Aires.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The capital of Brazil is Brasília.</desc>
+	</node>
+	<node>
+		<id>51</id>
+		<statement>Sugarloaf Mountain is a landmark in Rio de Janeiro.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>52</id>
+		<statement>The Amazon River flows into the Atlantic Ocean.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>53</id>
+		<statement>Johannesburg is the largest city in South Africa.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>54</id>
+		<statement>Ayers Rock is in Europe.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Ayers Rock is in Australia.</desc>
+	</node>
+	<node>
+		<id>55</id>
+		<statement>The capital of Luxembourg is called Luxembourg.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>56</id>
+		<statement>The River Nile flows into the Mediterranean Sea.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>57</id>
+		<statement>An oasis is found in a tundra.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>An oasis is found in a desert.</desc>
+	</node>
+	<node>
+		<id>58</id>
+		<statement>The capital of Italy is Rome.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>59</id>
+		<statement>The capital of Spain is Madrid.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>60</id>
+		<statement>Texas is the coldest of the US states.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Alaska is the coldest of the US states.</desc>
+	</node>
+	<node>
+		<id>61</id>
+		<statement>English is the language spoken in the largest number of countries in the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>62</id>
+		<statement>Italy is shaped like a hat.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Italy is shaped like a boot.</desc>
+	</node>
+	<node>
+		<id>63</id>
+		<statement>The Cape of Good Hope is in South Africa.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>64</id>
+		<statement>In South America, Cowboys are known as "Nachos".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In South America, Cowboys are known as "Gauchos".</desc>
+	</node>
+	<node>
+		<id>65</id>
+		<statement>The largest island in the world is Hawaii.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Greenland is the largest island in the world that isn't considered a continent.</desc>
+	</node>
+	<node>
+		<id>66</id>
+		<statement>Meteorites are rocks from outer space.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>67</id>
+		<statement>The capital of Russia is Moscow.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>68</id>
+		<statement>A blizzard is a sandstorm.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A blizzard is a snowstorm.</desc>
+	</node>
+	<node>
+		<id>69</id>
+		<statement>The capital of Germany is Berlin.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>70</id>
+		<statement>San Francisco is located on the east coast of the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>San Francisco is located on the west coast of the USA.</desc>
+	</node>
+	<node>
+		<id>71</id>
+		<statement>Canada neighbors the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>72</id>
+		<statement>The capital of Chile is Santiago de Chile.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>73</id>
+		<statement>The capital of the Bahamas is Havana.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The capital of the Bahamas is Nassau.</desc>
+	</node>
+	<node>
+		<id>74</id>
+		<statement>San José is the capital of Costa Rica.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>75</id>
+		<statement>The capital city of El Salvador is New Mexico.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The capital city of El Salvador is San Salvador.</desc>
+	</node>
+	<node>
+		<id>76</id>
+		<statement>The capital of Haiti is Port-au-Prince.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>77</id>
+		<statement>The capital of Colombia is Bogotá.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>78</id>
+		<statement>Barcelona is the capital of Portugal.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Lisbon is the capital of Portugal.</desc>
+	</node>
+	<node>
+		<id>79</id>
+		<statement>The capital city of Thailand is Bangkok.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>80</id>
+		<statement>The capital of Sweden is Stockholm.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>81</id>
+		<statement>Perth is the capital city of New Zealand.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Wellington is the capital city of New Zealand.</desc>
+	</node>
+	<node>
+		<id>82</id>
+		<statement>The Volga River is longer than the River Nile.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The River Nile is longer than the Volga River.</desc>
+	</node>
+	<node>
+		<id>83</id>
+		<statement>The Colorado River is longer than the Mississippi River.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Mississippi River is longer.</desc>
+	</node>
+	<node>
+		<id>84</id>
+		<statement>The Rocky Mountains are in South America.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Rocky Mountains are in North America.</desc>
+	</node>
+	<node>
+		<id>85</id>
+		<statement>The capital of Mexico is Mexico City.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>86</id>
+		<statement>Cairo is the capital of Egypt.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>87</id>
+		<statement>The Australian capital city is Adelaide.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Australian capital city is Canberra.</desc>
+	</node>
+	<node>
+		<id>88</id>
+		<statement>The capital city of Belgium is Amsterdam.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The capital city of Belgium is Brussels.</desc>
+	</node>
+	<node>
+		<id>89</id>
+		<statement>The capital city of the People's Republic of China is Beijing.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>90</id>
+		<statement>The capital of Panama is Panama City.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>91</id>
+		<statement>Lake Superior is the largest lake in the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>92</id>
+		<statement>Chile lies in the east of South America.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Chile lies in the southwest of South America.</desc>
+	</node>
+	<node>
+		<id>93</id>
+		<statement>Miami has more inhabitants than New York.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>New York has more inhabitants than Miami.</desc>
+	</node>
+	<node>
+		<id>94</id>
+		<statement>The Earth is 12 billion years old.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Earth is around 4.6 billion years old.</desc>
+	</node>
+	<node>
+		<id>95</id>
+		<statement>Greenland lies on the equator.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Greenland is close to the North Pole.</desc>
+	</node>
+	<node>
+		<id>96</id>
+		<statement>Christmas Island is part of Australia.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>97</id>
+		<statement>Seismology is the study of the origin and effects of earthquakes.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>98</id>
+		<statement>Earthquakes are more frequent in Germany than in Japan.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Earthquakes are more frequent in Japan than in Germany.</desc>
+	</node>
+	<node>
+		<id>99</id>
+		<statement>The Earth's core consists of pure gold.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Earth's core consists mainly of iron.</desc>
+	</node>
+	<node>
+		<id>100</id>
+		<statement>The Earth's thin, outer layer of rock is called the "crust".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	
+	
+	<node>
+		<id>101</id>
+		<statement>Global warming owing to emissions is called the "temperature effect".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Global warming owing to emissions is called the "greenhouse effect".</desc>
+	</node>
+	<node>
+		<id>102</id>
+		<statement>The world population is currently 2 billion.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The world population is currently around 7.1 billion.</desc>
+	</node>
+	<node>
+		<id>103</id>
+		<statement>Marble is a type of sand.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Marble is a carbonate rock.</desc>
+	</node>
+	<node>
+		<id>104</id>
+		<statement>There are less than 1,000 species of bird on Earth.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are more than 10,000 species of bird on Earth.</desc>
+	</node>
+	<node>
+		<id>105</id>
+		<statement>The Earth is a star.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Earth is a planet.</desc>
+	</node>
+	<node>
+		<id>106</id>
+		<statement>The highest mountain in the world is located in North America.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The highest mountain in the world is located in Asia.</desc>
+	</node>
+	<node>
+		<id>107</id>
+		<statement>The deepest part of the world's oceans is in the Mediterranean Sea.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The deepest part of the world's oceans is in the Pacific.</desc>
+	</node>
+	<node>
+		<id>108</id>
+		<statement>The ozone layer protects us from harmful UV radiation.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>109</id>
+		<statement>Diamonds are the hardest precious stones on Earth.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>110</id>
+		<statement>There are more active volcanoes in Indonesia than in Portugal.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>111</id>
+		<statement>The waves caused by an undersea earthquake are called "typhoons".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The succession of waves caused by an undersea earthquake is called a "tsunami".</desc>
+	</node>
+	<node>
+		<id>112</id>
+		<statement>The Tyrannosaurus rex was a carnivore.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>113</id>
+		<statement>The Yellowstone National Park is located in the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>114</id>
+		<statement>Finland shares a border with Ireland.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Finland shares a border with Norway, Sweden and Russia.</desc>
+	</node>
+	<node>
+		<id>115</id>
+		<statement>Mount Everest is approx. 3,000 meters high (approx. 9,842 feet).</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Mount Everest is 8,848 meters high (approx. 29,029 feet).</desc>
+	</node>
+	<node>
+		<id>116</id>
+		<statement>The Banff National Park is in New York.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Banff National Park is in Canada.</desc>
+	</node>
+	<node>
+		<id>117</id>
+		<statement>The Yellow Sea is located between mainland China and the Korean Peninsula.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>118</id>
+		<statement>Tripoli is the capital city of Libya.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>119</id>
+		<statement>The capital of Iran is Tehran.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>120</id>
+		<statement>Transylvania is in Romania.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>121</id>
+		<statement>The capital of Bulgaria is Istanbul.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The capital of Bulgaria is Sofia.</desc>
+	</node>
+	<node>
+		<id>122</id>
+		<statement>The port town of Halifax is in Canada.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>123</id>
+		<statement>The longest coastline the world is in Canada.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>124</id>
+		<statement>Mongolia is a country between Russia and China.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>125</id>
+		<statement>The Zanzibar islands are in the Indian Ocean.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>126</id>
+		<statement>The Colorado River runs through the Grand Canyon.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>127</id>
+		<statement>Route 66 is a dream route for hikers.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Route 66 is a dream route for motorcyclists.</desc>
+	</node>
+	<node>
+		<id>128</id>
+		<statement>The Great Wall of China is the longest man-made structure in the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>129</id>
+		<statement>The names of 15 US states begin with the letter "V".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The names of two US states begin with the letter "V", Vermont and Virginia.</desc>
+	</node>
+	<node>
+		<id>130</id>
+		<statement>The names of four US states begin with the letter "A".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>131</id>
+		<statement>Cuba has a population of over 100 million.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Cuba has a population of around 11 million.</desc>
+	</node>
+	<node>
+		<id>132</id>
+		<statement>Alaska and Hawaii are US states.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>133</id>
+		<statement>Mount Kilimanjaro consists of several extinct volcanoes.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>134</id>
+		<statement>Central Park is in New York.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>135</id>
+		<statement>A tenth of the Earth's surface is covered by water.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Two thirds of the Earth's surface is covered by water.</desc>
+	</node>
+	<node>
+		<id>136</id>
+		<statement>San Francisco is the capital of the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Washington, D.C. is the capital of the USA.</desc>
+	</node>
+	<node>
+		<id>137</id>
+		<statement>Hawaii and Haiti are neighboring islands.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Hawaii and Haiti are not neighboring islands.</desc>
+	</node>
+	<node>
+		<id>138</id>
+		<statement>Since 2001, Great Britain is no longer a united kingdom..</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Great Britain is still a united kingdom.</desc>
+	</node>
+	<node>
+		<id>139</id>
+		<statement>Australia is larger than Africa.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Africa is larger than Australia.</desc>
+	</node>
+	<node>
+		<id>140</id>
+		<statement>Greenland is larger than Antarctica.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Antarctica is larger than Greenland.</desc>
+	</node>
+	<node>
+		<id>141</id>
+		<statement>The Bering Sea is located between North America and Australia.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Bering Sea is located between North America and Siberia.</desc>
+	</node>
+	<node>
+		<id>142</id>
+		<statement>Alaska is not part of the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Alaska is part of the USA.</desc>
+	</node>
+	<node>
+		<id>143</id>
+		<statement>Germany is in Europe.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>144</id>
+		<statement>Miami is on the US west coast.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Miami is on the US east coast.</desc>
+	</node>
+	<node>
+		<id>145</id>
+		<statement>Lima is the capital city of Peru.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>146</id>
+		<statement>The capital city of India is New Delhi.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>147</id>
+		<statement>The Earth's diameter measures around 13,000 kilometers (approx. 8,078 miles).</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>148</id>
+		<statement>The Missouri River is the longest river in North America.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>149</id>
+		<statement>In terms of surface area, Nevada is the largest US state.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In terms of surface area, Alaska is the largest US state.</desc>
+	</node>
+	<node>
+		<id>150</id>
+		<statement>Canada has more lakes than the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>151</id>
+		<statement>Bolivia is smaller than Canada.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>152</id>
+		<statement>Niagara Falls is on the border between the USA and Canada.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>153</id>
+		<statement>The Australians celebrate New Year before US Americans.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>154</id>
+		<statement>Madrid is the largest city in Germany.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Berlin is the largest city in Germany.</desc>
+	</node>
+	<node>
+		<id>155</id>
+		<statement>Florida is located in the northwest of the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Florida is located in the southeast of the USA.</desc>
+	</node>
+	<node>
+		<id>156</id>
+		<statement>San Francisco is the capital city of the US state of California.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Sacramento is the capital city of the US state of California.</desc>
+	</node>
+	<node>
+		<id>157</id>
+		<statement>Florida is also known as the "Aloha State".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Hawaii is also known as the "Aloha State".</desc>
+	</node>
+	<node>
+		<id>158</id>
+		<statement>The state of California is also known as "The Golden State".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>159</id>
+		<statement>The Earth's core consists of crude oil.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Earth's core consists mainly of iron.</desc>
+	</node>
+	<node>
+		<id>160</id>
+		<statement>In the USA, a tornado is also referred to as a "twister".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>161</id>
+		<statement>The continents cover over 50% of the Earth's surface.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The continents cover around 30% of the Earth's surface.</desc>
+	</node>
+	<node>
+		<id>162</id>
+		<statement>Lake Baikal in Siberia is the shallowest lake in the world.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Lake Baikal in Siberia is the deepest lake in the world.</desc>
+	</node>
+	<node>
+		<id>163</id>
+		<statement>Europe and Asia are sometimes referred to collectively as "Eurasia".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>164</id>
+		<statement>Africa lies west of the Americas.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Africa lies east of the Americas.</desc>
+	</node>
+	<node>
+		<id>165</id>
+		<statement>The continents Europe and Asia are connected.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>166</id>
+		<statement>Asia is the southernmost continent on Earth.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Antarctica is the southernmost continent on Earth.</desc>
+	</node>
+	<node>
+		<id>167</id>
+		<statement>"Heathrow Airport" is in Stockholm.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>"Heathrow Airport" is in London.</desc>
+	</node>
+	<node>
+		<id>168</id>
+		<statement>Zurich is in Switzerland.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>169</id>
+		<statement>The Pentagon is in Atlanta.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Pentagon is located close to Washington, D.C.</desc>
+	</node>
+	<node>
+		<id>170</id>
+		<statement>The Earth has 11 continents.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Earth has seven continents: Antarctica, North America, South America, Asia, Europe, Africa and Australia.</desc>
+	</node>
+	<node>
+		<id>171</id>
+		<statement>The Sahara desert is in the south of Africa.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Sahara desert is in the north of Africa.</desc>
+	</node>
+	<node>
+		<id>172</id>
+		<statement>The Azores form a mountain range.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Azores form an archipelago in the Atlantic Ocean.</desc>
+	</node>
+	<node>
+		<id>173</id>
+		<statement>The molten rock under the Earth's crust is called magma.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>174</id>
+		<statement>Europe and Asia are separated by the Andes.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Europe and Asia are separated by the Ural Mountains.</desc>
+	</node>
+	<node>
+		<id>175</id>
+		<statement>The island of Spitsbergen is part of Canada.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The island of Spitsbergen is part of Norway.</desc>
+	</node>
+	<node>
+		<id>176</id>
+		<statement>Over 6 billion people live in China.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Approx. 1.3 billion people live in China.</desc>
+	</node>
+	<node>
+		<id>177</id>
+		<statement>The Pacific is the world's deepest ocean.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>178</id>
+		<statement>The Greek island of Crete is located in the Mediterranean.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>179</id>
+		<statement>The River Danube flows into the Atlantic Ocean.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The River Danube flows into the Black Sea.</desc>
+	</node>
+	<node>
+		<id>180</id>
+		<statement>A pampa is a treeless grassland area in South America.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>181</id>
+		<statement>Import refers to the transport of goods out of a country.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Import refers to the transport of goods into a country.</desc>
+	</node>
+	<node>
+		<id>182</id>
+		<statement>Canals are man-made lakes.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Canals are man-made waterways.</desc>
+	</node>
+	<node>
+		<id>183</id>
+		<statement>Nepal is landlocked between Russia and China.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Nepal is landlocked between China and India.</desc>
+	</node>
+	<node>
+		<id>184</id>
+		<statement>There are seven primary tectonic plates on Earth.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>185</id>
+		<statement>A continental climate is characterized by warm summers and cold winters.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>186</id>
+		<statement>The stratosphere is a layer of the Earth's atmosphere.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>187</id>
+		<statement>The largest country in the world (surface area) has 14 million inhabitants.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Russia, the largest country in the world in terms of surface area, has approx. 143 million inhabitants.</desc>
+	</node>
+	<node>
+		<id>188</id>
+		<statement>The tropics don't experience four seasons.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>189</id>
+		<statement>The Earth rotates from west to north.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Earth rotates from west to east.</desc>
+	</node>
+	<node>
+		<id>190</id>
+		<statement>It is the slight tilt of the Earth's axis that causes us to experience seasons.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>191</id>
+		<statement>Autumn begins on 1 March in the Southern Hemisphere.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>192</id>
+		<statement>Autumn begins on 21 December in the Northern Hemisphere.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Winter begins on 21 December in the Northern Hemisphere.</desc>
+	</node>
+	<node>
+		<id>193</id>
+		<statement>Germany has a larger population than Ireland.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>194</id>
+		<statement>The latitude of the equator is 0°.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>195</id>
+		<statement>Optical illusions that can occur in the desert are called "holograms".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Optical illusions that can occur in the desert are called "mirages".</desc>
+	</node>
+	<node>
+		<id>196</id>
+		<statement>The Appalachians form the longest mountain range in the world.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Andes form the longest mountain range in the world.</desc>
+	</node>
+	<node>
+		<id>197</id>
+		<statement>Cape Horn is located on the northern tip of Africa.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Cape Horn is located on the southern tip of South America.</desc>
+	</node>
+	<node>
+		<id>198</id>
+		<statement>Uzbekistan is in central Europe.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Uzbekistan is in Asia.</desc>
+	</node>
+	<node>
+		<id>199</id>
+		<statement>Russia is a major supplier of natural gas.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>200</id>
+		<statement>Wheat and corn are the most important agricultural crops grown in the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>201</id>
+		<statement>Brazil is the world's largest producer of sugar cane.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>202</id>
+		<statement>India is one of the largest producers of cow's milk in the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>203</id>
+		<statement>China is the world's largest producer of cotton.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>204</id>
+		<statement>More rice is produced in Vietnam than in the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>205</id>
+		<statement>Brazil is the world's largest producer of coffee.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>206</id>
+		<statement>Less coffee is produced in Brazil than in India.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Much more coffee is produced in Brazil than in India.</desc>
+	</node>
+	<node>
+		<id>207</id>
+		<statement>The Panama Canal connects the Pacific Ocean and the Indian Ocean.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Panama Canal connects the Pacific Ocean and the Atlantic Ocean.</desc>
+	</node>
+	<node>
+		<id>208</id>
+		<statement>Africa is the most populous continent on Earth.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Asia is the most populous continent on Earth.</desc>
+	</node>
+	<node>
+		<id>209</id>
+		<statement>Antarctica takes up almost 35 percent of the Earth's surface.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Antarctica takes up just 2.6 percent of the Earth's surface.</desc>
+	</node>
+	<node>
+		<id>210</id>
+		<statement>Almost 50 percent of the world's population lives in Asia.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>211</id>
+		<statement>Europe has more inhabitants than Africa.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Europe has fewer inhabitants than Africa.</desc>
+	</node>
+	<node>
+		<id>212</id>
+		<statement>Istanbul is the only city in the world that straddles two continents.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>213</id>
+		<statement>A climate zone on Earth is also known as a "temperate zone".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>214</id>
+		<statement>Europe has a subtropical climate.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Europe has a moderate climate.</desc>
+	</node>
+	<node>
+		<id>215</id>
+		<statement>Spanish is the national language of Mexico.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>216</id>
+		<statement>Italian is the official language in Peru.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Spanish, Quechua and Aymara are the official languages in Peru.</desc>
+	</node>
+	<node>
+		<id>217</id>
+		<statement>The French national flag is red and white.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The French national flag is red, white and blue.</desc>
+	</node>
+	<node>
+		<id>218</id>
+		<statement>The US national flag features 80 stars.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The US national flag features 50 stars.</desc>
+	</node>
+	<node>
+		<id>219</id>
+		<statement>The Great Barrier Reef is the largest coral reef in the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>220</id>
+		<statement>The capital city of Arizona is Phoenix.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>221</id>
+		<statement>The capital city of Colorado is Las Vegas.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The capital city of Colorado is Denver.</desc>
+	</node>
+	<node>
+		<id>222</id>
+		<statement>The capital city of Hawaii is Honolulu.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>223</id>
+		<statement>The capital city of Massachusetts is Boston.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>224</id>
+		<statement>The capital city of New Mexico is Santa Fe.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>225</id>
+		<statement>The capital city of Tennessee is Knoxville.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The capital city of Tennessee is Nashville.</desc>
+	</node>
+	<node>
+		<id>226</id>
+		<statement>The capital city of Texas is Austin.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>227</id>
+		<statement>The first ever soccer club was established in England.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>228</id>
+		<statement>In earlier years, it was not a crossbar that joined two soccer goal posts but a string.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>229</id>
+		<statement>The US men's team has won the FIFA World Cup twice.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The US men's team has never won the FIFA World Cup.</desc>
+	</node>
+	<node>
+		<id>230</id>
+		<statement>Brazil holds the record for the most FIFA World Cup wins.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>231</id>
+		<statement>The FIFA World Cup 2006 was held in Germany.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>232</id>
+		<statement>The FIFA World Cup 2010 was held in the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The FIFA World Cup 2010 was held in South Africa.</desc>
+	</node>
+	<node>
+		<id>233</id>
+		<statement>Spain won the FIFA World Cup in 2010.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>234</id>
+		<statement>Germany won the World Cup in 2006.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Italy won the FIFA World Cup in 2006.</desc>
+	</node>
+	<node>
+		<id>235</id>
+		<statement>The Brazilian soccer player Ronaldo Luís Nazário de Lima holds the record for the most FIFA World Cup goals.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>236</id>
+		<statement>Lionel Messi has never received the FIFA World Player of the Year Award.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Lionel Messi has won the FIFA World Player of the Year Award three times, once in 1st place and twice in 2nd.</desc>
+	</node>
+	<node>
+		<id>237</id>
+		<statement>A maximum of three corner kicks are allowed in a soccer match.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There is no limit on how many corner kicks can be taken in a soccer match.</desc>
+	</node>
+	<node>
+		<id>238</id>
+		<statement>A referee once gave out 36 red cards during one soccer match.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>239</id>
+		<statement>FC Bayern Munich was the UEFA Champions League winners in 2013.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>240</id>
+		<statement>The Paraguayan goalkeeper Chilavert has scored 5,340 goals in his professional career.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>He has "only" scored 62 goals.</desc>
+	</node>
+	<node>
+		<id>241</id>
+		<statement>Diego Armando Maradona is Brazilian.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Diego Armando Maradona is from Argentina.</desc>
+	</node>
+	<node>
+		<id>242</id>
+		<statement>Cristiano Ronaldo holds the record for the highest transfer fee of any professional soccer player.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>243</id>
+		<statement>Manchester United FC is the English Premier League record holder.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>244</id>
+		<statement>Poland has won the FIFA World Cup four times.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Poland has never won the FIFA World Cup.</desc>
+	</node>
+	<node>
+		<id>245</id>
+		<statement>No team has ever been able to successfully defend their FIFA World Cup title.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Brazil defended their title successfully in 1962.</desc>
+	</node>
+	<node>
+		<id>246</id>
+		<statement>The Brazilian soccer players Ronaldinho and Ronaldo are brothers.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The two players aren't related.</desc>
+	</node>
+	<node>
+		<id>247</id>
+		<statement>A soccer game lasts 45 minutes.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A soccer game usually lasts 90 minutes.</desc>
+	</node>
+	<node>
+		<id>248</id>
+		<statement>The highest league in English soccer is called "Major League Soccer".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The highest league in English soccer is called the "Premier League".</desc>
+	</node>
+	<node>
+		<id>249</id>
+		<statement>The FIFA World Cup takes place once every twelve years.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The FIFA World Cup takes place once every four years.</desc>
+	</node>
+	<node>
+		<id>250</id>
+		<statement>A soccer pitch is smaller than a basketball court.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A soccer pitch is larger.</desc>
+	</node>
+	<node>
+		<id>251</id>
+		<statement>In soccer, only the goalkeeper is allowed to catch the ball with their hands.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>252</id>
+		<statement>In soccer, there is a rule called the "off-side rule".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>253</id>
+		<statement>The Spanish national soccer league is commonly known as "La Liga".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>254</id>
+		<statement>Pelé is a former Brazilian national soccer team player.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>255</id>
+		<statement>Cristiano Ronaldo plays on the German national soccer team.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Cristiano Ronaldo plays on the Portuguese national soccer team.</desc>
+	</node>
+	<node>
+		<id>256</id>
+		<statement>Andrés Iniesta is a professional soccer player from Spain.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>257</id>
+		<statement>Real Madrid has already won the UEFA Champions League nine times.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>258</id>
+		<statement>The first FIFA World Cup took place back in the Middle Ages.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The first FIFA World Cup took place in 1930.</desc>
+	</node>
+	<node>
+		<id>259</id>
+		<statement>The earliest reference to a game called football (soccer) came in the 12th century.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>260</id>
+		<statement>There are around 90,000 holes in an official FIFA soccer goal net.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are roughly 2,500 holes in an official FIFA soccer goal net.</desc>
+	</node>
+	<node>
+		<id>261</id>
+		<statement>There have to be at least four goals scored in each soccer game.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A soccer game can also finish on 0:0.</desc>
+	</node>
+	<node>
+		<id>262</id>
+		<statement>A maximum of four teams can qualify for the soccer FIFA World Cup.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A total of 32 teams can qualify for the soccer FIFA World Cup.</desc>
+	</node>
+	<node>
+		<id>263</id>
+		<statement>Mexico has never taken part in the FIFA World Cup.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Mexican national soccer team has taken part in 14 FIFA World Cup competitions.</desc>
+	</node>
+	<node>
+		<id>264</id>
+		<statement>In soccer, the goalkeeper is not allowed to leave the penalty box.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The goalkeeper can move anywhere on the pitch.</desc>
+	</node>
+	<node>
+		<id>265</id>
+		<statement>In a soccer game, the goalkeeper cannot score a goal.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Goalkeepers can score a goal. There are even some who have scored more than 50 in their career.</desc>
+	</node>
+	<node>
+		<id>266</id>
+		<statement>In soccer, the goal is made up of goal posts and a crossbar.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>267</id>
+		<statement>A soccer game begins with a kick-off.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>268</id>
+		<statement>In soccer, a red card means a player has to leave the pitch.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>269</id>
+		<statement>In professional soccer, a team can make up to 16 substitutions per game.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In most competitions, a team can make a maximum of three substitutions.</desc>
+	</node>
+	<node>
+		<id>270</id>
+		<statement>The Brazilian national soccer team is also known as Seleção.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>271</id>
+		<statement>Michael Phelps is the most successful Olympian of all time.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>272</id>
+		<statement>The 2008 Summer Olympic Games took place in Beijing.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>273</id>
+		<statement>Sailing is an Olympic sport.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>274</id>
+		<statement>Taekwondo is an Olympic sport.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>275</id>
+		<statement>Skateboarding is an Olympic sport.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Skateboarding has never been an Olympic sport.</desc>
+	</node>
+	<node>
+		<id>276</id>
+		<statement>The five Olympic rings symbolize the union of the five regions of the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>277</id>
+		<statement>The decathlon is made up of three disciplines.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The decathlon is made up of ten disciplines.</desc>
+	</node>
+	<node>
+		<id>278</id>
+		<statement>Women's decathlon has been a recognized sport since 1880.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Women's decathlon has only been a recognized sport since 2004.</desc>
+	</node>
+	<node>
+		<id>279</id>
+		<statement>The Summer Olympics feature less than ten different sports.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Summer Olympics feature just short of 100 different sports.</desc>
+	</node>
+	<node>
+		<id>280</id>
+		<statement>The 2016 Olympic Games will be the first games to be held in South America.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>281</id>
+		<statement>The Olympic Games have never been cancelled.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Olympic Games were cancelled in 1916, 1940 and 1944.</desc>
+	</node>
+	<node>
+		<id>282</id>
+		<statement>Italy is the nation with the most Olympic medals.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The USA is the nation with the most Olympic medals.</desc>
+	</node>
+	<node>
+		<id>283</id>
+		<statement>The Olympic Games have never been held in London.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Olympic Games have now been held in London on three separate occasions.</desc>
+	</node>
+	<node>
+		<id>284</id>
+		<statement>Soccer is an Olympic sport.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>285</id>
+		<statement>The Olympic Games take place once a decade.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Olympic Games take place once every four years.</desc>
+	</node>
+	<node>
+		<id>286</id>
+		<statement>The Paralympics is a competition for athletes with disabilities.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>287</id>
+		<statement>The Olympic torch is a key symbol of the Olympic Games.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>288</id>
+		<statement>The USA is the only country to have taken part in every Summer Olympic Games.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Greece, Great Britain, France, Australia and Switzerland have taken part in every Summer Olympic Games.</desc>
+	</node>
+	<node>
+		<id>289</id>
+		<statement>The Olympic Games originated in China.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Olympic Games were born in ancient Greece.</desc>
+	</node>
+	<node>
+		<id>290</id>
+		<statement>The Olympic Games were originally dedicated to the gods.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>291</id>
+		<statement>Beach volleyball is one of the disciplines included in the modern pentathlon.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The modern pentathlon includes fencing, swimming, show jumping, shooting and cross country running.</desc>
+	</node>
+	<node>
+		<id>292</id>
+		<statement>The first Olympic Games of the modern era took place back in the 16th century.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The first Olympic Games of the modern era took place at the end of the 19th century.</desc>
+	</node>
+	<node>
+		<id>293</id>
+		<statement>In its first years, the modern Olympic Games only included one discipline.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In its first years, the modern Olympic Games included several disciplines.</desc>
+	</node>
+	<node>
+		<id>294</id>
+		<statement>The Olympic Games have taken place less than ten times overall.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The 2012 Olympic Games in London were the 30th.</desc>
+	</node>
+	<node>
+		<id>295</id>
+		<statement>There is no city that has held the Olympic Games more than once.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There have already been several cities that have had the honor of holding the Games more than once.</desc>
+	</node>
+	<node>
+		<id>296</id>
+		<statement>Athletics has been included in every single Olympic Games.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>297</id>
+		<statement>Golf has never been an Olympic discipline.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Golf was an Olympic discipline at the beginning of the 20th century and will be included once again as of 2016.</desc>
+	</node>
+	<node>
+		<id>298</id>
+		<statement>The symbol of the Olympic Games features five interlocking rings.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>299</id>
+		<statement>The 2016 Olympic Games will take place in Rio de Janeiro.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>300</id>
+		<statement>The Olympic Games are organized by the IOC.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>301</id>
+		<statement>The Olympic Games begin with a large opening ceremony.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>302</id>
+		<statement>More than 10,000 athletes take part in the Olympic Games.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>303</id>
+		<statement>The Super Bowl is the NFL final.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>304</id>
+		<statement>The 2013 Super Bowl was held in New Orleans.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>305</id>
+		<statement>An American football and a soccer ball weigh almost exactly the same.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>306</id>
+		<statement>The Baltimore Ravens won the 2013 Super Bowl.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>307</id>
+		<statement>The "Steelers" is the team to have won the most Super Bowls.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>308</id>
+		<statement>The Super Bowl trophy is also known as the "Michael Jackson Trophy".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The winners of the Super Bowl receive the "Vince Lombardi Trophy".</desc>
+	</node>
+	<node>
+		<id>309</id>
+		<statement>There was a power cut during the 2013 Super Bowl.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>310</id>
+		<statement>American football is the most popular sport in the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>311</id>
+		<statement>An American football is spherical.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>An oval ball is used in American football.</desc>
+	</node>
+	<node>
+		<id>312</id>
+		<statement>In American football, a touchdown scores six points.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>313</id>
+		<statement>The quarterback is the playmaker in American football.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>314</id>
+		<statement>American football is played five on five.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>American football is played in teams of eleven.</desc>
+	</node>
+	<node>
+		<id>315</id>
+		<statement>In American football, the play time is divided up into quarters of 15 minutes each.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>316</id>
+		<statement>An American football team is made up of defense and offense.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>317</id>
+		<statement>"Interception" is a term used in American football.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>318</id>
+		<statement>American football is played without a helmet.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>American football is played wearing a helmet.</desc>
+	</node>
+	<node>
+		<id>319</id>
+		<statement>The NFL is the largest American football league in the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>320</id>
+		<statement>The "running back" is a position in American football.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>321</id>
+		<statement>The main objective in American football is to get the ball in the net.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The main objective in American football is to get a touchdown.</desc>
+	</node>
+	<node>
+		<id>322</id>
+		<statement>There is only one official for each American football match.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In American football, the "crew" of officials is made up of at least four people.</desc>
+	</node>
+	<node>
+		<id>323</id>
+		<statement>In American football, players cannot score goals.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In American football, players can score a Field Goal.</desc>
+	</node>
+	<node>
+		<id>324</id>
+		<statement>In American football, players can advance by passing and running.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>325</id>
+		<statement>Barack Obama was voted the MVP of the NFL in 2012.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Adrian Peterson was voted the MVP of the NFL in 2012.</desc>
+	</node>
+	<node>
+		<id>326</id>
+		<statement>There are no rules in American football.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are more than 500 rules in American football.</desc>
+	</node>
+	<node>
+		<id>327</id>
+		<statement>San Francisco doesn't have an American football team.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The San Francisco 49ers come from San Francisco.</desc>
+	</node>
+	<node>
+		<id>328</id>
+		<statement>American football is only played in the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>American football is played across the world.</desc>
+	</node>
+	<node>
+		<id>329</id>
+		<statement>There is no world championship in American football.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The first World Championship of American Football took place in 1999.</desc>
+	</node>
+	<node>
+		<id>330</id>
+		<statement>Rugby is older than American football.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>331</id>
+		<statement>American football is derived from rugby.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>332</id>
+		<statement>American football originated in Australia.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>American football originated in the USA.</desc>
+	</node>
+	<node>
+		<id>333</id>
+		<statement>In American football, the quarterback is not allowed to be team captain.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The quarterback can also be team captain.</desc>
+	</node>
+	<node>
+		<id>334</id>
+		<statement>Every American football team has a goalkeeper.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There is no goalkeeper in American football.</desc>
+	</node>
+	<node>
+		<id>335</id>
+		<statement>In American football, players can only move the ball with their feet.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In American football, players can move the ball with any part of their body.</desc>
+	</node>
+	<node>
+		<id>336</id>
+		<statement>Tom Brady is an American soccer player.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Tom Brady is an American football player.</desc>
+	</node>
+	<node>
+		<id>337</id>
+		<statement>Only former professionals are allowed to become coaches in American football.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In theory, anyone can become an American football coach.</desc>
+	</node>
+	<node>
+		<id>338</id>
+		<statement>The New Zealand rugby team does a dance called the "Haka" before each game.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>339</id>
+		<statement>An American football game begins with a kick-off.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>340</id>
+		<statement>In American football, a field goal scores three points.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>341</id>
+		<statement>There are only 34 golf courses in the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are more than 10,000 golf courses in the USA.</desc>
+	</node>
+	<node>
+		<id>342</id>
+		<statement>A round of golf is usually made up of 9 or 18 holes.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>343</id>
+		<statement>Tiger Woods is the best active golf player in the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>344</id>
+		<statement>The most successful golfing nation is the USA.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>345</id>
+		<statement>Most golf balls are blue.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Golf balls are usually white.</desc>
+	</node>
+	<node>
+		<id>346</id>
+		<statement>The majors are the largest tournaments in golf.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>347</id>
+		<statement>The "US Masters" is a golf tournament.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>348</id>
+		<statement>The lower a golfer's handicap, the better the golfer plays.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>349</id>
+		<statement>A handicap is a type of golf club.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>350</id>
+		<statement>The caddy is the person who carries a player's bag or clubs.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>351</id>
+		<statement>The indentations in a golf ball are called "dimples".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>352</id>
+		<statement>When playing golf you have to get the ball in the hole on the green.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>353</id>
+		<statement>When playing golf you have to get the ball in the hole on the green.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>354</id>
+		<statement>In earlier years, golf balls were made of leather and feathers.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>355</id>
+		<statement>Snow golf is played using red golf balls.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>356</id>
+		<statement>A bunker is a sand trap that serves as an obstacle on a golf course.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>357</id>
+		<statement>Golf is played with a Frisbee.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Golf is played with a club and a ball.</desc>
+	</node>
+	<node>
+		<id>358</id>
+		<statement>There are no professional women golfers.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are lots of professional women golfers.</desc>
+	</node>
+	<node>
+		<id>359</id>
+		<statement>In golf, players are only allowed to use one club per hole.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In golf, players can use as many clubs per hole as they like.</desc>
+	</node>
+	<node>
+		<id>360</id>
+		<statement>In The Ryder Cup, the USA and Europe go head to head in golf.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>361</id>
+		<statement>The "Tour de France" is the largest bicycle race in the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>362</id>
+		<statement>The last stage of the Tour de France finishes in Berlin.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The last stage of the Tour de France finishes in Paris.</desc>
+	</node>
+	<node>
+		<id>363</id>
+		<statement>Lance Armstrong is still recognized as a Tour de France winner.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>All of his Tour de France titles have been revoked on account of the doping scandal surrounding the cyclist.</desc>
+	</node>
+	<node>
+		<id>364</id>
+		<statement>No professional cyclist has ever been caught doping.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A number of professional cyclists have now been proved to have used doping drugs.</desc>
+	</node>
+	<node>
+		<id>365</id>
+		<statement>Over 150 cyclists take part in the Tour de France.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>366</id>
+		<statement>The first Tour de France was held at the beginning of the 20th century.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>367</id>
+		<statement>Lance Armstrong won the Tour de France in 2012.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Bradley Wiggins won the Tour de France in 2012.</desc>
+	</node>
+	<node>
+		<id>368</id>
+		<statement>The Tour de France awards a green jersey to one cyclist.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>369</id>
+		<statement>The polka-dot Tour de France jersey has green dots.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The polka-dot Tour de France jersey has red dots.</desc>
+	</node>
+	<node>
+		<id>370</id>
+		<statement>The Tour de France lasts three years.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Tour de France lasts three weeks.</desc>
+	</node>
+	<node>
+		<id>371</id>
+		<statement>The tire pressure on a racing bike goes up to approx. 2300 bar.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The tire pressure on a racing bike typically goes up to 14 bar.</desc>
+	</node>
+	<node>
+		<id>372</id>
+		<statement>The Tour de France takes place in January.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Tour de France takes place in June/July.</desc>
+	</node>
+	<node>
+		<id>373</id>
+		<statement>During organized races, cyclists must wear a helmet.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>374</id>
+		<statement>Mike Tyson once bit off a piece of Muhammad Ali's ear.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Mike Tyson once bit off a piece of Evander Holyfield's ear.</desc>
+	</node>
+	<node>
+		<id>375</id>
+		<statement>A boxing ring is circular.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A boxing ring is square.</desc>
+	</node>
+	<node>
+		<id>376</id>
+		<statement>A boxing match can only be decided with a K.O.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are several other ways a boxing match can be decided.</desc>
+	</node>
+	<node>
+		<id>377</id>
+		<statement>A "jab" is a type of punch.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>378</id>
+		<statement>Muhammad Ali is a former American boxer.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>379</id>
+		<statement>The Klitschko brothers are famous comedians.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Klitschko brothers are famous boxers.</desc>
+	</node>
+	<node>
+		<id>380</id>
+		<statement>The heavyweight class is the supreme discipline in boxing.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>381</id>
+		<statement>Boxers do not usually wear gloves during matches.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Boxing gloves are an integral part of a boxer's kit.</desc>
+	</node>
+	<node>
+		<id>382</id>
+		<statement>The boxer Mike Tyson was the youngest world heavyweight champion.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>383</id>
+		<statement>Muhammad Ali never became World Champion.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Muhammad Ali was World Champion for the first time in 1964.</desc>
+	</node>
+	<node>
+		<id>384</id>
+		<statement>Muhammad Ali used to be a professional tennis player.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Muhammad Ali used to be a professional boxer.</desc>
+	</node>
+	<node>
+		<id>385</id>
+		<statement>Mike Tyson has never lost a boxing match.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Mike Tyson lost six of 58 fights.</desc>
+	</node>
+	<node>
+		<id>386</id>
+		<statement>The boxing match between Klitschko and Muhammad Ali went down in boxing history.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>These two boxers never fought one another.</desc>
+	</node>
+	<node>
+		<id>387</id>
+		<statement>Muhammad Ali's birth name was Cassius Clay.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>388</id>
+		<statement>"The Rumble in the Jungle" was a historic boxing match.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>389</id>
+		<statement>Rocky Balboa once won a boxing match against Muhammad Ali.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Rocky Balboa is a fictional boxer in the movie Rocky.</desc>
+	</node>
+	<node>
+		<id>390</id>
+		<statement>Poker is a ball sport.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Poker is a card game.</desc>
+	</node>
+	<node>
+		<id>391</id>
+		<statement>"Texas Hold 'em" is a variant of poker.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>392</id>
+		<statement>The best standard hand in poker is a "Full House".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The highest hand is a "Royal Flush".</desc>
+	</node>
+	<node>
+		<id>393</id>
+		<statement>The "Big Blind" is a term used in poker.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>394</id>
+		<statement>There is no world championship in poker.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The "World Series of Poker" began in 1970.</desc>
+	</node>
+	<node>
+		<id>395</id>
+		<statement>"Bluffing" is a tactic used in poker.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>396</id>
+		<statement>Online poker has been banned since 2000 in the USA.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There is no ban on online poker in the USA.</desc>
+	</node>
+	<node>
+		<id>397</id>
+		<statement>The "poker face" is an important element of poker.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>398</id>
+		<statement>There are 1240 cards in a standard deck of cards.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are 52 cards in a deck.</desc>
+	</node>
+	<node>
+		<id>399</id>
+		<statement>There are more than two million possible card combinations in poker.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>400</id>
+		<statement>Each game of poker has to have at least eight players.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Poker can be played with as few as two people.</desc>
+	</node>
+	<node>
+		<id>401</id>
+		<statement>There are more than 40 million poker players across the world.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The ace is the highest card in poker, but there isn't a blue one.</desc>
+	</node>
+	<node>
+		<id>402</id>
+		<statement>A "straight" is a hand in poker.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>403</id>
+		<statement>Poker players aren't allowed to wear sunglasses.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Sunglasses and hats are permitted during poker games.</desc>
+	</node>
+	<node>
+		<id>404</id>
+		<statement>"Heads up" describes a one-on-one game of poker.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>405</id>
+		<statement>There are 55 pins in a bowling game.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are only 10 pins in a bowling game.</desc>
+	</node>
+	<node>
+		<id>406</id>
+		<statement>In bowling, a "strike" is when a player knocks down all pins at once.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>407</id>
+		<statement>A standard bowling ball has six finger holes.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A standard bowling ball has only three finger holes.</desc>
+	</node>
+	<node>
+		<id>408</id>
+		<statement>In bowling tournaments, the balls have to be black.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Players can choose whichever color ball they like.</desc>
+	</node>
+	<node>
+		<id>409</id>
+		<statement>Bowling shoes have smooth soles.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>410</id>
+		<statement>Up until the end of the 18th century, bowling balls were made of wood.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>411</id>
+		<statement>A wakeboard is a piece of watersports equipment shaped like a plank.  </statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>412</id>
+		<statement>Surfing originated in the Czech Republic.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Surfing originated in Hawaii.</desc>
+	</node>
+	<node>
+		<id>413</id>
+		<statement>Wakeboarding requires a pair of skis.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>You need a wakeboard for wakeboarding.</desc>
+	</node>
+	<node>
+		<id>414</id>
+		<statement>The ball used in water polo is filled with water.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The ball used in water polo is filled with air.</desc>
+	</node>
+	<node>
+		<id>415</id>
+		<statement>Jet skiing requires a pair of skis.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Jet skiing requires a kind of water scooter also known as jet ski.</desc>
+	</node>
+	<node>
+		<id>416</id>
+		<statement>Rowing competitions are known as regattas.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>417</id>
+		<statement>Synchronized divers have to be twins.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Synchronized divers have to perform the same dives.</desc>
+	</node>
+	<node>
+		<id>418</id>
+		<statement>Dragon boats have an engine.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Dragon boats are rowing boats.</desc>
+	</node>
+	<node>
+		<id>419</id>
+		<statement>The "butterfly" is the name of a swimming stroke.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>420</id>
+		<statement>Professional swimmers are not allowed to wear goggles in the water.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>All swimmers are allowed to wear swimming goggles during a race.</desc>
+	</node>
+	<node>
+		<id>421</id>
+		<statement>"Underwater ice hockey" is a real pastime.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>422</id>
+		<statement>In rowing, nine people sit in an "eight" (a rowing boat).</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>423</id>
+		<statement>The America's Cup is a sailing competition.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>424</id>
+		<statement>"Cliff diving" is a type of scuba diving.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>"Cliff diving" is a sport where people dive from cliffs.</desc>
+	</node>
+	<node>
+		<id>425</id>
+		<statement>Kung Fu is part of track and field.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Kung Fu is a martial art.</desc>
+	</node>
+	<node>
+		<id>426</id>
+		<statement>Taekwondo is a Korean martial art.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>427</id>
+		<statement>Sumo wrestling is the national sport of Japan.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>428</id>
+		<statement>A typical sumo wrestler eats more than 10,000 calories a day.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>429</id>
+		<statement>Speed is an important aspect in sumo wrestling.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>430</id>
+		<statement>Sumo wrestlers wear heavy armor to fight.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Sumo wrestlers wear nothing but a "mawashi", a kind of belt.</desc>
+	</node>
+	<node>
+		<id>431</id>
+		<statement>Most sumo wrestling matches only last a few seconds.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>432</id>
+		<statement>The highest belt in karate is pink.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The highest belt in karate is commonly black.</desc>
+	</node>
+	<node>
+		<id>433</id>
+		<statement>Karate is a South-American martial art.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Karate is an Asian martial art.</desc>
+	</node>
+	<node>
+		<id>434</id>
+		<statement>"Kung Fu" is a Japanese automobile brand.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>"Kung Fu" is a form of Chinese martial art.</desc>
+	</node>
+	<node>
+		<id>435</id>
+		<statement>"Wing Chun Kung Fu" is a Chinese martial art.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>436</id>
+		<statement>"Wing Chun Kung Fu" is a Chinese martial art.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>437</id>
+		<statement>Carpaccio is a Serbian martial art.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Carpaccio is an appetizer made of raw beef.</desc>
+	</node>
+	<node>
+		<id>438</id>
+		<statement>Capoeira is a Brazilian discipline combing martial art and dance.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>439</id>
+		<statement>Punches are allowed in Judo.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Only throws and hold-downs are permitted in judo.</desc>
+	</node>
+	<node>
+		<id>440</id>
+		<statement>Jujutsu is an Asian martial art.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>441</id>
+		<statement>The central point on a dart board is called the "goalie".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The central point on a dart board is called the "Bull's Eye"</desc>
+	</node>
+	<node>
+		<id>442</id>
+		<statement>Professional dart players usually have a nickname.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>443</id>
+		<statement>In each round of a standard game of darts, each player has three darts to throw.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>444</id>
+		<statement>Dressage is not an officially recognized sport.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Dressage has been an official Olympic sport since 1912.</desc>
+	</node>
+	<node>
+		<id>445</id>
+		<statement>Men and women compete against one another in horse riding.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>446</id>
+		<statement>In show jumping, riders can jump each obstacle as many times as they wish.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The obstacles are arranged in a set order, which riders must stick to.</desc>
+	</node>
+	<node>
+		<id>447</id>
+		<statement>"Walk", "trot" and "gallop" are all terms used in horse riding.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>448</id>
+		<statement>In baseball, the player who throws the ball from the mound to the batter is called the "pitcher".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>449</id>
+		<statement>In baseball, the pitcher stands on a mound.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>450</id>
+		<statement>A baseball game normally ends after nine innings.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>451</id>
+		<statement>In baseball, a player can make a home run.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>452</id>
+		<statement>Cindy Lauper sang "Like a Virgin".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Madonna sang "Like a Virgin".</desc>
+	</node>
+	<node>
+		<id>453</id>
+		<statement>Mick Jagger sang in the band The Beatles.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Mick Jagger sang in the band The Rolling Stones.</desc>
+	</node>
+	<node>
+		<id>454</id>
+		<statement>An octave contains 20 notes.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>An octave contains eight notes.</desc>
+	</node>
+	<node>
+		<id>455</id>
+		<statement>Britney Spears' first big hit was called "Baby One More Time".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>456</id>
+		<statement>The lead singer of the band Queen was called Pete Doherty.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The lead singer of the band Queen was called Freddy Mercury.</desc>
+	</node>
+	<node>
+		<id>457</id>
+		<statement>Adele sang the theme song to the James Bond movie "Goldfinger".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Adele sang the theme song to the James Bond movie "Skyfall".</desc>
+	</node>
+	<node>
+		<id>458</id>
+		<statement>Bryan Adams sang "The Summer of '69".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>459</id>
+		<statement>Christina Aguilera launched her singing career with the song "What a Girl Wants".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Christina Aguilera launched her singing career with the song "Genie in a Bottle".</desc>
+	</node>
+	<node>
+		<id>460</id>
+		<statement>Beyoncé Knowles was a member of the Spice Girls.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Beyoncé Knowles was a member of Destiny's Child.</desc>
+	</node>
+	<node>
+		<id>461</id>
+		<statement>James Brown sang the rock 'n' roll hit "I Got You (I Feel Good)".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>462</id>
+		<statement>Mariah Carey released her first album in 1975.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Mariah Carey released her first album in 1990.</desc>
+	</node>
+	<node>
+		<id>463</id>
+		<statement>Eric Clapton dedicated the song "Tears in Heaven" to his late son.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>464</id>
+		<statement>Joe Cocker recorded a cover of the Beatles song "With a Little Help from my Friends".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>465</id>
+		<statement>John Denver took the song "Take Me Home, Country Roads" to worldwide fame.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>466</id>
+		<statement>Celine Dion sang the theme song to the movie "Romeo and Juliet".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Celine Dion sang the theme song to the movie "Titanic".</desc>
+	</node>
+	<node>
+		<id>467</id>
+		<statement>Eminem played the lead in the movie "Get Rich or Die Tryin".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Eminem played the lead in the movie "8 Mile".</desc>
+	</node>
+	<node>
+		<id>468</id>
+		<statement>Nelly Furtado sang "I'm like a Bird".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>469</id>
+		<statement>Whitney Houston sang the theme song to the movie "Robin Hood".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Whitney Houston sang the theme song to the movie "The Bodyguard".</desc>
+	</node>
+	<node>
+		<id>470</id>
+		<statement>Janet Jackson is Peter Jackson's sister.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Janet Jackson is Michael Jackson's sister.</desc>
+	</node>
+	<node>
+		<id>471</id>
+		<statement>Elton John wrote the theme song for "The Lion King".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>472</id>
+		<statement>Norah Jones launched her solo singing career with the song "Don't Know Why".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>473</id>
+		<statement>Alicia Keys recorded a duet with Madonna.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Alicia Keys recorded a duet with Jack White.</desc>
+	</node>
+	<node>
+		<id>474</id>
+		<statement>Lenny Kravitz wrote an entire album for Johnny Depp's ex-girlfriend Vanessa Paradis.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>475</id>
+		<statement>Lady Gaga sang the song "Born to Die".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Lana Del Rey sang the song "Born to Die". Lady Gaga sang "Born This Way".</desc>
+	</node>
+	<node>
+		<id>476</id>
+		<statement>Madonna once sang a duet with Justin Bieber.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Madonna sang a duet with Justin Timberlake.</desc>
+	</node>
+	<node>
+		<id>477</id>
+		<statement>Bob Marley was a jazz legend.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Bob Marley was a reggae legend.</desc>
+	</node>
+	<node>
+		<id>478</id>
+		<statement>The singer Kylie Minogue started her career as an actress in the soap opera "Neighbors".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>479</id>
+		<statement>"Why Does My Heart Feel So Bad" is by Moby.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>480</id>
+		<statement>Katy Perry sang the song "I Kissed a Girl".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>481</id>
+		<statement>Elvis Presley sang "She Loves You".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Beatles sang "She Loves You".</desc>
+	</node>
+	<node>
+		<id>482</id>
+		<statement>Rihanna sang "Empire State of Mind".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>This song was by Alicia Keys and Jay-Z.</desc>
+	</node>
+	<node>
+		<id>483</id>
+		<statement>Seal sang "Kiss from a Rose".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>484</id>
+		<statement>Shakira once sang a duet with Beyoncé.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>485</id>
+		<statement>Sting was a singer in the band The Cops.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Sting was a singer in the band The Police.</desc>
+	</node>
+	<node>
+		<id>486</id>
+		<statement>Justin Timberlake was once a member of the Backstreet Boys.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Justin Timberlake was a member of *NSYNC.</desc>
+	</node>
+	<node>
+		<id>487</id>
+		<statement>Tina Turner sang the theme song to the Bond movie "Goldeneye".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>488</id>
+		<statement>Barry White was a soul singer.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>489</id>
+		<statement>Robbie Williams was once a singer in the band "One Direction".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Robbie Williams was a singer in the band "Take That".</desc>
+	</node>
+	<node>
+		<id>490</id>
+		<statement>Stevie Wonder is a blind singer.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>491</id>
+		<statement>Steven Tyler is a singer in the band Aerosmith.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>492</id>
+		<statement>The Beach Boys sang the song "Stayin' Alive".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>This song was sung by the Bee Gees.</desc>
+	</node>
+	<node>
+		<id>493</id>
+		<statement>Vocals by Justin Timberlake feature on "Where is the Love" by The Black Eyed Peas.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>494</id>
+		<statement>Ozzy Osbourne was the lead singer in The White Stripes.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Ozzy Osbourne was a member of Black Sabbath.</desc>
+	</node>
+	<node>
+		<id>495</id>
+		<statement>The singer from Blur is the co-creator of the band Gorillaz.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>496</id>
+		<statement>Dave Gahan is the name of the singer in Depeche Mode.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>497</id>
+		<statement>Jim Morrison was the lead singer of The Doors.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>498</id>
+		<statement>The song "Hotel California" was by The Eagles.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>499</id>
+		<statement>Jay-Z is an American country singer.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Jay-Z is a rapper.</desc>
+	</node>
+	<node>
+		<id>500</id>
+		<statement>Rihanna sang the pop hit "Please Don't Stop the Music".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	
+	<node>
+		<id>501</id>
+		<statement>Mariah Carey sang the song "With or Without You".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>"With or Without You" was by U2.</desc>
+	</node>
+	<node>
+		<id>502</id>
+		<statement>Chris Martin is the lead singer of Coldplay.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>503</id>
+		<statement>Michael Jackson's most successful album was called "Nevermind".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Michael Jackson's most successful album was called "Thriller".</desc>
+	</node>
+	<node>
+		<id>504</id>
+		<statement>Madonna's 2008 album was called "Hard Candy".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>505</id>
+		<statement>The film about the concert planned by Michael Jackson before his death is called "That's all, folks".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The film was called "This Is It".</desc>
+	</node>
+	<node>
+		<id>506</id>
+		<statement>"Elephunk" is the title of an album by The Black Eyed Peas.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>507</id>
+		<statement>The legendary soul record company from Detroit is called "Mocity".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The legendary soul record company from Detroit is called "Motown".</desc>
+	</node>
+	<node>
+		<id>508</id>
+		<statement>Lady Gaga sang the song "Paparazzi".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>509</id>
+		<statement>The customary musical notation system is made up of ten lines.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>It is made up of five lines.</desc>
+	</node>
+	<node>
+		<id>510</id>
+		<statement>"New York, New York" was sung by Sammy Davis Jr.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>"New York, New York" was sung by Frank Sinatra.</desc>
+	</node>
+	<node>
+		<id>511</id>
+		<statement>The Jew's Harp is played using your feet.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The Jew's Harp is played using your mouth.</desc>
+	</node>
+	<node>
+		<id>512</id>
+		<statement>A classical guitar has six strings.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>513</id>
+		<statement>The modern violin has six strings.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The modern violin has four strings.</desc>
+	</node>
+	<node>
+		<id>514</id>
+		<statement>A triad is a type of instrument.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A triad is a set of three notes - the root, the third and the fifth.</desc>
+	</node>
+	<node>
+		<id>515</id>
+		<statement>"Knockin' on Heaven's Door" was written by The Rolling Stones.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>"Knockin' on Heaven's Door" was by Bob Dylan.</desc>
+	</node>
+	<node>
+		<id>516</id>
+		<statement>Elvis Presley was buried in Greenland.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Elvis Presley was buried in Graceland.</desc>
+	</node>
+	<node>
+		<id>517</id>
+		<statement>Meatloaf sang "Highway to Hell".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>AC/DC sang "Highway to Hell".</desc>
+	</node>
+	<node>
+		<id>518</id>
+		<statement>Frank Sinatra's nickname was "Old Blue Eyes".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>519</id>
+		<statement>Pavarotti, Carreras and Domingo are the names of automobile manufacturers.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Pavarotti, Carreras and Domingo are the names of The Three Tenors.</desc>
+	</node>
+	<node>
+		<id>520</id>
+		<statement>The Village People sang "YMCA".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>521</id>
+		<statement>Bruno Mars sang the pop hit "Yeah".</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Usher sang "Yeah".</desc>
+	</node>
+	<node>
+		<id>522</id>
+		<statement>Rihanna has never won a Grammy.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Rihanna has won 6 Grammys.</desc>
+	</node>
+	<node>
+		<id>523</id>
+		<statement>Pink was one of the artists to sing on the 2001 cover of "Lady Marmalade".</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>524</id>
+		<statement>Jennifer Lopez released a single together with Pitbull.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>525</id>
+		<statement>"Pitbull" is a soul singer.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>"Pitbull" is a rapper.</desc>
+	</node>
+	<node>
+		<id>526</id>
+		<statement>Justin Bieber is Canadian.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>527</id>
+		<statement>The song "Scream and Shout" is by Will.I.Am feat. Britney Spears.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>528</id>
+		<statement>"Troublemaker" is a song by Olly Murs feat. Flo Rida.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+	<node>
+		<id>529</id>
+		<statement>There are 10 members in the band The Lumineers.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>There are 3 members in the band The Lumineers.</desc>
+	</node>
+	<node>
+		<id>530</id>
+		<statement>"I Knew You Were Trouble" is by Taylor Swift.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>NULL</desc>
+	</node>
+
+
+	
+		
+		
+</root>

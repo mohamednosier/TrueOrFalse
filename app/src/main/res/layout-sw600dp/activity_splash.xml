@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bgmain"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <RelativeLayout
+                android:id="@+id/r2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true" >
+
+                <ImageView
+                    android:id="@+id/imgtf"
+                    android:layout_width="400dp"
+                    android:layout_height="220dp"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="40dip"
+                    android:background="@drawable/logo_small"
+                    android:contentDescription="@string/hello_world" />
+
+                <Button
+                    android:id="@+id/btnSinglePlayer"
+                    android:layout_width="240dip"
+                    android:layout_height="97dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/imgtf"
+                    android:layout_marginBottom="0dip"
+                    android:layout_marginTop="50dip"
+                    android:background="@drawable/btn_singleplayer_selector"
+                    android:onClick="btnSinglePlayerOnClickListener" />
+
+                <Button
+                    android:id="@+id/btnMoreApps"
+                    android:layout_width="240dip"
+                    android:layout_height="97dip"
+                    android:layout_below="@id/btnSinglePlayer"
+                    android:layout_marginBottom="0dip"
+                    android:background="@drawable/btn_moreapps_selector"
+                    android:onClick="btnMoreAppsOnClickListener" />
+
+                <Button
+                    android:id="@+id/btnMultiPlayer"
+                    android:layout_width="240dip"
+                    android:layout_height="97dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/btnMoreApps"
+                    android:layout_marginBottom="0dip"
+                    android:background="@drawable/btn_multiplayer_selector"
+                    android:onClick="btnMultiPlayerOnClickListener" />
+
+                <Button
+                    android:id="@+id/btnAboutUs"
+                    android:layout_width="240dip"
+                    android:layout_height="97dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/btnMultiPlayer"
+                    android:layout_marginBottom="0dip"
+                    android:background="@drawable/btn_abtus_selector"
+                    android:onClick="btnAboutUsOnClickListener" />
+
+                <Button
+                    android:id="@+id/btnSetting"
+                    android:layout_width="240dip"
+                    android:layout_height="97dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/btnAboutUs"
+                    android:background="@drawable/btn_setting_selector"
+                    android:onClick="btnSettinOnClickListener" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

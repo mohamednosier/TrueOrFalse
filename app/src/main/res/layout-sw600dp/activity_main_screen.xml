@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/green_white_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/llPlayer1Buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12sp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/btnPlayer1False"
+            android:layout_width="160dip"
+            android:layout_height="120dip"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_false_rotate_selector"
+            android:onClick="btnPlayer1FalseOnClickListener" />
+
+        <Button
+            android:id="@+id/btnPlayer1True"
+            android:layout_width="160dip"
+            android:layout_height="120dip"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_true_rotate_selector"
+            android:onClick="btnPlayer1TrueOnClickListener" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgPlayer1AnswerState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35sp"
+        android:contentDescription="@string/app_name" />
+    
+    
+       <ImageView
+        android:id="@+id/imgPlayer2AnswerState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35sp"
+        android:contentDescription="@string/app_name" />
+
+    <com.egames.game.tnf.TextClass
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+ 
+
+    <LinearLayout
+        android:id="@+id/llPlayer2Buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12sp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/btnPlayer2True"
+            android:layout_width="160dip"
+            android:layout_height="120dip"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_true_selector"
+            android:onClick="btnPlayer2TrueOnClickListener" />
+
+        <Button
+            android:id="@+id/btnPlayer2False"
+            android:layout_width="160dip"
+            android:layout_height="120dip"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_false_selector"
+            android:onClick="btnPlayer2FalseOnClickListener" />
+    </LinearLayout>
+
+</RelativeLayout>

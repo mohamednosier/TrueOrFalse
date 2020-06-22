@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgmain"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/llSettingsHeader"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/lblSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lblSettings"
+            android:textColor="@android:color/white"
+            android:textIsSelectable="false"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/r2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:layout_below="@id/llSettingsHeader"
+        android:layout_marginTop="10dip" >
+
+        <Button
+            android:id="@+id/btnfacebook"
+            android:layout_width="240dip"
+            android:layout_height="105dip"
+            android:layout_alignParentRight="true"
+            android:onClick="btnFacebookOnClickListener"
+            android:background="@drawable/btn_facebook_selector" />
+
+        <Button
+            android:id="@+id/btnsound"
+            android:layout_width="240dip"
+            android:layout_height="105dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/btnfacebook"
+            android:onClick="btnsoundOnClickListener"
+            android:background="@drawable/btn_sound_on_selector"/> 
+
+        <Button
+            android:id="@+id/btngoogle"
+            android:layout_width="240dip"
+            android:layout_height="105dip"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/btnsound"
+            android:onClick="btngoogleOnClickListener"
+            android:background="@drawable/btn_gplus_selector" />
+
+        <Button
+            android:id="@+id/btnshare"
+            android:layout_width="240dip"
+            android:layout_height="105dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/btngoogle"
+            android:onClick="btnshareOnClickListener"
+            android:background="@drawable/btn_share_selector" />
+
+        <Button
+            android:id="@+id/btnrate"
+            android:layout_width="240dip"
+            android:layout_height="105dip"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/btnshare"
+            android:onClick="btnrateOnClickListener"
+            android:background="@drawable/btn_rate_selector" />
+    </RelativeLayout>
+
+</RelativeLayout>

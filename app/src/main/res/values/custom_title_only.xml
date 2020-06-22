@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomTitleForHeader">
+        <item name="android:background">#000000</item>
+    </style>
+
+    <style name="ThemeOnlyTitle" parent="android:Theme">
+        <item name="android:windowTitleSize">40dip</item>
+        <item name="android:windowTitleBackgroundStyle">@style/CustomTitleForHeader</item>
+    </style>
+    
+    
+
+</resources>
+
+
+
+
+

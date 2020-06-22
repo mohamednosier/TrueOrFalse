@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<node>
+		<id>1</id>
+		<statement>A heptagon has six sides.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A heptagon has seven sides.</desc>
+	</node>
+	<node>
+		<id>2</id>
+		<statement>Only Americans and Soviets have walked on the Moon.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Twelve men have walked on the Moon (between 1969 and 1972), and all were Americans on Apollo missions.</desc>
+	</node>
+	<node>
+		<id>3</id>
+		<statement>Bollywood is the nickname of Britain's movie industry.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Bollywood is the name of India's thriving movie industry, which began in Bombay in the 1930s.</desc>
+	</node>
+	<node>
+		<id>4</id>
+		<statement>U.S. presidents originally lived in the "President's Palace," but the name was changed to avoid affectations of royalty.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>It was changed to Executive Mansion in 1810 for this reason; it officially became the "White House" in 1902.</desc>
+	</node>
+	<node>
+		<id>5</id>
+		<statement>Lightning is seen before it's heard because light travels faster than sound.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>One's distance from lightning can be measured by the delay between its visible flash and audible thunder; each mile is equal to roughly five seconds.</desc>
+	</node>
+	<node>
+		<id>6</id>
+		<statement>When Mickey Mouse debuted on screen in 1928, it was in a silent film.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Steamboat Willie was both Mickey's debut and the first megahit animated film with fully synchronized sound.</desc>
+	</node>
+	<node>
+		<id>7</id>
+		<statement>The Titanic had enough lifeboats to save almost everyone on board.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Though complying with laws of the day, the ship carried lifeboats for only some 1,100 of the 2,224 passengers.</desc>
+	</node>
+	<node>
+		<id>8</id>
+		<statement>Vampire bats feed on blood.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Though they don't "suck" blood, vampire bats do lap it up as it oozes from the sleeping prey they've bitten.</desc>
+	</node>
+	<node>
+		<id>9</id>
+		<statement>The biggest muscle in the human body is the gluteus maximus (buttock muscle).</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The gluteal muscles are critical to weight balance and hip rotation in the act of walking.</desc>
+	</node>
+	<node>
+		<id>10</id>
+		<statement>The smallest country in the world is Monaco.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The smallest country is the .2-square mile Vatican City; with a population of 800, the walled nation lies entirely within the city of Rome.</desc>
+	</node>
+	<node>
+		<id>11</id>
+		<statement>Michael Jackson's Thriller is the greatest-selling album of all time.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Estimates of the worldwide sales of the 1982 album vary greatly, some topping 100 million.</desc>
+	</node>
+	<node>
+		<id>12</id>
+		<statement>Long useful to archaeologists, The "La Brea Tar Pits" are found in Los Angeles.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Excavations of the tar pits revealed the remains of many trapped prehistoric animals.</desc>
+	</node>
+	<node>
+		<id>13</id>
+		<statement>Lemmings commit mass suicide by jumping off of cliffs.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Though long believed to be true, lemmings don't commit mass suicide but can jump or fall off cliffs into water during mass migrations and then swim long distances to the point of exhaustion.</desc>
+	</node>
+	<node>
+		<id>14</id>
+		<statement>High-school teacher John T. Scopes was found guilty of cruelty to animals in the famous "Monkey Trial" of 1925.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>He was found guilty of teaching evolution, then a crime in Tennessee, and received a $100 fine.</desc>
+	</node>
+	<node>
+		<id>15</id>
+		<statement>A 12-carat gold piece is considered half gold.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Pure, 100-percent gold is considered 24 carat; something 12 carat, therefore, would be half gold.</desc>
+	</node>
+	<node>
+		<id>16</id>
+		<statement>The first feature film produced entirely with CGI (computer-generated imagery) was Toy Story.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Toy Story (1995) was also the first feature film by Pixar, the noted producer of animated films.</desc>
+	</node>
+	<node>
+		<id>17</id>
+		<statement>Batman fights crime in retaliation for the destruction of his planet.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Bruce Wayne (a.k.a., Batman) turned to fighting crime after witnessing the murder of his parents.</desc>
+	</node>
+	<node>
+		<id>18</id>
+		<statement>St. Valentine's Day is a holiday invented by the greeting card industry.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Celebrated since the 1300s, the holiday is largely based on St. Valentine (martyred AD 270) who fell in love with his jailer's daughter and signed notes to her "from your Valentine."</desc>
+	</node>
+	<node>
+		<id>19</id>
+		<statement>In Dante's Inferno, the deepest ring of Hell is reserved for murderers.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The ninth (and deepest) ring of Hell was reserved for individuals guilty of treachery.</desc>
+	</node>
+	<node>
+		<id>20</id>
+		<statement>Saddam Hussein's invasion of Kuwait in 1990 led to the Iran-Iraq War.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Hussein's invasion of Kuwait in 1990 led to the U.S.-led Persian Gulf War of early 1991.</desc>
+	</node>
+	<node>
+		<id>21</id>
+		<statement>Hair grows back thicker and darker after it's cut.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Cutting and shaving have no effect on spurring hair growth; uncut hair is simply tapered and often lightened by the sun.</desc>
+	</node>
+	<node>
+		<id>22</id>
+		<statement>The Pyramids of Giza are the only one of the "Seven Wonders of the Ancient World" that remains substantially intact.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The Pyramids of Giza are the only one of the "Seven Wonders of the Ancient World" that remains substantially intact.</desc>
+	</node>
+	<node>
+		<id>23</id>
+		<statement>The five Olympic rings signify the five sports hosted at the first Olympics in ancient Greece.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The rings represent the five major regions of the world: Asia, Africa, Europe, the Americas, and Oceania.</desc>
+	</node>
+	<node>
+		<id>24</id>
+		<statement>The Sex Pistols were part of the "British Invasion" that popularized rock and roll in the 1960s.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The British band helped establish punk rock in the 1970s.</desc>
+	</node>
+	<node>
+		<id>25</id>
+		<statement>The pointed spire of the Empire State Building (1931) was designed to moor Zeppelin airships.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Although it was never used for this, the plan was for passengers to exit by gangplanks and enter the building's 102nd floor.</desc>
+	</node>
+	<node>
+		<id>26</id>
+		<statement>The "i" in Apple products (as in "iPad" and "iPhone") stands for "ingenuity."</statement>
+		<isCorrect>0</isCorrect>
+		<desc>According to Apple, the prefix means "Internet" and also stands for its products' emphasis on the "individual."</desc>
+	</node>
+	<node>
+		<id>27</id>
+		<statement>Abu Ghraib was the ringleader of the 9/11 conspirators.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Abu Ghraib is the Iraqi prison where prisoners were abused under Saddam Hussein and later by U.S. soldiers.</desc>
+	</node>
+	<node>
+		<id>28</id>
+		<statement>HIV/AIDS is the disease affecting the artists in the Tony Award-winning musical Rent.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Rent (1996) was based on La Bohème (1896) - a tragic opera whose heroine is afflicted by tuberculosis.</desc>
+	</node>
+	<node>
+		<id>29</id>
+		<statement>NASCAR traces its origins to bootleggers outrunning the police during Prohibition.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The desire to prove who had the fastest car led to weekend races through farm fields and to the founding of NASCAR in 1948.</desc>
+	</node>
+	<node>
+		<id>30</id>
+		<statement>Andromeda is the closest star to Earth.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The sun, 93 million miles away, is our closest star.</desc>
+	</node>
+	<node>
+		<id>31</id>
+		<statement>Lightning never strikes the same place twice.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Lightning can strike in the same spot twice; the spires of skyscrapers are frequently hit throughout the year.</desc>
+	</node>
+	<node>
+		<id>32</id>
+		<statement>Franklin Roosevelt is one of the presidents depicted on Mount Rushmore.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The four presidents are George Washington, Thomas Jefferson, Abraham Lincoln, and Theodore Roosevelt.</desc>
+	</node>
+	<node>
+		<id>33</id>
+		<statement>The "dark side of the Moon" is the same as the "far side of the Moon."</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The "dark side" is the side not currently lit; the "far side" is the side that never faces Earth.</desc>
+	</node>
+	<node>
+		<id>34</id>
+		<statement>Warts can be caused by touching certain animals, especially toads.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Human warts are caused by viruses - the human papillomaviruses - that affect only humans.</desc>
+	</node>
+	<node>
+		<id>35</id>
+		<statement>As a human body grows larger, its number of bones gets smaller.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Bones fuse together over time, decreasing the number of bones from about 350 in a newborn to 206 in an adult.</desc>
+	</node>
+	<node>
+		<id>36</id>
+		<statement>Bangalore is the "Silicon Valley of India."</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Bangalore, India's third-largest city, is world famous as a center of information technology.</desc>
+	</node>
+	<node>
+		<id>37</id>
+		<statement>Coffee originated in Brazil.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Coffee likely originated in Ethiopia around the 15th century.</desc>
+	</node>
+	<node>
+		<id>38</id>
+		<statement>Ancient Olympic athletes competed nude.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The Olympic Games were as much a celebration of the human body as a celebration of competition.</desc>
+	</node>
+	<node>
+		<id>39</id>
+		<statement>The Red Sea gets its name from a slaughter that occurred there during biblical times.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Normally an intense blue-green, the water will occasionally turn reddish brown due to dying algae.</desc>
+	</node>
+	<node>
+		<id>40</id>
+		<statement>Labrador retrievers were originally bred to retrieve fishing nets.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Originally from Newfoundland (the Canadian island off the coast of Labrador), they excel at swimming and retrieving.</desc>
+	</node>
+	<node>
+		<id>41</id>
+		<statement>Dracula was a real-life figure in history.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Vlad III Dracula, the cruel 15th-century ruler from Transylvania nicknamed "The Impaler," may have inspired Bram Stoker's fictional character of Dracula.</desc>
+	</node>
+	<node>
+		<id>42</id>
+		<statement>The Indy 500 car race is the largest single-day, spectator-attended sporting event.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Some 400,000 people routinely attend the event in person. World Cup final matches are usually the largest watched (via television).</desc>
+	</node>
+	<node>
+		<id>43</id>
+		<statement>"Give me your tired, your poor / Your huddled masses" reads the plaque at the base of the Statue of Liberty.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The lines come from a poem that Emma Lazarus wrote to raise money for the statue's pedestal.</desc>
+	</node>
+	<node>
+		<id>44</id>
+		<statement>The African elephant is the largest carnivore on land.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The elephant isn't a carnivore. The Kodiak bear is the largest carnivore on land.</desc>
+	</node>
+	<node>
+		<id>45</id>
+		<statement>In the famous novel of the same name, Frankenstein is a monster constructed from body parts.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>A common mistake, "Frankenstein" is the name of the doctor who creates the monster; the monster is unnamed.</desc>
+	</node>
+	<node>
+		<id>46</id>
+		<statement>Tug-of-war was once an Olympic sport.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>It was a team event in every Summer Olympics from 1900-1920.</desc>
+	</node>
+	<node>
+		<id>47</id>
+		<statement>Edward in the Twilight series is a "vegetarian vampire," meaning he drinks only non-human, animal blood.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>This is the distinguishing feature of Edward's family in the Twilight series.</desc>
+	</node>
+	<node>
+		<id>48</id>
+		<statement>The modern Caesar salad is derived from a recipe dating back to ancient Rome.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>It was reportedly invented in Tijuana, Mexico, in the 1920s by Caesar Cardini, an Italian immigrant restaurateur.</desc>
+	</node>
+	<node>
+		<id>49</id>
+		<statement>The deadliest weapon of World War I was the machine gun.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The machine gun had a devastating effect against frontal attacks, and changed how wars were fought.</desc>
+	</node>
+	<node>
+		<id>50</id>
+		<statement>The tiniest bones in the human body are found in the hand.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The tiniest bones, by far, are found in the ear.</desc>
+	</node>
+	<node>
+		<id>51</id>
+		<statement>Drinking warm milk induces sleep.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Milk contains traces of tryptophan - the amino acid also found in turkey that induces sleep - and this, in combination with the psychological association of warmth with relaxation, can induce sleep.</desc>
+	</node>
+	<node>
+		<id>52</id>
+		<statement>The "Strawberry Fields" memorial, dedicated to musician John Lennon, is in Liverpool.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>It's in New York's Central Park, not far from his apartment where he was shot and killed on December 8, 1980.</desc>
+	</node>
+	<node>
+		<id>53</id>
+		<statement>The classic sci-fi novel Fahrenheit 451 gets its title from the temperature used to burn paper.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>"Fahrenheit 451," in Ray Bradbury's famed tale, is the temperature used to burn books banned by the state.</desc>
+	</node>
+	<node>
+		<id>54</id>
+		<statement>Skin is the human body's largest organ.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Skin is the human body's largest organ.</desc>
+	</node>
+	<node>
+		<id>55</id>
+		<statement>Basketball is the only major sport completely American in origin.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>James Naismith, a P.E. instructor at the YMCA training school in Springfield, Mass., invented the game in 1891 to keep his students fit during winter.</desc>
+	</node>
+	<node>
+		<id>56</id>
+		<statement>Halle Berry was the first African American woman to win an Academy Award.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Hattie McDaniel, for her role as Mammy in Gone with the Wind (1939), won an Oscar for Best Supporting Actress.</desc>
+	</node>
+	<node>
+		<id>57</id>
+		<statement>Mahatma Gandhi began his nonviolent crusade in South Africa.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Gandhi first used nonviolence against British rule in South Africa and then applied his tactics to India.</desc>
+	</node>
+	<node>
+		<id>58</id>
+		<statement>Tapas are common Scandinavian appetizers.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Tapas are appetizers associated with Spanish cuisine.</desc>
+	</node>
+	<node>
+		<id>59</id>
+		<statement>According to Thomas Edison, "Genius is 1% inspiration and 99% fabrication."</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The correct quote is, "Genius is 1% inspiration and 99% perspiration."</desc>
+	</node>
+	<node>
+		<id>60</id>
+		<statement>"Magma" is the scientific name for lava.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Lava is molten rock expelled by a volcano; magma is molten rock contained below the Earth's surface.</desc>
+	</node>
+	<node>
+		<id>61</id>
+		<statement>The first U.S. president to die in office was Abraham Lincoln.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>In 1841, William Henry Harrison delivered his long inaugural address outdoors without a hat or coat, caught pneumonia, and died a month later.</desc>
+	</node>
+	<node>
+		<id>62</id>
+		<statement>Dinosaurs were the largest animals in history.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The blue whale is considered the largest animal ever to have lived.</desc>
+	</node>
+	<node>
+		<id>63</id>
+		<statement>The tongue has distinct sections that are exclusively responsible for detecting certain tastes.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>"Tongue maps" are a myth; all areas of the tongue can recognize each of the four basic tastes, though some areas are slightly more sensitive to certain tastes than others.</desc>
+	</node>
+	<node>
+		<id>64</id>
+		<statement>The flying squirrel is the only flying mammal.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The flying squirrel doesn't actually fly but glides; bats are the only mammals that truly fly.</desc>
+	</node>
+	<node>
+		<id>65</id>
+		<statement>Alfred Nobel, for whom the Nobel Prizes were named, invented dynamite.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>This invention, among others, brought him enormous wealth, later used to establish the prizes in his name.</desc>
+	</node>
+	<node>
+		<id>66</id>
+		<statement>"S.O.S.," the Morse code distress signal, originally stood for "Save Our Ship."</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The signal's code sequence - three dots (S), three dashes (O), three dots (S) - was simply easy to transmit and recognize.</desc>
+	</node>
+	<node>
+		<id>67</id>
+		<statement>The disease that killed 50-100 million people between 1918-1919 was the flu.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>It was one of the deadliest pandemics in history.</desc>
+	</node>
+	<node>
+		<id>68</id>
+		<statement>The Motown recording label began in Detroit.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Motown (from "motor town") helped racially integrate popular music in the 1960s.</desc>
+	</node>
+	<node>
+		<id>69</id>
+		<statement>The megahit musical Cats was based on the poetry of T.S. Eliot.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Andrew Lloyd Webber's musical was based on Old Possum's Book of Practical Cats by T.S. Eliot.</desc>
+	</node>
+	<node>
+		<id>70</id>
+		<statement>Red grapes can make white wine.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The juice of red grapes can make white wine, but white grapes can't make red wine (because the red grape skins are critical to red wine production).</desc>
+	</node>
+	<node>
+		<id>71</id>
+		<statement>Sandwich, the food item, is named after a person.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Though England's Earl of Sandwich (1718-1792) wasn't the first to eat meat between two slices of bread, his fondness for it generated its famous name.</desc>
+	</node>
+	<node>
+		<id>72</id>
+		<statement>A monk named Dom Perignon invented Champagne.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Contrary to the legend, the famed Benedictine monk didn't invent champagne but his rules for winemaking (1718) helped make it a premier wine of France.</desc>
+	</node>
+	<node>
+		<id>73</id>
+		<statement>The Sherpas of northern Finland are famous for their polar expeditions.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Sherpas are the mountain people of Nepal, prized as expert guides on climbs of Mt. Everest.</desc>
+	</node>
+	<node>
+		<id>74</id>
+		<statement>The hottest part of Earth (its core) is solid.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The core's high pressure drives up the melting point beyond the core's temperature and so the core's metals cannot melt.</desc>
+	</node>
+	<node>
+		<id>75</id>
+		<statement>England's King Henry VIII had all of his six wives killed.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>He ordered the death (beheading) of two of the six, the second (Anne Boleyn) and the fifth (Catherine Howard).</desc>
+	</node>
+	<node>
+		<id>76</id>
+		<statement>Fencing is one of the sports of the modern pentathlon.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The five events include shooting, fencing, horseback riding, swimming, and cross-country running.</desc>
+	</node>
+	<node>
+		<id>77</id>
+		<statement>Triumph of the Will, by pioneering filmmaker Leni Riefenstahl, helped expose the horrors of the Holocaust.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Her landmark film traced the dramatic rise of Hitler and the Nazi Party, which used her film as propaganda.</desc>
+	</node>
+	<node>
+		<id>78</id>
+		<statement>Chocolate can be lethal to dogs.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Chocolate contains the alkaloid stimulants caffeine and theobromine, the latter being highly toxic to dogs.</desc>
+	</node>
+	<node>
+		<id>79</id>
+		<statement>Brazil has won more World Cup (soccer) championships than any other country.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Brazil has won five; Italy (4); Germany (3); Argentina and Uruguay (2); England, France, and Spain (1).</desc>
+	</node>
+	<node>
+		<id>80</id>
+		<statement>In the battle between Captain Ahab and Moby Dick, the whale wins.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Spoiler alert: In Herman Melville's Moby Dick (1851), Ahab gets caught up in his own harpoon line and gets dragged into the sea by the whale.</desc>
+	</node>
+	<node>
+		<id>81</id>
+		<statement>In Shakespeare's play, Hamlet commits suicide.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Though he weighs the virtues of living and dying in his famous "To be or not to be" soliloquy, Hamlet is ultimately stabbed to death.</desc>
+	</node>
+	<node>
+		<id>82</id>
+		<statement>The "Forbidden City" is in Beijing.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The Forbidden City is the 15th-century imperial palace that was off-limits to Chinese subjects.</desc>
+	</node>
+	<node>
+		<id>83</id>
+		<statement>Godfather: Part II (1974) was the only film sequel to win an Academy Award for best picture.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Godfather: Part II was the first; The Lord of the Rings: The Return of the King (2003) was the second.</desc>
+	</node>
+	<node>
+		<id>84</id>
+		<statement>Hurricanes and typhoons are the same thing.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Both are tropical cyclones, called "hurricanes" in some regions, "typhoons" in others.</desc>
+	</node>
+	<node>
+		<id>85</id>
+		<statement>Risotto is a common Italian rice dish.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The word comes from the Italian riso, meaning "rice."</desc>
+	</node>
+	<node>
+		<id>86</id>
+		<statement>The mint julep is the signature drink of the Kentucky Derby of horseracing.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>This iconic cocktail contains bourbon, mint, sugar, and crushed ice.</desc>
+	</node>
+	<node>
+		<id>87</id>
+		<statement>An American was the first man in space.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Soviet cosmonaut Yuri Gagarin was the first man in space (April 12, 1961); three weeks later, Alan Shepard became the first American in space.</desc>
+	</node>
+	<node>
+		<id>88</id>
+		<statement>"Cost" is one of the "4 C's" of diamond grading.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The "4 C's" are: cut, clarity, color, carat weight.</desc>
+	</node>
+	<node>
+		<id>89</id>
+		<statement>The thigh bone (femur) is the largest bone in the human body.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The femur extends from the hip to the knee.</desc>
+	</node>
+	<node>
+		<id>90</id>
+		<statement>The prefix "mega-" represents one million.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>"Mega" can be used technically, as in "megabyte" ("MB"); or non-technically, as in "megahit."</desc>
+	</node>
+	<node>
+		<id>91</id>
+		<statement>Elvis Presley's "Hound Dog" (1956) catapulted rock music into mainstream culture worldwide.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>This honor goes to "Rock Around the Clock," performed by Bill Haley and His Comets in 1954.</desc>
+	</node>
+	<node>
+		<id>92</id>
+		<statement>Steak ordered "au poivre" comes topped with chive butter.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>Steak "au poivre" is seared and topped with cracked peppercorns.</desc>
+	</node>
+	<node>
+		<id>93</id>
+		<statement>Judaism, Christianity, and Islam can all be tied to the same individual.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Abraham is the common parent to all three "Abrahamic religions."</desc>
+	</node>
+	<node>
+		<id>94</id>
+		<statement>Marathon was the name of a Greek messenger who ran cross country to report news of Persia's defeat in 490 BC.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The runner ran from the city of Marathon to Athens - a distance of roughly 26 miles that inspired the modern race.</desc>
+	</node>
+	<node>
+		<id>95</id>
+		<statement>Elephants walk as quietly as cats.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Elephants walk almost silently due to their padded feet with soft underside cushions.</desc>
+	</node>
+	<node>
+		<id>96</id>
+		<statement>The first big Hollywood "summer blockbuster" was Jaws.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Steven Spielberg's 1975 film is often cited as the father of the "summer blockbuster" tradition.</desc>
+	</node>
+	<node>
+		<id>97</id>
+		<statement>The "Ring of Fire" - where most volcanoes are located and most earthquakes occur - encircles the Pacific Ocean.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The "Ring of Fire" extends from China to Australia to the west coasts of the Americas.</desc>
+	</node>
+	<node>
+		<id>98</id>
+		<statement>The biceps muscle in the upper arm is the strongest muscle in the human body.</statement>
+		<isCorrect>0</isCorrect>
+		<desc>The masseter (the jaw or chewer) muscle is the strongest.</desc>
+	</node>
+	<node>
+		<id>99</id>
+		<statement>The launch of Sputnik in 1957 inaugurated the space age.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>The Soviet Union's launch of the first man-made satellite shocked and terrified the West during the Cold War.</desc>
+	</node>
+	<node>
+		<id>100</id>
+		<statement>Coca-Cola originally contained cocaine.</statement>
+		<isCorrect>1</isCorrect>
+		<desc>Invented in Atlanta, Georgia, in 1886, the popular soft drink did contain the then-legal substance.</desc>
+	</node>
+</root>

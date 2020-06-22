@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlResultActivity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/black"
+    android:gravity="center"
+    android:padding="20dip"
+    tools:context=".SinglePlayerResultActivity">
+
+    <ImageView
+        android:id="@+id/imgAnswerState"
+        android:layout_width="70dip"
+        android:layout_height="70dip"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/hello_world"
+        android:src="@drawable/player2_answer_wrong" />
+
+    <TextView
+        android:id="@+id/txtAnswerState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgAnswerState"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dip"
+        android:gravity="center"
+        android:text="Incorrect"
+        android:textColor="@android:color/white"
+        android:textIsSelectable="false"
+        android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/txtAnsDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtAnswerState"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dip"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textIsSelectable="false"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Tap to continue"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
+
+</RelativeLayout>
