@@ -14,6 +14,7 @@
         />
 
     <scale
+
         android:fromXScale="105%"
         android:fromYScale="105%"
         android:toXScale="100%"
