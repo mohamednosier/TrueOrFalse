@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -54,7 +53,7 @@ public class SinglePlayerActivity extends FragmentActivity {
     int position;
 
     // vars Timer
-    private final int REQUEST_INTERVAL = 5000;
+    private final int REQUEST_INTERVAL = 5;
     private Timer requestIntervalTimer;
     private boolean running;
 
@@ -74,7 +73,8 @@ public class SinglePlayerActivity extends FragmentActivity {
             GlobalVar.playerLife = 0;
             GlobalVar.playerScore = 0;
             GlobalVar.levelSkip = 0;
-            qid=0;
+            qid = 0;
+            ClassSound.stopPlaying();
 
             Intent intent = new Intent(SinglePlayerActivity.this,
                     LevelActivity.class);
@@ -90,7 +90,6 @@ public class SinglePlayerActivity extends FragmentActivity {
         }
 
     }
-
 
 
     @SuppressLint({"WrongConstant", "SetTextI18n"})
@@ -109,8 +108,6 @@ public class SinglePlayerActivity extends FragmentActivity {
             System.gc();
 
             position = GlobalVar.level - 1;
-
-//            fetchQuestions();
 
             tfQuestion = Typeface.createFromAsset(
                     SinglePlayerActivity.this.getAssets(), "HOBOSTD.OTF");
@@ -154,44 +151,9 @@ public class SinglePlayerActivity extends FragmentActivity {
 
             GlobalVar.levelAnswer = 5;
 
-            GlobalVar.levelSkip = 2;
+            GlobalVar.levelSkip = 1;
 
             GlobalVar.levelsSecond = 20;
-
-//            try {
-//
-//                Handler handler = new Handler();
-//                handler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//
-//
-//                        if (qid < 10) {
-//                            question = questionList.get(qid);
-//                            txtQuestion.setText(question.getQuestion());
-//                            qid++;
-//                        }
-////                        setQuestionView();
-////                        qCounter = questionList.size();
-//
-//                        Log.d("TAGGGGGGGGGGG", "position: " + position);
-//
-////                        for (int i = position * 10; i < (position + 1) * 10; i++) {
-////                            question = questionList.get(i);
-////                            Log.d("question", "questions: " + question);
-////                            txtQuestion.setText(question.getQuestion());
-//////                            setQuestionView();
-////                        }
-//
-////                        qCounter = questionList.size();
-//
-//                    }
-//                }, 100);
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-
 
             txtPlayerScore.setTypeface(tfQuestion);
             txtPlayerScore.setTextSize(20);
@@ -217,11 +179,11 @@ public class SinglePlayerActivity extends FragmentActivity {
 
             counter = new MyCount((10 + 1) * 1000, 1000);
 
+
             // counter = new MyCount(21000, 1000);
             counter.start();
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Please Try Again 5",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please Try Again 5", Toast.LENGTH_SHORT).show();
         }
 
         Config.load(this);
@@ -232,7 +194,6 @@ public class SinglePlayerActivity extends FragmentActivity {
         }
 
     }
-
 
 
     public void btnTrueOnClickListener(View v) {
@@ -342,10 +303,10 @@ public class SinglePlayerActivity extends FragmentActivity {
 //                questionList = questions;
 //                Log.d("fetchQuestions", String.valueOf(questionList.size()));
 
-                if (questionList.size() <10 ) {
+                if (questionList.size() < 10) {
                     for (int i = position * 10; i < (position + 1) * 10; i++) {
                         questionList.add(questions.get(i));
-                        Collections.shuffle(questionList,new Random());
+                        Collections.shuffle(questionList);
                     }
                 }
 
@@ -362,11 +323,6 @@ public class SinglePlayerActivity extends FragmentActivity {
 
     }
 
-    private void setQuestionView() {
-
-        txtQuestion.setText(question.getQuestion());
-        qid++;
-    }
 
     // Counter
     private class MyCount extends CountDownTimer {
@@ -379,7 +335,7 @@ public class SinglePlayerActivity extends FragmentActivity {
         @Override
         public void onFinish() {
             counter.cancel();
-
+            ClassSound.stopPlaying();
             GlobalVar.k = GlobalVar.k + 1;
 
             Intent intent = new Intent(getApplicationContext(),
@@ -398,6 +354,11 @@ public class SinglePlayerActivity extends FragmentActivity {
         public void onTick(long millisUntilFinished) {
             txtTime.setTypeface(tfFromanBold);
             txtTime.setText(Long.toString(millisUntilFinished / 1000));
+            if (millisUntilFinished / 1000 == 2 || millisUntilFinished / 1000 == 1 || millisUntilFinished / 1000 == 0) {
+                if (GlobalVar.isSound) {
+                    ClassSound.PlayCountdown(getBaseContext());
+                }
+            }
         }
     }
 
@@ -417,7 +378,7 @@ public class SinglePlayerActivity extends FragmentActivity {
             requestIntervalTimer.schedule(new TimerTask() {
                 public void run() {
 
-                    if (questionList.size() > 0){
+                    if (questionList.size() > 0) {
                         timerStop();
                     }
 

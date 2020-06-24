@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -20,7 +21,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+
+import java.util.Objects;
+
 public class SplashActivity extends Activity {
+
+	private static final String TAG = "SplashActivity";
 
 	ImageView school, text, imgtf;
 	Button btnSinglePlayer, btnMoreApps, btnMultiPlayer, btnAboutUs,
@@ -329,4 +341,36 @@ public class SplashActivity extends Activity {
 		// -- Button 5
 	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
+		getDeviceToken();
+	}
+
+	private void getDeviceToken(){
+		// Get token
+		// [START retrieve_current_token]
+		FirebaseInstanceId.getInstance().getInstanceId()
+				.addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+					@Override
+					public void onComplete(@NonNull Task<InstanceIdResult> task) {
+						if (!task.isSuccessful()) {
+							Log.w(TAG, "getInstanceId failed", task.getException());
+							return;
+						}
+
+
+						// Get new Instance ID token
+						String token = Objects.requireNonNull(task.getResult()).getToken();
+
+						// Log and toast
+						Log.w(TAG, "getInstanceId sucess: "+token, task.getException());
+
+//						String msg = getString(R.string.msg_token_fmt, token);
+//						Log.d(TAG, msg);
+//						Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
+					}
+				});
+		// [END retrieve_current_token]
+	}
 }

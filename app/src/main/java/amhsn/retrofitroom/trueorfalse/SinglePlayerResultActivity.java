@@ -77,13 +77,18 @@ public class SinglePlayerResultActivity extends Activity {
 			}
 
 			if (i.getStringExtra("Answer").equalsIgnoreCase("wrong")) {
-				imgAnswerState
-						.setImageResource(R.drawable.player2_answer_wrong);
+				if (GlobalVar.isSound) {
+					ClassSound.PlayWrong(getBaseContext());
+				}
+				imgAnswerState.setImageResource(R.drawable.player2_answer_wrong);
 				txtAnswerState.setTextColor(Color.RED);
 				txtAnswerState.setText("Incorrect");
+
 			} else {
-				imgAnswerState
-						.setImageResource(R.drawable.player2_answer_correct);
+				if (GlobalVar.isSound) {
+					ClassSound.PlayCorrect(getBaseContext());
+				}
+				imgAnswerState.setImageResource(R.drawable.player2_answer_correct);
 				txtAnswerState.setTextColor(Color.parseColor("#7ba04d"));
 				txtAnswerState.setText("Correct");
 			}
@@ -214,8 +219,7 @@ public class SinglePlayerResultActivity extends Activity {
 
 				 finish(); 
 
-				Intent intent = new Intent(SinglePlayerResultActivity.this,
-						LevelActivity.class);
+				Intent intent = new Intent(SinglePlayerResultActivity.this, LevelActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 				startActivity(intent);

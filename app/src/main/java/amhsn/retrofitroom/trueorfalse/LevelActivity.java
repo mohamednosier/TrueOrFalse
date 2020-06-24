@@ -22,6 +22,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.GridLayoutAnimationController;
+import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -36,7 +41,9 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import amhsn.retrofitroom.FadeUpAnimation;
 import amhsn.retrofitroom.trueorfalse.room.entity.Question;
+import amhsn.retrofitroom.trueorfalse.utils.InternetConnectivity;
 import amhsn.retrofitroom.trueorfalse.viewModel.QuestionsListViewModel;
 
 public class LevelActivity extends FragmentActivity {
@@ -52,7 +59,6 @@ public class LevelActivity extends FragmentActivity {
 
     ProgressBar progressBar;
     ProgressDialog dialog;
-    int countHandler = 50;
 
     // ViewModel
     private QuestionsListViewModel retroViewModel;
@@ -62,9 +68,11 @@ public class LevelActivity extends FragmentActivity {
     private int qid = 0;
 
     // vars Timer
-    private final int REQUEST_INTERVAL = 5;
+    private final int REQUEST_INTERVAL = 1;
     private Timer requestIntervalTimer;
     private boolean running;
+
+    // Adapter
     private GridAdapter adapter;
 
 
@@ -97,69 +105,35 @@ public class LevelActivity extends FragmentActivity {
 
             setContentView(R.layout.activity_level);
 
-//            fetchQuestions();
-
-
-            dialog = new ProgressDialog(this);
-
-
-//            Handler handler = new Handler();
-//            handler.postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//                    qCounter = questionList.size();
-//
-//                    int a = qCounter / numberQuestionForLevel;
-//
-//                    Log.d("onStart", "a: " + a);
-//
-//                    // --- Level
-//
-//                    for (int j = 0; j < a; j++) {
-//                        numberOfLevels.add(j);
-//                    }
-//                    // --- Level
-//
-//                    Log.d("onStart", "level: " + numberOfLevels.size());
-
-
-//                    if (numberOfLevels.size() > 0) {
-//                        countHandler = 100;
-//                        dialog.dismiss();
-//                        Log.d("ssssssssssssssss", "run: " + countHandler);
-//                    } else {
-//                        countHandler = countHandler + 500;
-////                        dialog.show();
-//                    }
-
-//
             tfQuestion = Typeface.createFromAsset(
                     LevelActivity.this.getAssets(), "HOBOSTD.OTF");
 
             tfFromanBold = Typeface.create(tfQuestion, Typeface.BOLD);
 
-            TextView lblLevel = findViewById(R.id.lblLevel);
+            TextView lblLevel = (TextView) findViewById(R.id.lblLevel);
             lblLevel.setTypeface(tfFromanBold);
 
             pref = getApplicationContext().getSharedPreferences("prefname",
                     MODE_PRIVATE);
 
-            gvLevels = findViewById(R.id.gvLevels);
+            gvLevels = (GridView) findViewById(R.id.gvLevels);
 
-            adapter = new GridAdapter(getApplicationContext());
+            GridAdapter adapter = new GridAdapter(getApplicationContext());
             gvLevels.setAdapter(adapter);
-//                    adapter.setList(questionList);
+
             gvLevels.setOnItemClickListener(new OnItemClickListener() {
+
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int arg2, long arg3) {
 
                     if (GlobalVar.isSound) {
                         ClassSound.PlaySound(getApplicationContext());
                     }
 
-                    int t = (position) * GlobalVar.QUESTION_FOR_SINGLE_LEVEL;
+                    int t = (arg2) * GlobalVar.QUESTION_FOR_SINGLE_LEVEL;
 
-                    GlobalVar.level = position + 1;
+                    GlobalVar.level = arg2 + 1;
 
                     GlobalVar.aryLevel1 = null;
 
@@ -180,7 +154,6 @@ public class LevelActivity extends FragmentActivity {
                     Intent intent = new Intent(LevelActivity.this,
                             SinglePlayerActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra("position", position);
 
                     startActivity(intent);
 
@@ -191,15 +164,10 @@ public class LevelActivity extends FragmentActivity {
                      * Integer.toString(GlobalVar.aryLevel1[0]),
                      * Toast.LENGTH_SHORT).show();
                      */
-
                 }
+
             });
-//                    timerStart();
-//                    Toast.makeText(LevelActivity.this, "hhhhhhhh", Toast.LENGTH_SHORT).show();
-//                }
-//
-//
-//            }, 500);
+
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Please Try Again",
                     Toast.LENGTH_SHORT).show();
@@ -269,6 +237,26 @@ public class LevelActivity extends FragmentActivity {
                 assert inflater != null;
                 gridView = inflater.inflate(R.layout.layout_gridview, null);
 
+//                // Move this initialization to constructor so that its not initalized again and again.
+                Animation anim = AnimationUtils.loadAnimation(getBaseContext(),R.anim.move_left);
+
+                // By default all grid items will animate together and will look like the gridview is
+                // animating as a whole. So, experiment with incremental delays as below to get a
+                // wave effect.
+                anim.setStartOffset(position * 500);
+
+                gridView.setAnimation(anim);
+                anim.start();
+//                int resId = R.anim.layout_animation_fall_down;
+//                GridLayoutAnimationController animation = AnimationUtils.loadAnimation(getBaseContext(), resId);
+//                gridView.setAnimation(animation);
+
+//                Animation a = new FadeUpAnimation(gridView);
+//                a.setInterpolator(new AccelerateInterpolator());
+//                a.setDuration(300);
+//                gridView.setAnimation(a);
+//                gridView.startAnimation(a);
+
             } else {
                 gridView = convertView;
             }
@@ -281,15 +269,14 @@ public class LevelActivity extends FragmentActivity {
 
             ImageView imglock = gridView.findViewById(R.id.imglock);
 
-            LinearLayout llLevelBg = gridView
-                    .findViewById(R.id.llLevelBg);
+            LinearLayout llLevelBg = gridView.findViewById(R.id.llLevelBg);
 
             txtLevel.setTextColor(Color.BLACK);
 
             if (position < (pref.getInt("clearedLevels", 0) + 1)) {
                 // if (position < 4) {
                 txtLevel.setVisibility(View.VISIBLE);
-                txtLevel.setText(String.valueOf(numberOfLevels.get(position + 1)));
+                txtLevel.setText(String.valueOf(position + 1));
                 imglock.setVisibility(View.INVISIBLE);
                 llLevelBg.setVisibility(View.VISIBLE);
             } else {
@@ -297,6 +284,7 @@ public class LevelActivity extends FragmentActivity {
                 txtLevel.setVisibility(View.INVISIBLE);
                 llLevelBg.setVisibility(View.INVISIBLE);
             }
+
 
             return gridView;
         }
@@ -323,24 +311,7 @@ public class LevelActivity extends FragmentActivity {
         fetchQuestions();
     }
 
-    /**
-     * Responsible for refreshing data in screen every 5 sec
-     */
-//    public void timerStart() {
-//        running = true;
-//        if (requestIntervalTimer == null) {
-//            requestIntervalTimer = new Timer();
-//            requestIntervalTimer.schedule(new TimerTask() {
-//                public void run() {
-//
-//
-//
-//                    Log.d("onStart", "level: " + numberOfLevels.size());
-//
-//                }
-//            }, 0, REQUEST_INTERVAL);
-//        }
-//    }
+
     public void timerStart() {
         running = true;
         if (requestIntervalTimer == null) {
@@ -357,29 +328,36 @@ public class LevelActivity extends FragmentActivity {
         public void run() {
 
 
+            if (InternetConnectivity.isConnectedToAnyNetwork(getBaseContext())) {
+                timerStart();
+
+                if (qCounter > 3) {
+                    if (running) {
+                        timerStop();
+                    }
+                }
+            }
             qCounter = questionList.size();
 
             int a = qCounter / numberQuestionForLevel;
 
             Log.d("onStart", "a: " + a);
 
-            // --- Level
-            if (numberOfLevels.isEmpty()) {
-                for (int j = 0; j < a; j++) {
-                    numberOfLevels.add(j);
+                // --- Level
+                if (numberOfLevels.isEmpty()) {
+                    for (int j = 0; j < a; j++) {
+                        numberOfLevels.add(j);
+                    }
                 }
-            }
-            // --- Level
+                // --- Level
 
             Log.d("onStart", "numberOfLevels: " + numberOfLevels.size());
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    gvLevels.invalidateViews();
-                    gvLevels.refreshDrawableState();
-                }
-            });
+            gvLevels.invalidateViews();
+            gvLevels.refreshDrawableState();
+
+
+
 
             if (qCounter > 0) {
                 if (running) {

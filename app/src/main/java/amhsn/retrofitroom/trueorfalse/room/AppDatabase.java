@@ -29,40 +29,12 @@ public abstract class AppDatabase extends RoomDatabase {
         if (mInstance == null) {
             synchronized (LOCK) {
                 Log.d(TAG, "getInstance: Creating a new database instance");
-//                mInstance = Room.databaseBuilder(
-//                        context.getApplicationContext(),
-//                        AppDatabase.class,
-//                        AppDatabase.DATABASE_NAME)
-//                        .build();
-
-                RoomDatabase.Builder roombuilder = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "AppDatabase.DATABASE_NAME");
-                roombuilder.addCallback(new RoomDatabase.Callback() {
-                    @Override
-                    public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                        super.onCreate(db);
-                        Log.d("ONCREATE", "Database has been created.");
-                        db.execSQL("PRAGMA encoding='UTF-8'");
-                    }
-
-                    @Override
-                    public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                        super.onOpen(db);
-                        Log.d("ONOPEN", "Database has been opened.");
-                        db.execSQL("PRAGMA encoding='UTF-8'");
-                    }
-                });
-
-                mInstance = (AppDatabase) roombuilder.build();
-
-//                Room.databaseBuilder(context, AppDatabase.class, AppDatabase.DATABASE_NAME)
-//                        .addCallback(new Callback() {
-//                            @Override
-//                            public void onCreate(@NonNull SupportSQLiteDatabase db) {
-//                                super.onCreate(db);
-//                                // add this code
-//                                db.execSQL("PRAGMA encoding='UTF-8';");
-//                            }
-//                        }).allowMainThreadQueries().build();
+                mInstance = Room.databaseBuilder(
+                        context.getApplicationContext(),
+                        AppDatabase.class,
+                        AppDatabase.DATABASE_NAME)
+                        .addCallback(sRoomDatabaseCallback)
+                        .build();
 
             }
         }
@@ -100,12 +72,30 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
+
             List<Question> list = new ArrayList<>();
-            list.add(new Question("question 7", 0, "question 7"));
-            list.add(new Question("question 8", 0, "question 7"));
-            list.add(new Question("question 9", 0, "question 7"));
-            list.add(new Question("question 10", 0, "question 7"));
-            list.add(new Question("question 11", 0, "question 7"));
+
+            list.add(new Question(1, "يتمتع الثعبان بحاسة سمع قوية.", 0, "الثعبان لا يمتلك أذن خارجية."));
+            list.add(new Question(2, "هل صحيح انه لا يوجد فعل امر من حرف واحد فقط.", 0, "يوجد فعل امر من حرف واحد."));
+            list.add(new Question(3, "باريس هى عاصمة فرنسا.", 0, ""));
+            list.add(new Question(4, "المريخ هو الكوكب الأحمر.", 1, ""));
+            list.add(new Question(5, "يموت الحصان إذا قطع ذيله.", 1, ""));
+            list.add(new Question(6, "تنخفض درجة حرارة الأرض كلما زاد العمق.", 0, "ترتفع درجة حرارة الأرض كلما زاد العمق."));
+            list.add(new Question(7, "عاصمة افريفيا الجنوبية هى بانغى.", 0, "عاصمة افريفيا الجنوبية هى بريتوريا."));
+            list.add(new Question(8, "كوالالمبور هى عاصمة ماليزيا.", 1, ""));
+            list.add(new Question(9, "القلب هو أكبر عضو في جسم الإنسان.", 0, "الكبد هو أكبر عضو في جسم الإنسان."));
+            list.add(new Question(10, "الأرجنتين عاصمتها باكو.", 0, ""));
+            list.add(new Question(11, "اطول نهر فى العالم هو نهر الكونغو.", 0, "اطول نهر فى العالم هو نهر النيل."));
+            list.add(new Question(12, "ايسلندا عاصمتها ريكيافيك.", 1, ""));
+            list.add(new Question(13, "موريتانيا عاصمتها نواكشوط.", 1, ""));
+            list.add(new Question(14, "أول من بنى السجون في الإسلام هو إسماعيل عليه السلام.", 0, "أول من بنى السجون في الإسلام هو علي بن أبي طالب."));
+            list.add(new Question(15, "أول من ركب الخيل هو  صلاح الدين الأيوبي.", 0, "أول من ركب الخيل هو إسماعيل عليه السلام."));
+            list.add(new Question(16, "أول من سمى القرآن بالمصحف هو سعد بن أبي وقاص.", 0, "أول من سمى القرآن بالمصحف هو أبو بكر الصديق."));
+            list.add(new Question(17, "أول أولاد آدم عليه السلام هو قابيل.", 1, ""));
+            list.add(new Question(18, "اسم الجليد الذي لا ينصهر و إنما يتبخر الجليد الحجرى.", 0, "اسم الجليد الذي لا ينصهر و إنما يتبخر الجليد الجاف."));
+            list.add(new Question(19, "يوجد نوع من أنواع الأسماك يمكنه ابتلاع إنسان بكاملة و هو سمك القرش.", 0, "يوجد نوع من أنواع الأسماك يمكنه ابتلاع إنسان بكاملة و هو السمك الصدفي ."));
+            list.add(new Question(20, "أقوى تركيب حي إذا ما قورنت بوزنها و قياسها هو ريش الطائر.", 1, ""));
+
             mQuestionDao.insert(list);
             return null;
         }

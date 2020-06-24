@@ -16,6 +16,7 @@ public class QuestionsListViewModel extends AndroidViewModel {
 
     private QuestionRepository mRepository;
     private LiveData<List<Question>> mAllLists;
+    private LiveData<List<Question>> mRetroObservable;
     private WebServiceRepository webServiceRepository ;
 
 
@@ -23,13 +24,13 @@ public class QuestionsListViewModel extends AndroidViewModel {
         super(application);
         mRepository = QuestionRepository.getInstance(application);
         webServiceRepository = new WebServiceRepository(application);
-        mAllLists = webServiceRepository.getAllQuestions();
-        mAllLists = mRepository.getAllQuestions();
+        mRetroObservable = webServiceRepository.getAllQuestions();
+        mRetroObservable = mRepository.getAllQuestions();
     }
 
 
     public LiveData<List<Question>> getAllQuestions() {
-        return mAllLists;
+        return mRetroObservable;
     }
 
 

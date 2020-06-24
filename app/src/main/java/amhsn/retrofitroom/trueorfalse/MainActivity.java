@@ -50,7 +50,7 @@ public class MainActivity extends FragmentActivity {
     MyCount counter;
 
     // vars Timer
-    private final int REQUEST_INTERVAL = 5000;
+    private final int REQUEST_INTERVAL = 10;
     private Timer requestIntervalTimer;
     private boolean running;
 
@@ -335,10 +335,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onChanged(List<Question> questions) {
                 questionList = questions;
-//                Log.d("fetchQuestions", String.valueOf(questionList.size()));
-
-//                questionList.add(questions.get(i));
-                Collections.shuffle(questionList, new Random());
+                Collections.shuffle(questionList);
             }
 
 
@@ -372,6 +369,7 @@ public class MainActivity extends FragmentActivity {
                         value = question.getQuestion();
                         qid++;
                     }
+                    Log.d("runnnnnn", "run: "+qCounter);
                 }
             }, 0, REQUEST_INTERVAL);
         }
