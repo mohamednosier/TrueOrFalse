@@ -110,6 +110,7 @@ public class PlayerActivity extends AppCompatActivity {
     private int Player1NumOfWins, Player2NumOfWins;
     private int Player1NumOfLoss, Player2NumOfLoss;
 
+
     // vars firebase
     private DatabaseReference myGameRef;
     private DatabaseReference databaseReference;
