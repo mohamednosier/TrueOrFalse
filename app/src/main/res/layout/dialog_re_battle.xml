@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/card_shadow"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:id="@+id/timerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_dp"
+            android:padding="8dp">
+
+
+            <TextView
+                android:id="@+id/tv_time_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/zero"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/dark_gray"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvSec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_time_left"
+                android:layout_centerHorizontal="true"
+                android:layout_toEndOf="@+id/tv_time_left"
+                android:text="sec"
+                android:textColor="@color/dark_gray"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/tvSearchLyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timerLayout"
+            android:layout_margin="@dimen/margin_10dp"
+            android:background="@drawable/card_shadow"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/margin_dp"
+            android:paddingBottom="@dimen/margin_dp"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:id="@+id/lytPlayer1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/layoutImg1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:background="@drawable/button_bg">
+
+                    <amhsn.retrofitroom.trueorfalse.helper.CircleImageView
+                        android:id="@+id/imgPlayer1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:contentDescription="@string/app_name"
+                        android:tint="@color/white"
+                        app:srcCompat="@drawable/ic_profile" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_player1_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/player_1"
+                    android:textColor="@color/dark_gray" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgVs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/versus" />
+
+            <LinearLayout
+                android:id="@+id/lytPlayer2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/layoutImg2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:background="@drawable/button_bg">
+
+                    <amhsn.retrofitroom.trueorfalse.helper.CircleImageView
+                        android:id="@+id/imgPlayer2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="2dp"
+                        android:contentDescription="@string/app_name"
+                        android:tint="@color/white"
+                        app:srcCompat="@drawable/ic_profile1" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_player2_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/player_2"
+                    android:textColor="@color/dark_gray" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
