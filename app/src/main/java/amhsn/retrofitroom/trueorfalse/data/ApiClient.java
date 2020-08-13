@@ -44,5 +44,4 @@ public class ApiClient {
     public ApiInterface getAPI() {
         return retrofit.create(ApiInterface.class);
     }
-
 }

@@ -53,8 +53,8 @@ public class WebServiceRepository {
                     assert responseAPI != null;
                     List<Question> questionList = responseAPI.getServerres();
 
-                    QuestionRepository postRoomDBRepository = new QuestionRepository(application);
-                    postRoomDBRepository.insert(questionList);
+//                    QuestionRepository postRoomDBRepository = new QuestionRepository(application);
+//                    postRoomDBRepository.insert(questionList);
 
                     data.setValue(questionList);
                 }

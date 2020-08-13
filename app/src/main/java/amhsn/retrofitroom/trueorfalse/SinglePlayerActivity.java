@@ -1,7 +1,6 @@
 package amhsn.retrofitroom.trueorfalse;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Timer;
@@ -306,7 +305,7 @@ public class SinglePlayerActivity extends FragmentActivity {
                 if (questionList.size() < 10) {
                     for (int i = position * 10; i < (position + 1) * 10; i++) {
                         questionList.add(questions.get(i));
-                        Collections.shuffle(questionList);
+//                        Collections.shuffle(questionList);
                     }
                 }
 
@@ -383,9 +382,9 @@ public class SinglePlayerActivity extends FragmentActivity {
                     }
 
                     if (qid < 10) {
-                        question = questionList.get(qid);
-                        txtQuestion.setText(question.getQuestion());
-                        qid++;
+//                        question = questionList.get(qid);
+//                        txtQuestion.setText(question.getQuestion());
+//                        qid++;
                     }
                     Log.d("sssss", "setDataOnView: " + "Refresh");
                 }

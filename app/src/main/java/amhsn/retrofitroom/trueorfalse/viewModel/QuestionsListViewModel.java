@@ -25,7 +25,7 @@ public class QuestionsListViewModel extends AndroidViewModel {
         mRepository = QuestionRepository.getInstance(application);
         webServiceRepository = new WebServiceRepository(application);
         mRetroObservable = webServiceRepository.getAllQuestions();
-        mRetroObservable = mRepository.getAllQuestions();
+//        mRetroObservable = mRepository.getAllQuestions();
     }
 
 
@@ -33,29 +33,29 @@ public class QuestionsListViewModel extends AndroidViewModel {
         return mRetroObservable;
     }
 
-
-    public void getQuestionById(int questionId) {
-        mRepository.getQuestionById(questionId);
-    }
-
-
-    public void insert(List<Question> questions) {
-        mRepository.insert(questions);
-    }
-
-
-    public void update(Question questions) {
-        mRepository.update(questions);
-    }
-
-
-    public void delete(Question questions) {
-        mRepository.delete(questions);
-    }
-
-
-    public void deleteAll() {
-        mRepository.deleteAll();
-    }
+//
+//    public void getQuestionById(int questionId) {
+//        mRepository.getQuestionById(questionId);
+//    }
+//
+//
+//    public void insert(List<Question> questions) {
+//        mRepository.insert(questions);
+//    }
+//
+//
+//    public void update(Question questions) {
+//        mRepository.update(questions);
+//    }
+//
+//
+//    public void delete(Question questions) {
+//        mRepository.delete(questions);
+//    }
+//
+//
+//    public void deleteAll() {
+//        mRepository.deleteAll();
+//    }
 
 }

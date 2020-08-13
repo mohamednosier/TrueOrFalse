@@ -28,6 +28,12 @@ public class Question {
         this.isCorrect = isCorrect;
         this.description = description;
     }
+    @Ignore
+    public Question(int id, String question, int isCorrect) {
+        this.id = id;
+        this.question = question;
+        this.isCorrect = isCorrect;
+    }
 
     // Our Construction
     @Ignore

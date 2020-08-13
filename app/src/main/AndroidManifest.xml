@@ -9,77 +9,65 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-
     <application
-        android:name="GlobalVar"
-        android:label="@string/app_name"
+        android:name=".helper.AppController"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/ic_launcher"
-        android:usesCleartextTraffic="true"
+        android:label="@string/app_name"
         android:largeHeap="true"
-        tools:ignore="AllowBackup">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup"
+        tools:targetApi="m">
 
-        <!--         [START fcm_default_icon] -->
-        <!--        &lt;!&ndash;-->
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.-->
-        <!--             See README(https://goo.gl/l4GJaQ) for more.-->
-        <!--        &ndash;&gt;-->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/player2_answer_correct" />
-        <!--        &lt;!&ndash;-->
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming-->
-        <!--             notification message. See README(https://goo.gl/6BKBk7) for more.-->
-        <!--        &ndash;&gt;-->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent" /> <!-- [END fcm_default_icon] -->
-        <!--         [START fcm_default_channel] -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id" /> <!-- [END fcm_default_channel] -->
-
+        <activity android:name=".GameRoom.PlayerActivity"/> <!-- <activity android:name=".GameRoom.GamePlayActivity" /> -->
+        <activity android:name=".GameRoom.GetOpponentActivity"/>
         <activity
-            android:name="MainActivity"
+            android:name=".login.SignUpActivity"
             android:label="@string/app_name"
-            android:screenOrientation="fullSensor" >
-        </activity>
+            android:screenOrientation="fullSensor" />
         <activity
-            android:name="ResultActivity"
+            android:name=".login.LoginPopup"
+            android:label="@string/app_name"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".ResultActivity"
             android:label="@string/title_activity_result"
-            android:screenOrientation="fullSensor" >
-        </activity>
+            android:screenOrientation="fullSensor" />
         <activity
-            android:name="SinglePlayerActivity"
+            android:name=".SinglePlayerActivity"
             android:label="@string/title_activity_single_player"
-            android:screenOrientation="fullSensor" >
-        </activity>
+            android:screenOrientation="fullSensor" />
         <activity
-            android:name="SinglePlayerResultActivity"
+            android:name=".SinglePlayerResultActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_single_player_result"
-            android:screenOrientation="fullSensor"
-            >
-        </activity>
+            android:screenOrientation="fullSensor" />
         <activity
-            android:name="LevelActivity"
+            android:name=".LevelActivity"
             android:label="@string/title_activity_level"
-            android:screenOrientation="fullSensor" >
-        </activity>
+            android:screenOrientation="fullSensor" />
         <activity
-            android:name="SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_level"
-            android:screenOrientation="fullSensor" >
-        </activity>
+            android:screenOrientation="fullSensor" />
         <activity
-            android:name="SplashActivity"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="fullSensor" >
-        </activity>
+            android:screenOrientation="fullSensor" />
         <activity
-            android:name="SplashScreen"
+            android:name=".SplashScreen"
             android:label="@string/app_name"
-            android:screenOrientation="fullSensor" >
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -87,54 +75,53 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="AboutUsActivity"
+            android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us"
-            android:screenOrientation="fullSensor" >
-        </activity>
-
-        <!-- StartApp -->
-        <!--         <activity -->
-        <!--             android:name="com.startapp.android.eula.EULAActivity" -->
-        <!--             android:configChanges="keyboard|keyboardHidden|orientation" -->
-        <!--             android:theme="@android:style/Theme.Translucent" /> -->
-        <!--         <activity -->
-        <!--             android:name="com.startapp.android.publish.list3d.List3DActivity" -->
-        <!--             android:taskAffinity="com.hammyliem.trueorfalse.AppWall" -->
-        <!--             android:theme="@android:style/Theme" /> -->
-        <!--         <activity -->
-        <!--             android:name="com.startapp.android.publish.AppWallActivity" -->
-        <!--             android:configChanges="orientation|keyboardHidden" -->
-        <!--             android:taskAffinity="com.hammyliem.trueorfalse.AppWall" -->
-        <!--             android:theme="@android:style/Theme.Translucent" /> -->
-
-        <!-- Admob -->
-<!--        <meta-data-->
-<!--            android:name="com.google.android.gms.version"-->
-<!--            android:value="@integer/google_play_services_version" />-->
-
-<!--        <activity-->
-<!--            android:name="com.google.android.gms.ads.AdActivity"-->
-<!--            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />-->
-
-<!--        &lt;!&ndash; Facebook &ndash;&gt;-->
-<!--        <activity-->
-<!--            android:name="com.facebook.LoginActivity"-->
-<!--            android:label="@string/app_name"-->
-<!--            android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
-
-        <!-- Facebook -->
-<!--        <meta-data-->
-<!--            android:name="com.facebook.sdk.ApplicationId"-->
-<!--            android:value="@string/facebook_id" />-->
+            android:screenOrientation="fullSensor" /> <!-- Start Service Firebase Messaging -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_bookmarks" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/NEWS_CHANNEL_ID" />
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
 
         <service
-            android:name=".notification.notification.CloudMessagingService"
+            android:name=".notification.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service>
+        </service> <!-- End Service Firebase Messaging -->
+        <!-- Start Service Facebook -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

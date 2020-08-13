@@ -17,6 +17,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import amhsn.retrofitroom.trueorfalse.login.LoginActivity;
+
 public class SplashScreen extends Activity {
 
 	public void onCreate(Bundle savedInstanceState)

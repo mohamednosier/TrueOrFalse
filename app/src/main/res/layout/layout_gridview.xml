@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
+    android:id="@+id/relLayout"
     android:layout_height="wrap_content"
     android:background="@drawable/levels_locked"
     android:paddingBottom="3sp"
     android:paddingLeft="3sp"
-    android:paddingRight="3sp" >
+    android:paddingRight="3sp">
 
     <TextView
         android:id="@+id/txtLevel"

@@ -22,11 +22,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.GridLayoutAnimationController;
-import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -41,7 +38,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import amhsn.retrofitroom.FadeUpAnimation;
 import amhsn.retrofitroom.trueorfalse.room.entity.Question;
 import amhsn.retrofitroom.trueorfalse.utils.InternetConnectivity;
 import amhsn.retrofitroom.trueorfalse.viewModel.QuestionsListViewModel;
@@ -110,13 +106,13 @@ public class LevelActivity extends FragmentActivity {
 
             tfFromanBold = Typeface.create(tfQuestion, Typeface.BOLD);
 
-            TextView lblLevel = (TextView) findViewById(R.id.lblLevel);
+            TextView lblLevel = findViewById(R.id.lblLevel);
             lblLevel.setTypeface(tfFromanBold);
 
             pref = getApplicationContext().getSharedPreferences("prefname",
                     MODE_PRIVATE);
 
-            gvLevels = (GridView) findViewById(R.id.gvLevels);
+            gvLevels = findViewById(R.id.gvLevels);
 
             GridAdapter adapter = new GridAdapter(getApplicationContext());
             gvLevels.setAdapter(adapter);
@@ -168,6 +164,8 @@ public class LevelActivity extends FragmentActivity {
 
             });
 
+
+
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Please Try Again",
                     Toast.LENGTH_SHORT).show();
@@ -184,6 +182,9 @@ public class LevelActivity extends FragmentActivity {
 
         GridAdapter(Context c) {
             context = c;
+            if (InternetConnectivity.isConnectedToWifiNetwork(getApplicationContext())) {
+                timerStart();
+            }
             // this.LevelVals = mobileValues;
         }
 
@@ -237,10 +238,11 @@ public class LevelActivity extends FragmentActivity {
                 assert inflater != null;
                 gridView = inflater.inflate(R.layout.layout_gridview, null);
 
-//                // Move this initialization to constructor so that its not initalized again and again.
-                Animation anim = AnimationUtils.loadAnimation(getBaseContext(),R.anim.move_left);
 
-                // By default all grid items will animate together and will look like the gridview is
+//                // Move this initialization to constructor so that its not initalized again and again.
+                Animation anim = AnimationUtils.loadAnimation(getBaseContext(), R.anim.move_left);
+//
+//                // By default all grid items will animate together and will look like the gridview is
                 // animating as a whole. So, experiment with incremental delays as below to get a
                 // wave effect.
                 anim.setStartOffset(position * 500);
@@ -274,7 +276,6 @@ public class LevelActivity extends FragmentActivity {
             txtLevel.setTextColor(Color.BLACK);
 
             if (position < (pref.getInt("clearedLevels", 0) + 1)) {
-                // if (position < 4) {
                 txtLevel.setVisibility(View.VISIBLE);
                 txtLevel.setText(String.valueOf(position + 1));
                 imglock.setVisibility(View.INVISIBLE);
@@ -327,43 +328,29 @@ public class LevelActivity extends FragmentActivity {
     Runnable TimerRunnable = new Runnable() {
         public void run() {
 
-
-            if (InternetConnectivity.isConnectedToAnyNetwork(getBaseContext())) {
-                timerStart();
-
-                if (qCounter > 3) {
-                    if (running) {
-                        timerStop();
-                    }
-                }
-            }
             qCounter = questionList.size();
 
             int a = qCounter / numberQuestionForLevel;
 
             Log.d("onStart", "a: " + a);
 
-                // --- Level
-                if (numberOfLevels.isEmpty()) {
-                    for (int j = 0; j < a; j++) {
-                        numberOfLevels.add(j);
-                    }
+            // --- Level
+            if (numberOfLevels.isEmpty()) {
+                for (int j = 0; j < a; j++) {
+                    numberOfLevels.add(j);
                 }
-                // --- Level
+            }
+            // --- Level
+            gvLevels.invalidateViews();
+            gvLevels.refreshDrawableState();
+
+
+            Log.d("oaanStart", "a: " + a);
 
             Log.d("onStart", "numberOfLevels: " + numberOfLevels.size());
 
             gvLevels.invalidateViews();
             gvLevels.refreshDrawableState();
-
-
-
-
-            if (qCounter > 0) {
-                if (running) {
-                    timerStop();
-                }
-            }
 
         }
     };

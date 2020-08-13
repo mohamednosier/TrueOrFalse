@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
 
 
 import android.content.Intent;
@@ -19,12 +17,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import amhsn.retrofitroom.trueorfalse.login.LoginActivity;
 import amhsn.retrofitroom.trueorfalse.room.entity.Question;
 import amhsn.retrofitroom.trueorfalse.utils.Config;
 import amhsn.retrofitroom.trueorfalse.viewModel.QuestionsListViewModel;
@@ -53,43 +51,46 @@ public class MainActivity extends FragmentActivity {
     private final int REQUEST_INTERVAL = 10;
     private Timer requestIntervalTimer;
     private boolean running;
+    public String type;
 
 //	private InterstitialAd interstitial;
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        try {
-            // --- Shuffle array
-            GlobalVar.array = new Integer[GlobalVar.TOTAL_QUESTION];
+//        try {
+        // --- Shuffle array
+        GlobalVar.array = new Integer[GlobalVar.TOTAL_QUESTION];
 
-            for (int j = 0; j < GlobalVar.array.length; j++) {
-                GlobalVar.array[j] = j;
-            }
-
-            Collections.shuffle(Arrays.asList(GlobalVar.array));
-
-            // --- Shuffle array
-
-            Intent intent = new Intent(MainActivity.this, SplashActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-            GlobalVar.i = 0;
-            GlobalVar.player1Score = 0;
-            GlobalVar.player2Score = 0;
-
-            startActivity(intent);
-
-            overridePendingTransition(R.anim.enter, R.anim.exit);
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Please Try Again1",
-                    Toast.LENGTH_SHORT).show();
+        for (int j = 0; j < GlobalVar.array.length; j++) {
+            GlobalVar.array[j] = j;
         }
+
+        Collections.shuffle(Arrays.asList(GlobalVar.array));
+
+        // --- Shuffle array
+
+        Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        GlobalVar.i = 0;
+        GlobalVar.player1Score = 0;
+        GlobalVar.player2Score = 0;
+
+        startActivity(intent);
+
+        overridePendingTransition(R.anim.enter, R.anim.exit);
+//        } catch (Exception e) {
+//            Toast.makeText(getApplicationContext(), "Please Try Again1",
+//                    Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -98,16 +99,23 @@ public class MainActivity extends FragmentActivity {
 //        try {
         setContentView(R.layout.activity_main_screen);
 
+
+
         Log.d("API:", "response.code(): ");
 
         System.gc();
+        fetchQuestions();
+        if (!running) {
+            timerStart();
+        }
+
 
         btnPlayer1True = findViewById(R.id.btnPlayer1True);
         btnPlayer1False = findViewById(R.id.btnPlayer1False);
         btnPlayer2True = findViewById(R.id.btnPlayer2True);
         btnPlayer2False = findViewById(R.id.btnPlayer2False);
 
-        imgPlayer1AnswerState =  findViewById(R.id.imgPlayer1AnswerState);
+        imgPlayer1AnswerState = findViewById(R.id.imgPlayer1AnswerState);
         imgPlayer2AnswerState = findViewById(R.id.imgPlayer2AnswerState);
 
         setImageViewVisibility(false);
@@ -126,142 +134,140 @@ public class MainActivity extends FragmentActivity {
 
 
     public void btnPlayer1TrueOnClickListener(View v) {
-        try {
-            if (GlobalVar.isSound) {
-                ClassSound.PlaySound(getApplicationContext());
-            }
-
-            setButtonVisiblity(false);
-
-            if (question.isCorrect() == 1) {
-
-                imgPlayer1AnswerState
-                        .setImageResource(R.drawable.player1_answer_correct);
-                imgPlayer2AnswerState
-                        .setImageResource(R.drawable.player2_answer_wrong);
-
-                GlobalVar.player1Score += 1;
-
-            } else {
-
-                imgPlayer1AnswerState
-                        .setImageResource(R.drawable.player1_answer_wrong);
-                imgPlayer2AnswerState
-                        .setImageResource(R.drawable.player2_answer_correct);
-
-                GlobalVar.player2Score += 1;
-            }
-            setImageViewVisibility(true);
-            GlobalVar.i = GlobalVar.i + 1;
-            counter.start();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Please Try Again3",
-                    Toast.LENGTH_SHORT).show();
+//        try {
+        if (GlobalVar.isSound) {
+            ClassSound.PlaySound(getApplicationContext());
         }
+
+        setButtonVisiblity(false);
+
+        if (question.isCorrect() == 1) {
+
+            imgPlayer1AnswerState
+                    .setImageResource(R.drawable.player1_answer_correct);
+            imgPlayer2AnswerState
+                    .setImageResource(R.drawable.player2_answer_wrong);
+
+            GlobalVar.player1Score += 1;
+
+        } else {
+
+            imgPlayer1AnswerState
+                    .setImageResource(R.drawable.player1_answer_wrong);
+            imgPlayer2AnswerState
+                    .setImageResource(R.drawable.player2_answer_correct);
+
+            GlobalVar.player2Score += 1;
+        }
+        setImageViewVisibility(true);
+        GlobalVar.i = GlobalVar.i + 1;
+        counter.start();
+//        } catch (Exception e) {
+//            Toast.makeText(getApplicationContext(), "Please Try Again3",
+//                    Toast.LENGTH_SHORT).show();
+//        }
     }
 
     public void btnPlayer1FalseOnClickListener(View v) {
-        try {
-            if (GlobalVar.isSound) {
-                ClassSound.PlaySound(getApplicationContext());
-            }
-
-            setButtonVisiblity(false);
-            setImageViewVisibility(true);
-            if (question.isCorrect() == 1) {
-
-                imgPlayer1AnswerState
-                        .setImageResource(R.drawable.player1_answer_correct);
-                imgPlayer2AnswerState
-                        .setImageResource(R.drawable.player2_answer_wrong);
-
-                GlobalVar.player1Score += 1;
-
-            } else {
-
-                imgPlayer1AnswerState
-                        .setImageResource(R.drawable.player1_answer_wrong);
-                imgPlayer2AnswerState
-                        .setImageResource(R.drawable.player2_answer_correct);
-
-                GlobalVar.player2Score += 1;
-
-            }
-            GlobalVar.i = GlobalVar.i + 1;
-            counter.start();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Please Try Again4",
-                    Toast.LENGTH_SHORT).show();
+//        try {
+        if (GlobalVar.isSound) {
+            ClassSound.PlaySound(getApplicationContext());
         }
+
+        setButtonVisiblity(false);
+        setImageViewVisibility(true);
+        if (question.isCorrect() == 1) {
+
+            imgPlayer1AnswerState
+                    .setImageResource(R.drawable.player1_answer_correct);
+            imgPlayer2AnswerState
+                    .setImageResource(R.drawable.player2_answer_wrong);
+
+            GlobalVar.player1Score += 1;
+
+        } else {
+
+            imgPlayer1AnswerState.setImageResource(R.drawable.player1_answer_wrong);
+            imgPlayer2AnswerState.setImageResource(R.drawable.player2_answer_correct);
+
+            GlobalVar.player2Score += 1;
+
+        }
+        GlobalVar.i = GlobalVar.i + 1;
+        counter.start();
+//        } catch (Exception e) {
+//            Toast.makeText(getApplicationContext(), "Please Try Again4",
+//                    Toast.LENGTH_SHORT).show();
+//        }
     }
 
     public void btnPlayer2TrueOnClickListener(View v) {
-        try {
-            if (GlobalVar.isSound) {
-                ClassSound.PlaySound(getApplicationContext());
-            }
-
-            setButtonVisiblity(false);
-            setImageViewVisibility(true);
-            if (question.isCorrect() == 1) {
-
-                imgPlayer1AnswerState
-                        .setImageResource(R.drawable.player1_answer_wrong);
-                imgPlayer2AnswerState
-                        .setImageResource(R.drawable.player2_answer_correct);
-
-                GlobalVar.player2Score += 1;
-
-            } else {
-
-                imgPlayer1AnswerState
-                        .setImageResource(R.drawable.player1_answer_correct);
-                imgPlayer2AnswerState
-                        .setImageResource(R.drawable.player2_answer_wrong);
-
-                GlobalVar.player1Score += 1;
-
-            }
-            GlobalVar.i = GlobalVar.i + 1;
-            counter.start();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Please Try Again5",
-                    Toast.LENGTH_SHORT).show();
+//        try {
+        if (GlobalVar.isSound) {
+            ClassSound.PlaySound(getApplicationContext());
         }
+
+        setButtonVisiblity(false);
+        setImageViewVisibility(true);
+        if (question.isCorrect() == 1) {
+
+            imgPlayer1AnswerState
+                    .setImageResource(R.drawable.player1_answer_wrong);
+            imgPlayer2AnswerState
+                    .setImageResource(R.drawable.player2_answer_correct);
+
+            GlobalVar.player2Score += 1;
+
+        } else {
+
+            imgPlayer1AnswerState
+                    .setImageResource(R.drawable.player1_answer_correct);
+            imgPlayer2AnswerState
+                    .setImageResource(R.drawable.player2_answer_wrong);
+
+            GlobalVar.player1Score += 1;
+
+        }
+        GlobalVar.i = GlobalVar.i + 1;
+        counter.start();
+//        } catch (Exception e) {
+//            Toast.makeText(getApplicationContext(), "Please Try Again5",
+//                    Toast.LENGTH_SHORT).show();
+//        }
     }
 
     public void btnPlayer2FalseOnClickListener(View v) {
-        try {
-            if (GlobalVar.isSound) {
-                ClassSound.PlaySound(getApplicationContext());
-            }
-
-            setButtonVisiblity(false);
-            setImageViewVisibility(true);
-            if (question.isCorrect() == 1) {
-
-                imgPlayer1AnswerState
-                        .setImageResource(R.drawable.player1_answer_wrong);
-                imgPlayer2AnswerState
-                        .setImageResource(R.drawable.player2_answer_correct);
-
-                GlobalVar.player2Score += 1;
-
-            } else {
-
-                imgPlayer1AnswerState
-                        .setImageResource(R.drawable.player1_answer_correct);
-                imgPlayer2AnswerState
-                        .setImageResource(R.drawable.player2_answer_wrong);
-
-                GlobalVar.player1Score += 1;
-            }
-            GlobalVar.i = GlobalVar.i + 1;
-            counter.start();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Please Try Again6",
-                    Toast.LENGTH_SHORT).show();
+//        try {
+        if (GlobalVar.isSound) {
+            ClassSound.PlaySound(getApplicationContext());
         }
+
+        setButtonVisiblity(false);
+        setImageViewVisibility(true);
+        if (question.isCorrect() == 1) {
+
+            imgPlayer1AnswerState
+                    .setImageResource(R.drawable.player1_answer_wrong);
+            imgPlayer2AnswerState
+                    .setImageResource(R.drawable.player2_answer_correct);
+
+            GlobalVar.player2Score += 1;
+
+        } else {
+
+            imgPlayer1AnswerState
+                    .setImageResource(R.drawable.player1_answer_correct);
+            imgPlayer2AnswerState
+                    .setImageResource(R.drawable.player2_answer_wrong);
+
+            GlobalVar.player1Score += 1;
+        }
+        GlobalVar.i = GlobalVar.i + 1;
+        counter.start();
+//        } catch (Exception e) {
+//            Toast.makeText(getApplicationContext(), "Please Try Again6",
+//                    Toast.LENGTH_SHORT).show();
+//        }
     }
 
     private void setButtonVisiblity(boolean state) {
@@ -349,7 +355,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        fetchQuestions();
+//        fetchQuestions();
     }
 
     /**
@@ -369,7 +375,7 @@ public class MainActivity extends FragmentActivity {
                         value = question.getQuestion();
                         qid++;
                     }
-                    Log.d("runnnnnn", "run: "+qCounter);
+                    Log.d("runnnnnn", "run: " + qCounter);
                 }
             }, 0, REQUEST_INTERVAL);
         }
@@ -394,9 +400,9 @@ public class MainActivity extends FragmentActivity {
 
     public void onResume() {
         super.onResume();
-        if (!running) {
-            timerStart();
-        }
+//        if (!running) {
+//            timerStart();
+//        }
     }
 
 

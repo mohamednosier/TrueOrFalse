@@ -21,18 +21,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
-import java.util.Objects;
+
+import amhsn.retrofitroom.trueorfalse.GameRoom.GetOpponentActivity;
+import amhsn.retrofitroom.trueorfalse.login.LoginActivity;
 
 public class SplashActivity extends Activity {
 
 	private static final String TAG = "SplashActivity";
+	private static final String UID = "some-uid";
 
 	ImageView school, text, imgtf;
 	Button btnSinglePlayer, btnMoreApps, btnMultiPlayer, btnAboutUs,
@@ -42,6 +43,10 @@ public class SplashActivity extends Activity {
 			AnimBtnAboutUs, AnimBtnSetting;
 
 	SharedPreferences pref;
+	private String type;
+	private FirebaseAuth mAuth;
+	private DatabaseReference mReference;
+	private FirebaseUser mCurrentUser;
 
 	@Override
 	public void onBackPressed() {
@@ -91,11 +96,35 @@ public class SplashActivity extends Activity {
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
 		try {
 
 			System.gc();
 
 			setContentView(R.layout.activity_splash);
+
+			mAuth = FirebaseAuth.getInstance();
+
+			if (getIntent().hasExtra("key1")){
+				Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+				intent.putExtra("key1",getIntent().getStringExtra("key1"));
+				startActivity(intent);
+			}
+
+//			FileInputStream serviceAccount =
+//					new FileInputStream("./serviceAccountKey.json");
+//
+//			FirebaseOptions options = new FirebaseOptions.Builder()
+//					.setCredentials(GoogleCredentials.fromStream(serviceAccount))
+//					.setDatabaseUrl("https://truefalse-4b498.firebaseio.com")
+//					.build();
+//
+//			FirebaseApp.initializeApp(options);
+//
+//			Map<String, Object> additionalClaims = new HashMap<String, Object>();
+//			additionalClaims.put("premiumAccount", true);
+//
+//			String customToken = mAuth.createCustomTokenAsync(UID,additionalClaims).get();
 
 			pref = getApplicationContext().getSharedPreferences("prefname",
 					MODE_PRIVATE);
@@ -120,15 +149,7 @@ public class SplashActivity extends Activity {
 		}
 	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
 
-	@Override
-	public void onPause() {
-		super.onPause();
-	}
 
 	public void btnSinglePlayerOnClickListener(View view) {
 		/*
@@ -161,7 +182,7 @@ public class SplashActivity extends Activity {
 				ClassSound.PlaySound(getApplicationContext());
 			}
 			Intent intent = new Intent(getApplicationContext(),
-					MainActivity.class);
+					GetOpponentActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			overridePendingTransition(R.anim.enter, R.anim.exit);
@@ -341,36 +362,33 @@ public class SplashActivity extends Activity {
 		// -- Button 5
 	}
 
+
+
 	@Override
 	protected void onStart() {
 		super.onStart();
-		getDeviceToken();
+
+		mCurrentUser = mAuth.getCurrentUser();
+		Log.d(TAG, "onStart: currentUser: "+mCurrentUser);
+
+		if(mCurrentUser == null){
+			Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+			startActivity(intent);
+			finish();
+		}
+
 	}
 
-	private void getDeviceToken(){
-		// Get token
-		// [START retrieve_current_token]
-		FirebaseInstanceId.getInstance().getInstanceId()
-				.addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-					@Override
-					public void onComplete(@NonNull Task<InstanceIdResult> task) {
-						if (!task.isSuccessful()) {
-							Log.w(TAG, "getInstanceId failed", task.getException());
-							return;
-						}
-
-
-						// Get new Instance ID token
-						String token = Objects.requireNonNull(task.getResult()).getToken();
-
-						// Log and toast
-						Log.w(TAG, "getInstanceId sucess: "+token, task.getException());
-
-//						String msg = getString(R.string.msg_token_fmt, token);
-//						Log.d(TAG, msg);
-//						Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
-					}
-				});
-		// [END retrieve_current_token]
+	@Override
+	public void onResume() {
+		super.onResume();
 	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+	}
+
+
 }
