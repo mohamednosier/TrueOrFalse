@@ -29,6 +29,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -44,15 +45,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import amhsn.retrofitroom.trueorfalse.Constant;
 import amhsn.retrofitroom.trueorfalse.R;
@@ -91,7 +95,8 @@ public class GetOpponentActivity extends AppCompatActivity {
 
     // widgets
     private Toolbar toolbar;
-    private TextView tvPlayer1, tvPlayer2, tvTimeLeft, tvSecond, tvSearch, tvSearchPlayer, tvStateTitle;
+    private EditText etPrivateKey;
+    private TextView tvPlayer1, tvPlayer2, tvTimeLeft, tvSecond, tvSearch, tvSearchPlayer, tvStateTitle,tvJoinGame;
     private NetworkImageView imgPlayer1, imgPlayer2;
     private DatabaseReference database, myRef;
     private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
@@ -105,6 +110,7 @@ public class GetOpponentActivity extends AppCompatActivity {
 
     // listener
     private ValueEventListener valueEventListener, valueEventListener2;
+    private String privateKey;
 
 
     @Override
@@ -148,6 +154,8 @@ public class GetOpponentActivity extends AppCompatActivity {
         tvPlayer2.setText(getString(R.string.player_2));
         tvSecond = findViewById(R.id.tvSec);
         tvSearch = findViewById(R.id.tvSearch);
+        tvJoinGame = findViewById(R.id.tvJoinGame);
+        etPrivateKey = findViewById(R.id.etPrivateKey);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setNestedScrollingEnabled(false);
@@ -186,30 +194,34 @@ public class GetOpponentActivity extends AppCompatActivity {
                                                         if (!data.getKey().equalsIgnoreCase(Constant.QUE_ID)) {
                                                             if (!data.getKey().equalsIgnoreCase(Constant.USER_ID_1)) {
                                                                 if (!data.getKey().equalsIgnoreCase(Constant.USER_ID_2)) {
-                                                                    opponentId = data.getKey();
-                                                                    Log.d(TAG, "onDataChange: opponentId: " + opponentId);
-                                                                    setSecondPlayerData();
+                                                                    if(!data.getKey().equalsIgnoreCase("private_key")) {
+                                                                        if(!data.getKey().equalsIgnoreCase("timestamp")) {
+                                                                            opponentId = data.getKey();
+                                                                            Log.d(TAG, "onDataChange: opponentId: " + opponentId);
+                                                                            setSecondPlayerData();
 
-                                                                    try {
+                                                                            try {
 
-                                                                        if (ds.child(player).getValue() != null)
-                                                                            player1Status = (boolean) (ds.child(player).child(Constant.STATUS).getValue());
-                                                                        if (ds.child(opponentId).getValue() != null)
-                                                                            player2Status = (boolean) ds.child(opponentId).child(Constant.STATUS).getValue();
+                                                                                if (ds.child(player).getValue() != null)
+                                                                                    player1Status = (boolean) (ds.child(player).child(Constant.STATUS).getValue());
+                                                                                if (ds.child(opponentId).getValue() != null)
+                                                                                    player2Status = (boolean) ds.child(opponentId).child(Constant.STATUS).getValue();
 
-                                                                        if (player1Status && player2Status) {
-                                                                            isPlayStarted = true;
-                                                                        }
-                                                                        if (isPlayStarted) {
-                                                                            if (!player1Status || !player2Status) {
-                                                                                showOtherUserQuitDialog();
+                                                                                if (player1Status && player2Status) {
+                                                                                    isPlayStarted = true;
+                                                                                }
+                                                                                if (isPlayStarted) {
+                                                                                    if (!player1Status || !player2Status) {
+                                                                                        showOtherUserQuitDialog();
+                                                                                    }
+
+
+                                                                                }
+
+                                                                            } catch (Exception e) {
+                                                                                e.printStackTrace();
                                                                             }
-
-
                                                                         }
-
-                                                                    } catch (Exception e) {
-                                                                        e.printStackTrace();
                                                                     }
                                                                 }
                                                             }
@@ -325,6 +337,7 @@ public class GetOpponentActivity extends AppCompatActivity {
             }
         };
         getData();
+        sortDataUser();
     }
 
 
@@ -349,6 +362,17 @@ public class GetOpponentActivity extends AppCompatActivity {
                     SearchPlayerClickMethod();
                 }
             });
+            tvJoinGame.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    privateKey = etPrivateKey.getText().toString();
+                    if(!privateKey.isEmpty()){
+                        SearchPlayerClickMethod1();
+                    }else {
+                        Toast.makeText(mContext, "enter private key", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         } else {
             alertLayout.setVisibility(View.VISIBLE);
             contentLayout.setVisibility(View.GONE);
@@ -368,7 +392,24 @@ public class GetOpponentActivity extends AppCompatActivity {
         tvSearchPlayer.setVisibility(View.GONE);
         myRef = FirebaseDatabase.getInstance().getReference(Constant.DB_GAME_ROOM);
         getQuestionForComputer();
-        callGetRoomFunction();
+        callGetRoomFunction(1);
+        startTimer();
+        if (player2UserId.isEmpty()) {
+            Log.d(TAG, "SearchPlayerClickMethod: player2UserId is empty: " + player2UserId);
+            myRef.addValueEventListener(valueEventListener);
+        } else {
+            Log.d(TAG, "SearchPlayerClickMethod: player2UserId is not empty: " + player2UserId);
+            myRef.addValueEventListener(valueEventListener2);
+        }
+    }
+
+    public void SearchPlayerClickMethod1() {
+        exist = true;
+        timerLayout.setVisibility(View.VISIBLE);
+        tvSearchPlayer.setVisibility(View.GONE);
+        myRef = FirebaseDatabase.getInstance().getReference(Constant.DB_GAME_ROOM);
+        getQuestionForComputer();
+        callGetRoomFunction(2);
         startTimer();
         if (player2UserId.isEmpty()) {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is empty: " + player2UserId);
@@ -883,13 +924,19 @@ public class GetOpponentActivity extends AppCompatActivity {
     /*
      * Create Room Function
      * */
-    void callGetRoomFunction() {
-        Map<String, String> registerMap = new HashMap<>();
+    void callGetRoomFunction(int num) {
+        Map<String, Object> registerMap = new HashMap<>();
         registerMap.put(Constant.USER_ID, player);
-        registerMap.put(Constant.LANGUAGE_ID, Session.getCurrentLanguage(getApplicationContext()));
+        registerMap.put(Constant.LANGUAGE_ID, "2");
         registerMap.put(Constant.QUE_ID, numRandom);
         registerMap.put(Constant.USER_ID_1, Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
         registerMap.put(Constant.USER_ID_2, opponentId);
+        registerMap.put("timestamp", ServerValue.TIMESTAMP);
+        if(num == 1) {
+            registerMap.put("private_key", randomAlphaNumeric(8));
+        }else {
+            registerMap.put("private_key", privateKey);
+        }
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<Map> call = apiService.create(registerMap);
@@ -971,11 +1018,23 @@ public class GetOpponentActivity extends AppCompatActivity {
     /*
      * A function generate random alpha numeric
      * */
-    public static String randomAlphaNumeric(int count) {
+    public static String randomAlphaNumericChar(int count) {
         StringBuilder builder = new StringBuilder();
         while (count-- != 0) {
             int character = (int) (Math.random() * Constant.ALPHA_NUMERIC_STRING.length());
             builder.append(Constant.ALPHA_NUMERIC_STRING.charAt(character));
+        }
+        return builder.toString();
+    }
+
+    /*
+     * A function generate random alpha numeric
+     * */
+    public static String randomAlphaNumeric(int count) {
+        StringBuilder builder = new StringBuilder();
+        while (count-- != 0) {
+            int character = (int) (Math.random() * Constant.ALPHA_NUMERIC_STRING1.length());
+            builder.append(Constant.ALPHA_NUMERIC_STRING1.charAt(character));
         }
         return builder.toString();
     }
@@ -1042,12 +1101,12 @@ public class GetOpponentActivity extends AppCompatActivity {
     private void sortDataUser() {
 
         Query sortUserOrder = database.child("user").orderByChild("num_of_wins");
-
+        Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
 
         ValueEventListener _valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                try {
+//                try {
                     List<User> users = new ArrayList<>();
                     for (DataSnapshot _data : dataSnapshot.getChildren()) {
 
@@ -1056,6 +1115,9 @@ public class GetOpponentActivity extends AppCompatActivity {
                             int numWins = Integer.parseInt(String.valueOf(_data.child("num_of_wins").getValue()));
                             users.add(new User(playerName, numWins));
                             Collections.sort(users, Collections.reverseOrder());
+                            Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -1063,9 +1125,9 @@ public class GetOpponentActivity extends AppCompatActivity {
                         Log.d("TAG", "onDataChange: playerName: " + user.getName() + "  " + user.getNum_of_wins());
                     }
 
-                } catch (Exception e) {
-                    e.toString();
-                }
+//                } catch (Exception e) {
+//                    e.toString();
+//                }
             }
 
             @Override
@@ -1160,4 +1222,20 @@ public class GetOpponentActivity extends AppCompatActivity {
 
     //---------------------------------------------------------------------------------------------------
 
+
+//    long cutoff = new Date().getTime() - TimeUnit.MILLISECONDS.convert(20, TimeUnit.MINUTES);
+//    Query oldItems = ttlRef.orderByChild("timestamp").endAt(cutoff);
+//oldItems.addListenerForSingleValueEvent(new ValueEventListener() {
+//        @Override
+//        public void onDataChange(DataSnapshot snapshot) {
+//            for (DataSnapshot itemSnapshot: snapshot.getChildren()) {
+//                itemSnapshot.getRef().removeValue();
+//            }
+//        }
+//
+//        @Override
+//        public void onCancelled(DatabaseError databaseError) {
+//            throw databaseError.toException();
+//        }
+//    });
 }

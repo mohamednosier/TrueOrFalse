@@ -128,10 +128,12 @@ public class PlayerActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: onStarted.");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        try {
+//        try {
             setContentView(R.layout.activity_player);
 
             System.gc();
@@ -146,15 +148,6 @@ public class PlayerActivity extends AppCompatActivity {
             database = FirebaseDatabase.getInstance().getReference();
             init();
 
-            if (questionIndex < questionListID.size()) {
-                question = questionListID.get(questionIndex);
-                txtQuestion.setText(question.getQuestion());
-                myGameRef.child(gameId).child(player1Key).child(Constant.SEL_ANS).setValue("");
-                myGameRef.child(gameId).child(player2Key).child(Constant.SEL_ANS).setValue("");
-                Log.d("TAG", "run: questionIndex: " + question.getQuestion());
-                randomTime = new Random().nextInt(26);
-                randomAnswer = getRandom(2);
-            }
 
             tfQuestion = Typeface.createFromAsset(
                     PlayerActivity.this.getAssets(), "HOBOSTD.OTF");
@@ -211,10 +204,6 @@ public class PlayerActivity extends AppCompatActivity {
             btnSkip.setText("\n" + "Skip" + "\n" + GlobalVar.skipCounter + "/" + GlobalVar.levelSkip);
 
 
-            counter.start();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Please Try Again 5", Toast.LENGTH_SHORT).show();
-        }
 
         Config.load(this);
 
@@ -300,7 +289,7 @@ public class PlayerActivity extends AppCompatActivity {
     private void init() {
         Player1UserID = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
-        if (!getIntent().getExtras().isEmpty()) {
+        if (getIntent().getExtras() != null) {
             Player2UserID = getIntent().getStringExtra("opponentId");
             userId1 = getIntent().getStringExtra("user_id1");
             userId2 = getIntent().getStringExtra("user_id2");
@@ -468,7 +457,7 @@ public class PlayerActivity extends AppCompatActivity {
                                         }, 2000);
 
                                     } else {
-                                        mHandler.postDelayed(mUpdateUITimerTask, 1000);
+                                        mHandler.postDelayed(mUpdateUITimerTask, 0);
                                     }
 
                                 }
@@ -520,6 +509,7 @@ public class PlayerActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
     }
+
 
 
     /*

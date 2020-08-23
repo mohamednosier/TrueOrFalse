@@ -35,7 +35,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        if (isPackageInstalled("com.amhsn.olgor")) {
+//        if (isPackageInstalled("com.amhsn.olgor")) {
             Log.i(getString(R.string.DEBUG_TAG), "onMessageReceived: called");
             Log.i(getString(R.string.DEBUG_TAG), "onMessageReceived: Message received from: " + remoteMessage.getFrom());
 
@@ -69,7 +69,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         getResources().getInteger(R.integer.notificationId),
                         PendingIntent.FLAG_UPDATE_CURRENT);
             }
-        }
+//        }
     }
 
 

@@ -193,12 +193,41 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/progress_h_w"
                 android:layout_marginEnd="@dimen/progress_h_w"
-
                 android:background="@drawable/left_btn_bg"
                 android:gravity="center"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="@string/search_player"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPrivateKey"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/progress_h_w"
+                android:layout_marginEnd="@dimen/progress_h_w"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvJoinGame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/progress_h_w"
+                android:layout_marginEnd="@dimen/progress_h_w"
+                android:background="@drawable/left_btn_bg"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginTop="8dp"
+                android:text="join in game"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/white"
                 android:textStyle="bold" />

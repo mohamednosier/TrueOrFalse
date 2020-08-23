@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+<!--    android:name=".helper.AppController"-->
+
     <application
         android:name=".helper.AppController"
         android:allowBackup="true"
@@ -87,12 +89,13 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/NEWS_CHANNEL_ID" />
-        <meta-data
-            android:name="firebase_messaging_auto_init_enabled"
-            android:value="false" />
-        <meta-data
-            android:name="firebase_analytics_collection_enabled"
-            android:value="false" />
+
+<!--        <meta-data-->
+<!--            android:name="firebase_messaging_auto_init_enabled"-->
+<!--            android:value="false" />-->
+<!--        <meta-data-->
+<!--            android:name="firebase_analytics_collection_enabled"-->
+<!--            android:value="false" />-->
 
         <service
             android:name=".notification.MyFirebaseMessagingService"
@@ -101,6 +104,8 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service> <!-- End Service Firebase Messaging -->
+
+
         <!-- Start Service Facebook -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

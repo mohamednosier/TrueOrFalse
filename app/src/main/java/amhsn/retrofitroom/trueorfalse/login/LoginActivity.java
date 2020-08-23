@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.fragment.app.Fragment;
@@ -52,10 +53,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import amhsn.retrofitroom.trueorfalse.R;
@@ -163,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile","email"));
         LoginManager.getInstance().registerCallback(mCallbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
@@ -302,6 +306,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Log.d(TAG, "handleFacebookAccessToken: Successful");
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 UserSignUpWithSocialMedia("", Objects.requireNonNull(user).getEmail(), user.getDisplayName(), user.getEmail(), Objects.requireNonNull(user.getPhotoUrl()).toString(), "fb");
+//                                getFriendsList();
                                 hideProgressDialog();
 
                             } else {
@@ -476,5 +481,44 @@ public class LoginActivity extends AppCompatActivity {
         super.onStop();
         hideProgressDialog();
     }
+
+
+    private List<String> getFriendsList() {
+        final List<String> friendslist = new ArrayList<String>();
+        new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/friends", null, HttpMethod.GET, new GraphRequest.Callback() {
+            public void onCompleted(GraphResponse response) {
+                /* handle the result */
+                Log.e("Friends Lis: 1", response.toString());
+                try {
+                    JSONObject responseObject = response.getJSONObject();
+                    Log.d(TAG, "onCompleted: responseObject: "+responseObject);
+                    JSONArray dataArray = responseObject.getJSONArray("data");
+
+                    for (int i = 0; i < dataArray.length(); i++) {
+                        JSONObject dataObject = dataArray.getJSONObject(i);
+//						String fbId = dataObject.getString(“id”);
+                        String fbName = dataObject.getString("name");
+//						Log.e(“FbId”, fbId);
+                        Log.e("FbName", fbName);
+                        friendslist.add(fbName);
+                    }
+                    Log.e("fbfriendList", friendslist.toString());
+                    List<String> list = friendslist;
+                    String friends = "";
+                    if (list != null && list.size() > 0) {
+                        friends = list.toString();
+                        if (friends.contains("[")) {
+                            friends = (friends.substring(1, friends.length() - 1));
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } finally {
+                }
+            }
+        }).executeAsync();
+        return friendslist;
+    }
+
 
 }

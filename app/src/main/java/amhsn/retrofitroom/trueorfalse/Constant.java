@@ -177,7 +177,7 @@ public class Constant {
     public static int TIME_PER_QUESTION = 25000;  //here we set 25 second to milliseconds
     public static int COUNT_DOWN_TIMER = 1000; //here we set 1 second
 
-    public static int OPPONENT_SEARCH_TIME = 5000; // time for search opponent for battle
+    public static int OPPONENT_SEARCH_TIME = 50000; // time for search opponent for battle
 
 
     public static int FOR_CORRECT_ANS = 4; // mark for correct answer
@@ -192,6 +192,7 @@ public class Constant {
     public static int giveFourCoins = 4;  //give  coin when user give > 60  percent correct answer
 
     public static String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghjiklmnopqrstuvwxyz";
+    public static String ALPHA_NUMERIC_STRING1 = "0123456789";
     public static String APP_LINK = "http://play.google.com/store/apps/details?id=";
     public static String MORE_APP_URL = "https://play.google.com/store/apps/developer?id=";
 
