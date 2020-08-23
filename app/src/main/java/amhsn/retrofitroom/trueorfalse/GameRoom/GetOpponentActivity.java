@@ -1135,6 +1135,7 @@ public class GetOpponentActivity extends AppCompatActivity {
             }
         };
 
+
         sortUserOrder.addValueEventListener(_valueEventListener);
     }
 
