@@ -52,6 +52,11 @@ public class User implements Comparable {
     public String getName() {
         return name;
     }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
     //    public User(String email, String name, String profile_Pic, String num_of_wins, String num_of_loss, String fcm_id, String user_id, boolean online_status) {
 //        this.email = email;
 //        this.name = name;
@@ -84,6 +89,11 @@ public class User implements Comparable {
     public User(String name, int num_of_wins) {
         this.name = name;
         this.num_of_wins = num_of_wins;
+    }
+
+    public User(String name, String user_id) {
+        this.name = name;
+        this.user_id = user_id;
     }
 
 

@@ -102,6 +102,15 @@ class MyAppsNotificationManager {
         PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(0, pendingIntentFlag);
 
 
+        Intent intentAction = new Intent(context, targetNotificationActivity);
+        intent.addCategory(Intent. CATEGORY_LAUNCHER ) ;
+        intent.setAction(Intent. ACTION_MAIN ) ;
+        TaskStackBuilder taskStackBuilderAction = TaskStackBuilder.create(context);
+        taskStackBuilder.addNextIntentWithParentStack(intent);
+        intent.putExtra("count", title);
+        PendingIntent pendingIntentAction = taskStackBuilder.getPendingIntent(0, pendingIntentFlag);
+
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,channelId)
                 .setSmallIcon(R.drawable.ic_account)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_back))
@@ -112,6 +121,9 @@ class MyAppsNotificationManager {
                 .setContentIntent(pendingIntent)
                 .setChannelId(channelId)
                 .setOngoing(false)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .addAction(R.drawable.facebook_icon,"ok",pendingIntentAction)
+                .setOnlyAlertOnce(true)
                 .setAutoCancel(false);
 
         notificationManagerCompat.notify(notificationId,builder.build());

@@ -1,5 +1,6 @@
 package amhsn.retrofitroom.trueorfalse.notification;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,8 +17,14 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.TimeZone;
 
 import amhsn.retrofitroom.trueorfalse.R;
 
@@ -39,36 +46,416 @@ public class MyApplication extends Application {
 
         FirebaseMessaging.getInstance().isAutoInitEnabled();
 
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"), Locale.getDefault());
+        Date currentLocalTime = calendar.getTime();
+        @SuppressLint("SimpleDateFormat")
+        DateFormat date = new SimpleDateFormat("Z");
+        String localTime = date.format(currentLocalTime);
+        Log.i(TAG, "TimeZone: "+localTime);
 
-        if (isPackageInstalled("com.amhsn.olgor")) {
-            FirebaseMessaging.getInstance().subscribeToTopic("pro")
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
 
-                    if(task.isSuccessful()){
-                        Toast.makeText(getApplicationContext(), "Topic Subscribed", Toast.LENGTH_SHORT).show();
-                    }else {
-                        Toast.makeText(getApplicationContext(), "Subscription failed", Toast.LENGTH_SHORT).show();
-                    }
+        switch (localTime) {
+            case "+0000":
+            case "+0100":
+            case "+0200":
 
-                }
-            });
-        }else {
-            FirebaseMessaging.getInstance().unsubscribeFromTopic("pro")
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                FirebaseMessaging.getInstance().subscribeToTopic("1")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
 
-                            if(task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(), "Topic Unsubscribed", Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getApplicationContext(), "Action failed", Toast.LENGTH_SHORT).show();
+                                if (task.isSuccessful()) {
+                                    Log.i(TAG, "Topic Subscribed 1");
+                                } else {
+                                    Log.i(TAG, "Subscription 1 failed");
+                                }
+
                             }
+                        });
 
-                        }
-                    });
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("2")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 2", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Subscription 2 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("3")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 3", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 3 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("4")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 4", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 4 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("5")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 5", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 5 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                break;
+            case "+0300":
+            case "+0400":
+            case "+0500":
+                FirebaseMessaging.getInstance().subscribeToTopic("2")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Log.i(TAG, "Topic Subscribed 2");
+                                } else {
+                                    Log.i(TAG, "Subscription 2 failed");
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("1")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 1", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Subscription 1 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("3")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 3", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 3 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("4")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 4", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 4 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("5")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 5", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 5 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+                break;
+            case "+0600":
+            case "+0700":
+            case "+0800":
+                FirebaseMessaging.getInstance().subscribeToTopic("3")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic subscribed 2", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Action failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("1")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 1", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Subscription 1 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("2")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 2", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 2 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("4")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 4", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 4 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("5")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 5", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 5 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+                break;
+            case "+0900":
+            case "+1000":
+            case "+1100":
+                FirebaseMessaging.getInstance().subscribeToTopic("4")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic subscribed 2", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Action failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("1")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 1", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Subscription 1 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("2")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 2", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 2 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("3")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 3", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 3 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("5")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 5", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 5 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+                break;
+            case "+1200":
+            case "+1300":
+            case "+1400":
+                FirebaseMessaging.getInstance().subscribeToTopic("5")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic subscribed 2", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Action failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("1")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 1", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Subscription 1 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("2")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 2", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 2 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("3")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 3", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 3 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("4")
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Topic UnSubscribed 4", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "UnSubscription 4 failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+                break;
         }
+
+//        if (!isPackageInstalled("com.amhsn.olgor")) {
+//
+//                FirebaseMessaging.getInstance().subscribeToTopic("pro")
+//                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<Void> task) {
+//
+//                                if (task.isSuccessful()) {
+//                                    Toast.makeText(getApplicationContext(), "Topic Subscribed", Toast.LENGTH_SHORT).show();
+//                                } else {
+//                                    Toast.makeText(getApplicationContext(), "Subscription failed", Toast.LENGTH_SHORT).show();
+//                                }
+//
+//                            }
+//                        });
+//
+//        }else {
+//            FirebaseMessaging.getInstance().unsubscribeFromTopic("pro")
+//                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//
+//                            if(task.isSuccessful()){
+//                                Toast.makeText(getApplicationContext(), "Topic Unsubscribed", Toast.LENGTH_SHORT).show();
+//                            }else {
+//                                Toast.makeText(getApplicationContext(), "Action failed", Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                        }
+//                    });
+//        }
 
         try {
             FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
@@ -139,6 +526,8 @@ public class MyApplication extends Application {
                 });
         // [END retrieve_current_token]
     }
+
+
 
 
 }

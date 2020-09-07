@@ -17,7 +17,7 @@ public class QuestionsListViewModel extends AndroidViewModel {
     private QuestionRepository mRepository;
     private LiveData<List<Question>> mAllLists;
     private LiveData<List<Question>> mRetroObservable;
-    private WebServiceRepository webServiceRepository ;
+    private WebServiceRepository webServiceRepository;
 
 
     public QuestionsListViewModel(@NonNull Application application) {

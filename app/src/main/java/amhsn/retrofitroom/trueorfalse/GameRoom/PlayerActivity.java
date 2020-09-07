@@ -347,7 +347,7 @@ public class PlayerActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                try {
+//                try {
                     if (dataSnapshot.exists()) {
 
                         String queId = dataSnapshot.child(Constant.QUE_ID).getValue(String.class);
@@ -393,8 +393,8 @@ public class PlayerActivity extends AppCompatActivity {
                                 int p1_que = dataSnapshot.child(player1Key).child(Constant.QUE_NO).getValue(Integer.class);
                                 int p2_que = dataSnapshot.child(player2Key).child(Constant.QUE_NO).getValue(Integer.class);
 
-                                 p1_request = dataSnapshot.child(player1Key).child("req_continue").getValue(Integer.class);
-                                 p2_request = dataSnapshot.child(player2Key).child("req_continue").getValue(Integer.class);
+//                                 p1_request = dataSnapshot.child(player1Key).child("req_continue").getValue(Integer.class);
+//                                 p2_request = dataSnapshot.child(player2Key).child("req_continue").getValue(Integer.class);
 
                                 p2_sell = dataSnapshot.child(player2Key).child(Constant.SEL_ANS).getValue(String.class);
                                 p1_sell = dataSnapshot.child(player1Key).child(Constant.SEL_ANS).getValue(String.class);
@@ -465,9 +465,9 @@ public class PlayerActivity extends AppCompatActivity {
                             }
                         }
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
             }
 
             @Override

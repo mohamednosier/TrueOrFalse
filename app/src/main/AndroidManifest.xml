@@ -12,7 +12,7 @@
 <!--    android:name=".helper.AppController"-->
 
     <application
-        android:name=".helper.AppController"
+        android:name=".notification.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@drawable/ic_launcher"
@@ -80,15 +80,15 @@
             android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us"
             android:screenOrientation="fullSensor" /> <!-- Start Service Firebase Messaging -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_bookmarks" />
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent" />
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/NEWS_CHANNEL_ID" />
+<!--        <meta-data-->
+<!--            android:name="com.google.firebase.messaging.default_notification_icon"-->
+<!--            android:resource="@drawable/ic_bookmarks" />-->
+<!--        <meta-data-->
+<!--            android:name="com.google.firebase.messaging.default_notification_color"-->
+<!--            android:resource="@color/colorAccent" />-->
+<!--        <meta-data-->
+<!--            android:name="com.google.firebase.messaging.default_notification_channel_id"-->
+<!--            android:value="@string/NEWS_CHANNEL_ID" />-->
 
 <!--        <meta-data-->
 <!--            android:name="firebase_messaging_auto_init_enabled"-->

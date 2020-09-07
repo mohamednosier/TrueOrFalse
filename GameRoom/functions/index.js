@@ -7,109 +7,7 @@ authDomain: "truefalse-4b498.firebaseapp.com",
 databaseURL: "https://truefalse-4b498.firebaseio.com/",
 storageBucket: "gs://truefalse-4b498.appspot.com/"
   };
-  firebase.initializeApp(config);
-
-
-  // exports.newNodeDetected = functions.database.ref('game_room/{gameId}/timestamp')
-  //     .onWrite((change, context) => {
-  //         var timestamp = change.val();
-  //         return null;
-  //     });
-
-  exports.deleteGameRoom = functions.pubsub.schedule('every 1 minutes').onRun((context) => {
-      var timeNow = Date.now();;
-      console.log('timeNow: ',timeNow);
-
-      firebase.database().ref(`game_room/`).orderByChild('availability').equalTo(1).limitToFirst(1).once('value', ((snapshot)=> {
-         // console.log("user_id pushDataEveryMinute :  ",user_id);
-
-
-        if (snapshot.val() !== null) {
-                // console.log("available");
-                var childKey = Object.keys(snapshot.val());
-                // console.log("gameroom   ", childKey);
-
-
-                const userQuery = firebase.database().ref(`game_room/${childKey}`).once('value');
-
-                return userQuery.then(userResult => {
-                  const key = Object.keys(userResult.val()) ;
-                  console.log("key :  ", key);
-
-                    const timestamp = userResult.val().timestamp;
-                    console.log("timestampGameRoom :  ", timestamp);
-
-                    if(timeNow - timestamp > 5*60*1000){
-                      console.log("timeout : more than 5 minute  ");
-                    }else {
-                      console.log("timeout : less than 5 minute  ");
-                    }
-
-                });
-                console.log(snapshot.val());
-            }
-
-        }));
-
-      return null;
-  });
-
-
-   ///////
-  // exports.deleteOldItems = functions.database.ref('/path/to/game_room/{pushId}')
-// .onWrite((change, context) => {
-  // var ref = change.after.ref.parent; // reference to the items
-  // var now = Date.now();
-  // console.console.log('now: ',now);
-  // var cutoff = now -  2 * 60 * 60 * 1000;
-  // console.console.log('cutoff: ',cutoff);
-  // var oldItemsQuery = ref.orderByChild('timestamp').endAt(cutoff);
-  // return oldItemsQuery.once('value', function(snapshot) {
-    // create a map with all children that need to be removed
-    // console.console.log('cutoff: ',cutoff);
-    // var updates = {};
-    // snapshot.forEach(function(child) {
-      // updates[child.key] = null
-    // });
-    // execute all updates in one go and return the result to end the function
-    // return ref.update(updates);
-  // });
-// });
-
-// exports.scheduledFunctionPlainEnglish = functions.pubsub.schedule('* * * * *').onRun((context) => {
-    // const timeNow = Date.now();
-   // console.log('timeNow :',timeNow);
-
-   // const messagesRef = firebase.database().ref('/game_room');
-   // messagesRef.once('value', (snapshot) => {
-     // console.console.log('hhhhhhhhhh');
-    // snapshot.forEach((child) => {
-
-        // if (Number(child.val()['timestamp']) - timeNow  > 20*1000) {
-            // return console.log('timestamp :',child.val()['timestamp']);
-        // }else {
-          // return console.log('timestamp :',child.val()['timestamp']);
-        // }
-        // });
-    // });
-// });
-
-// exports.scheduledFunctionPlainEnglish = functions.database.ref("/game_room/{gameId}").onWrite((change, context) => {
-//   if (change.after.exists() && !change.before.exists()) {
-//     const ref = change.after.ref.parent;
-//     const now = Date.now();
-//     const oldItemsQuery = ref.orderByChild('timestamp').endAt(now);
-//     return oldItemsQuery.once('value').then((snapshot) => {
-//       const updates = {};
-//       snapshot.forEach(child => {
-//         updates[child.key] = null;
-//       });
-//       return ref.update(updates);
-//     });
-//   } else {
-//     return null;
-//   }
-// });
+firebase.initializeApp(config);
 
 
 exports.create=functions.https.onRequest((req,res)=>{
@@ -121,53 +19,91 @@ var que_id = data.que_id;
 var private_key = data.private_key;
 var timestamp = data.timestamp;
 
-  firebase.database().ref("game_room/").orderByChild("availability").equalTo(1).limitToFirst(1).once('value', ((snapshot)=> {
-     console.log("user_id  ",user_id);
 
+var query = firebase.database().ref("game_room").orderByKey();
+query.once("value")
+  .then(function(snapshot) {
 
-    if (snapshot.val() !== null) {
-            console.log("available");
-            var childKey = Object.keys(snapshot.val());
-            console.log("gameroom   ", childKey);
+    var numOfChildren = snapshot.numChildren();
+    var counter = 1;
+    console.log('numOfChildren : ',numOfChildren);
 
+      if (snapshot.val() !== null) {
+        console.log('date before :',new Date());
+    snapshot.forEach(function(childSnapshot) {
+  if((Date.now() - childSnapshot.val().timestamp) < 40*1000){
+      // if(childSnapshot.val().user_id_1 !== user_id){
+      if(childSnapshot.val().availability === 1){
+if(childSnapshot.val().user_id_1 !== user_id){
+        // key will be "ada" the first time and "alan" the second time
+        var key = childSnapshot.key;
+        console.log('key',key);
+        // childData will be the actual contents of the child
+        var timestamp = childSnapshot.val().timestamp;
+        console.log('timestamp',timestamp);
+        var availability = childSnapshot.val().availability;
+        console.log('availability',availability);
+        console.log('');
 
-            const userQuery = firebase.database().ref(`game_room/${childKey}`).once('value');
+        firebase.database().ref(`game_room/${key}/${user_id}`).update({
+                 "status":true,
+               "right":0,
+               "wrong":0,
+               "que_no":0,
+               "req_continue":0,
+               "sel_ans":"",
+               "message":"",
+                   });
 
-            return userQuery.then(userResult => {
-                const language_id1 = userResult.val().language_id;
-                const private_key1 = userResult.val().private_key;
+        firebase.database().ref(`game_room/${key}`).update({
+                       "availability": 2,
+                       "user_id_2":user_id,
+                   });
+// console.log('date after :',Date.now());
+                   console.log('yesssssssssssssssssssss');
 
-                // if (language_id === language_id1) {
-				 firebase.database().ref(`game_room/${childKey}/${user_id}`).update({
-                        "status": true,
-                        "right": 0,
-                        "wrong": 0,
-                        "que_no": 0,
-                        "req_continue":0,
-                        "sel_ans": "",
-                        "message":"",
-                    });
-                  firebase.database().ref(`game_room/${childKey}`).update({
-                        "availability": 2,
-                        "user_id_2":user_id,
-                    });
-
-        //         }else{
-				// 	createGameRoom();
-				// }
-            });
-            console.log(snapshot.val());
-        }
-    else
-    {
-
-		createGameRoom();
-
-
+      return true;
+    }else {
+      if(counter === numOfChildren){
+      console.log('counter === numOfChildren');
+     createGameRoom();
+     return true;
+      }
+    counter++;
+    console.log('counter: ',counter);
     }
 
-    }));
+}else {
+  if(counter === numOfChildren){
+  console.log('counter === numOfChildren');
+ createGameRoom();
+ return true;
+  }
+counter++;
+console.log('counter: ',counter);
+}
 
+}else {
+  if(counter === numOfChildren){
+  console.log('counter === numOfChildren');
+ createGameRoom();
+ return true;
+  }
+counter++;
+console.log('counter: ',counter);
+}
+
+
+// return false;
+// }
+  });
+console.log('date after :',new Date());
+
+}else{
+            console.log('Not found any gameroom');
+           createGameRoom();
+            }
+});
 
   function createGameRoom() {
     console.log("not available");
@@ -195,9 +131,36 @@ var timestamp = data.timestamp;
 							"sel_ans":"",
               "message":"",
 								});
-
-
 						});
 }
  res.send({"code":user_id});
+});
+
+
+//
+exports.deleteGameRoomId = functions.pubsub.schedule('every 1 minutes').onRun((context) => {
+    var timeNow = Date.now();
+    console.log('timeNow: ',timeNow);
+
+    var query = firebase.database().ref("game_room").orderByKey();
+    query.once("value")
+      .then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+       if((Date.now() - childSnapshot.val().timestamp) > 3*60*1000){
+
+var key = childSnapshot.key;
+                             var adaRef = firebase.database().ref(`game_room/${key}`);
+ adaRef.remove()
+ .then(function() {
+   console.log("Remove succeeded.")
+ })
+ .catch(function(error) {
+   console.log("Remove failed: " + error.message)
+ });
+console.log('delete game_room: ',key);
+       }
+
+      });
+});
+    return null;
 });

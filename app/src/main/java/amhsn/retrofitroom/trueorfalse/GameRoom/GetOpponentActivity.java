@@ -15,11 +15,14 @@ import android.os.CountDownTimer;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +39,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,20 +52,17 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import amhsn.retrofitroom.trueorfalse.Constant;
 import amhsn.retrofitroom.trueorfalse.R;
 import amhsn.retrofitroom.trueorfalse.data.responseJson.jsonquestion.ResponseAPI;
 import amhsn.retrofitroom.trueorfalse.helper.ApiClient;
 import amhsn.retrofitroom.trueorfalse.helper.ApiInterface;
-import amhsn.retrofitroom.trueorfalse.helper.AppController;
 import amhsn.retrofitroom.trueorfalse.helper.CircleImageView;
 import amhsn.retrofitroom.trueorfalse.helper.Session;
 import amhsn.retrofitroom.trueorfalse.helper.Utils;
@@ -85,7 +84,7 @@ public class GetOpponentActivity extends AppCompatActivity {
     private String battleStart = "false", pauseCheck = "regular", questionResponse = "true", profilePlayer2, player1Name, player2Name,
             userId1, userId2, fcm1, fcm2, player, opponentId = "", player2UserId = "";
     private boolean isPlayStarted;
-    private ArrayList<User> battleList;
+    private ArrayList<User> battleList = new ArrayList<>();
     private boolean isRunning = false;
     private boolean player1Status, player2Status;
     private String numRandom = "";
@@ -96,10 +95,10 @@ public class GetOpponentActivity extends AppCompatActivity {
     // widgets
     private Toolbar toolbar;
     private EditText etPrivateKey;
-    private TextView tvPlayer1, tvPlayer2, tvTimeLeft, tvSecond, tvSearch, tvSearchPlayer, tvStateTitle,tvJoinGame;
+    private TextView tvPlayer1, tvPlayer2, tvTimeLeft, tvSecond, tvSearch, tvSearchPlayer, tvStateTitle, tvJoinGame, tvPlayWithFriend;
     private NetworkImageView imgPlayer1, imgPlayer2;
-    private DatabaseReference database, myRef;
-    private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+    private DatabaseReference database, myRef , gameRequestRef;
+    //    private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
     private LinearLayout alertLayout, contentLayout;
     private RelativeLayout timerLayout;
     private RecyclerView recyclerView;
@@ -111,6 +110,7 @@ public class GetOpponentActivity extends AppCompatActivity {
     // listener
     private ValueEventListener valueEventListener, valueEventListener2;
     private String privateKey;
+    private ArrayList<User> users;
 
 
     @Override
@@ -155,6 +155,7 @@ public class GetOpponentActivity extends AppCompatActivity {
         tvSecond = findViewById(R.id.tvSec);
         tvSearch = findViewById(R.id.tvSearch);
         tvJoinGame = findViewById(R.id.tvJoinGame);
+        tvPlayWithFriend = findViewById(R.id.tvPlayWithFriend);
         etPrivateKey = findViewById(R.id.etPrivateKey);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -194,8 +195,8 @@ public class GetOpponentActivity extends AppCompatActivity {
                                                         if (!data.getKey().equalsIgnoreCase(Constant.QUE_ID)) {
                                                             if (!data.getKey().equalsIgnoreCase(Constant.USER_ID_1)) {
                                                                 if (!data.getKey().equalsIgnoreCase(Constant.USER_ID_2)) {
-                                                                    if(!data.getKey().equalsIgnoreCase("private_key")) {
-                                                                        if(!data.getKey().equalsIgnoreCase("timestamp")) {
+                                                                    if (!data.getKey().equalsIgnoreCase("private_key")) {
+                                                                        if (!data.getKey().equalsIgnoreCase("timestamp")) {
                                                                             opponentId = data.getKey();
                                                                             Log.d(TAG, "onDataChange: opponentId: " + opponentId);
                                                                             setSecondPlayerData();
@@ -351,6 +352,7 @@ public class GetOpponentActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
             player = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
             database = FirebaseDatabase.getInstance().getReference();
+            gameRequestRef = FirebaseDatabase.getInstance().getReference().child("gameRequests");
             alertLayout.setVisibility(View.GONE);
             contentLayout.setVisibility(View.VISIBLE);
             timerLayout.setVisibility(View.GONE);
@@ -366,11 +368,17 @@ public class GetOpponentActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     privateKey = etPrivateKey.getText().toString();
-                    if(!privateKey.isEmpty()){
+                    if (!privateKey.isEmpty()) {
                         SearchPlayerClickMethod1();
-                    }else {
+                    } else {
                         Toast.makeText(mContext, "enter private key", Toast.LENGTH_SHORT).show();
                     }
+                }
+            });
+            tvPlayWithFriend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    playWithFriends();
                 }
             });
         } else {
@@ -379,7 +387,6 @@ public class GetOpponentActivity extends AppCompatActivity {
             setSnackBar();
 
         }
-
     }
 
 
@@ -392,7 +399,9 @@ public class GetOpponentActivity extends AppCompatActivity {
         tvSearchPlayer.setVisibility(View.GONE);
         myRef = FirebaseDatabase.getInstance().getReference(Constant.DB_GAME_ROOM);
         getQuestionForComputer();
-        callGetRoomFunction(1);
+        for (int i = 0; i < 100; i++) {
+            callGetRoomFunction(1);
+        }
         startTimer();
         if (player2UserId.isEmpty()) {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is empty: " + player2UserId);
@@ -439,7 +448,7 @@ public class GetOpponentActivity extends AppCompatActivity {
                             userId1 = (String) dataSnapshot.child(Constant.USER_ID).getValue();
                             fcm1 = (String) dataSnapshot.child(Constant.FCM_ID).getValue();
                             tvPlayer1.setText(player1Name);
-                            imgPlayer1.setImageUrl(dataSnapshot.child(Constant.PROFILE_PIC).getValue().toString(), imageLoader);
+//                            imgPlayer1.setImageUrl(dataSnapshot.child(Constant.PROFILE_PIC).getValue().toString(), imageLoader);
                             progressBar.setVisibility(View.GONE);
                             tvTimeLeft.setVisibility(View.VISIBLE);
                             tvSecond.setVisibility(View.VISIBLE);
@@ -471,9 +480,9 @@ public class GetOpponentActivity extends AppCompatActivity {
                     player2Name = (String) dataSnapshot.child(Constant.USER_NAME).getValue();
                     userId2 = (String) dataSnapshot.child(Constant.USER_ID).getValue();
                     fcm2 = (String) dataSnapshot.child(Constant.FCM_ID).getValue();
-                    profilePlayer2 = dataSnapshot.child(Constant.PROFILE_PIC).getValue().toString();
+//                    profilePlayer2 = dataSnapshot.child(Constant.PROFILE_PIC).getValue().toString();
                     tvPlayer2.setText(player2Name);
-                    imgPlayer2.setImageUrl(profilePlayer2, imageLoader);
+//                    imgPlayer2.setImageUrl(profilePlayer2, imageLoader);
                     tvSearch.setText(getString(R.string.battle_start_message));
                     if (questionResponse.equals("true")) {
                         getQuestionsFromJson();
@@ -647,6 +656,49 @@ public class GetOpponentActivity extends AppCompatActivity {
 
     }
 
+    private void playWithFriends() {
+
+//        if (countDownTimer != null) {
+//            countDownTimer.cancel();
+//        }
+//        DatabaseReference databaseReference = myRef.child(roomKey);
+//        if (databaseReference != null) {
+//            databaseReference.removeValue();
+//        }
+        try {
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(GetOpponentActivity.this);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        @SuppressLint("InflateParams")
+        View dialogView = inflater.inflate(R.layout.dialog_all_friend, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+        quiteDialog = dialog.create();
+        RecyclerView recVw = dialogView.findViewById(R.id.list_friend);
+        FriendsListAdapter adapter = new FriendsListAdapter(this);
+        recVw.setHasFixedSize(true);
+        recVw.setLayoutManager(new LinearLayoutManager(this));
+        recVw.setAdapter(adapter);
+        adapter.setList(users);
+
+        adapter.setOnItemClickListener(new FriendsListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                String uid = String.valueOf(users.get(position).getUser_id());
+//                Toast.makeText(mContext, "yes: "+uid, Toast.LENGTH_SHORT).show();
+                sendRequestGame(uid);
+            }
+        });
+
+        Objects.requireNonNull(quiteDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
+        quiteDialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     /*
      * show alert dialog when current user back to another activity
@@ -702,8 +754,8 @@ public class GetOpponentActivity extends AppCompatActivity {
         opponentId = "";
         questionResponse = "true";
 
-        imgPlayer1.setImageUrl("removed", imageLoader);
-        imgPlayer2.setImageUrl("removed", imageLoader);
+//        imgPlayer1.setImageUrl("removed", imageLoader);
+//        imgPlayer2.setImageUrl("removed", imageLoader);
         imgPlayer1.setDefaultImageResId(R.drawable.ic_profile);
         imgPlayer2.setDefaultImageResId(R.drawable.ic_profile);
         imgPlayer1.setErrorImageResId(R.drawable.ic_profile);
@@ -932,9 +984,9 @@ public class GetOpponentActivity extends AppCompatActivity {
         registerMap.put(Constant.USER_ID_1, Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
         registerMap.put(Constant.USER_ID_2, opponentId);
         registerMap.put("timestamp", ServerValue.TIMESTAMP);
-        if(num == 1) {
+        if (num == 1) {
             registerMap.put("private_key", randomAlphaNumeric(8));
-        }else {
+        } else {
             registerMap.put("private_key", privateKey);
         }
 
@@ -1100,30 +1152,34 @@ public class GetOpponentActivity extends AppCompatActivity {
      * */
     private void sortDataUser() {
 
-        Query sortUserOrder = database.child("user").orderByChild("num_of_wins");
-        Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
+        Query sortUserOrder = database.child("user").orderByChild(Constant.ONLINE_STATUS).equalTo(true);
+//        Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
 
         ValueEventListener _valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 //                try {
-                    List<User> users = new ArrayList<>();
-                    for (DataSnapshot _data : dataSnapshot.getChildren()) {
+                users = new ArrayList<>();
+                for (DataSnapshot _data : dataSnapshot.getChildren()) {
 
-                        if (_data.exists() && _data.child(Constant.USER_NAME).getValue() != null) {
-                            String playerName = String.valueOf(_data.child(Constant.USER_NAME).getValue());
-                            int numWins = Integer.parseInt(String.valueOf(_data.child("num_of_wins").getValue()));
-                            users.add(new User(playerName, numWins));
-                            Collections.sort(users, Collections.reverseOrder());
-                            Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
-                        }else {
-                            Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
+                    if (_data.exists() && _data.child(Constant.USER_NAME).getValue() != null) {
+                        String playerName = String.valueOf(_data.child(Constant.USER_NAME).getValue());
+                        String uid = String.valueOf(_data.getKey());
+                        Log.d(TAG, "onDataChange: uid: "+uid);
+                        int numWins = Integer.parseInt(String.valueOf(_data.child("num_of_wins").getValue()));
+                        if(!Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid().equals(uid) ) {
+                            users.add(new User(playerName, uid));
                         }
-                    }
 
-                    for (User user : users) {
-                        Log.d("TAG", "onDataChange: playerName: " + user.getName() + "  " + user.getNum_of_wins());
+                        Toast.makeText(mContext, "test", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext, "test1", Toast.LENGTH_SHORT).show();
                     }
+                }
+                Collections.sort(users, Collections.reverseOrder());
+                for (User user : users) {
+                    Log.d("TAG", "onDataChange: playerName: " + user.getName() + "  " + user.getNum_of_wins());
+                }
 
 //                } catch (Exception e) {
 //                    e.toString();
@@ -1223,6 +1279,22 @@ public class GetOpponentActivity extends AppCompatActivity {
 
     //---------------------------------------------------------------------------------------------------
 
+
+    private void sendRequestGame(String receiverUserId){
+        String currentUser = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+        gameRequestRef.child(currentUser).child(receiverUserId)
+                .child("request_type").setValue("sent")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if(task.isSuccessful()){
+                            Toast.makeText(mContext, "task.isSuccessful()", Toast.LENGTH_SHORT).show();
+                        }
+                        
+                    }
+                });
+    }
 
 //    long cutoff = new Date().getTime() - TimeUnit.MILLISECONDS.convert(20, TimeUnit.MINUTES);
 //    Query oldItems = ttlRef.orderByChild("timestamp").endAt(cutoff);

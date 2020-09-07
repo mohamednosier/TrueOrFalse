@@ -1,6 +1,7 @@
 package amhsn.retrofitroom.trueorfalse;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -29,6 +30,7 @@ import com.facebook.HttpMethod;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 import org.json.JSONArray;
@@ -37,9 +39,16 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.Queue;
+import java.util.TimeZone;
 
 import amhsn.retrofitroom.trueorfalse.GameRoom.GetOpponentActivity;
 import amhsn.retrofitroom.trueorfalse.login.LoginActivity;
@@ -64,6 +73,7 @@ public class SplashActivity extends Activity {
     private DatabaseReference mReference;
     private FirebaseUser mCurrentUser;
     private List<String> listOfFriendsNames = new ArrayList<>();
+    private DatabaseReference database;
 
     @Override
     public void onBackPressed() {
@@ -152,7 +162,7 @@ public class SplashActivity extends Activity {
 //			additionalClaims.put("premiumAccount", true);
 //
 //			String customToken = mAuth.createCustomTokenAsync(UID,additionalClaims).get();
-
+            database = FirebaseDatabase.getInstance().getReference();
             pref = getApplicationContext().getSharedPreferences("prefname",
                     MODE_PRIVATE);
 
@@ -402,6 +412,8 @@ public class SplashActivity extends Activity {
             startActivity(intent);
             finish();
         }
+
+        database.child(Constant.DB_USER).child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child(Constant.ONLINE_STATUS).setValue(false);
 
     }
 
