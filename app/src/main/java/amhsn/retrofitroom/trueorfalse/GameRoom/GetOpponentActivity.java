@@ -347,34 +347,6 @@ public class GetOpponentActivity extends AppCompatActivity {
         };
 
 
-        valueEventListener3 = new ValueEventListener() {
-            /*
-            This method will be called with a snapshot of the data at this location.
-            */
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() != null) {
-                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        if (ds.exists()) {
-
-
-                            Log.d(TAG, "onDataChange: roomKey: ");
-
-                        }
-                    }
-
-                }
-            }
-
-            /*
-             *  This method will be triggered in the event that this listener either failed at the server
-             */
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        };
-
         getData();
         sortDataUser();
 
@@ -395,9 +367,23 @@ public class GetOpponentActivity extends AppCompatActivity {
             ValueEventListener valueEventListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    for(DataSnapshot ds : dataSnapshot.getChildren()) {
-//                        long score = ds.child("score").getValue(Long.class);
-                        Log.d(TAG, "score");
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        String uidSender = String.valueOf(ds.getKey());
+                        Log.d(TAG, "uidSender : " + uidSender);
+
+                        for(DataSnapshot dataSnapshot1 : ds.getChildren()){
+                            String uidReceiver = String.valueOf(dataSnapshot1.getKey());
+                            Log.d(TAG, "uidReceiver : " + uidReceiver);
+                            Log.d(TAG, "uidReceiver : " + dataSnapshot1.child("request_type").getValue());
+
+                            if(uidReceiver.equalsIgnoreCase(player)){
+                                Log.d(TAG, "aaaaaaaa: uidReceiver: "+uidReceiver);
+                                Log.d(TAG, "aaaaaaaa: player: "+player);
+                                Log.d(TAG, "aaaaaaaa: uidSender: "+uidSender);
+                                playWithFriends();
+                                return;
+                            }
+                        }
                     }
                 }
 
@@ -407,6 +393,8 @@ public class GetOpponentActivity extends AppCompatActivity {
                 }
             };
             gameRequestRef.addValueEventListener(valueEventListener);
+//            gameRequestRef.child(player).addValueEventListener(valueEventListener);
+
             alertLayout.setVisibility(View.GONE);
             contentLayout.setVisibility(View.VISIBLE);
             timerLayout.setVisibility(View.GONE);
@@ -1354,33 +1342,13 @@ public class GetOpponentActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-
                         if (task.isSuccessful()) {
-                            Toast.makeText(mContext, "task.isSuccessful()", Toast.LENGTH_SHORT).show();
-                            if (currentUser.equals(receiverUserId)) {
-                                showOtherUserQuitDialog();
-                                Log.d(TAG, "onComplete: yessssssssssssssssssssss");
-                            }
+                            gameRequestRef.child(currentUser).child(receiverUserId).child("timestamp").setValue(1);
+                            Toast.makeText(mContext, "Is successful", Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
     }
 
 
-//    long cutoff = new Date().getTime() - TimeUnit.MILLISECONDS.convert(20, TimeUnit.MINUTES);
-//    Query oldItems = ttlRef.orderByChild("timestamp").endAt(cutoff);
-//oldItems.addListenerForSingleValueEvent(new ValueEventListener() {
-//        @Override
-//        public void onDataChange(DataSnapshot snapshot) {
-//            for (DataSnapshot itemSnapshot: snapshot.getChildren()) {
-//                itemSnapshot.getRef().removeValue();
-//            }
-//        }
-//
-//        @Override
-//        public void onCancelled(DatabaseError databaseError) {
-//            throw databaseError.toException();
-//        }
-//    });
 }
