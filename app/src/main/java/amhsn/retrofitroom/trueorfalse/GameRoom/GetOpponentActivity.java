@@ -15,6 +15,7 @@ import android.os.CountDownTimer;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -53,6 +54,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.functions.FirebaseFunctions;
+import com.google.firebase.functions.HttpsCallableResult;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -95,6 +98,7 @@ public class GetOpponentActivity extends AppCompatActivity {
     private String numRandom = "";
     public static List<Question> battleQuestionList, questionArrayList;
     private static CountDownTimer countDownTimer;
+    private FirebaseFunctions mFunctions;
 
 
     // widgets
@@ -363,42 +367,44 @@ public class GetOpponentActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
             player = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
             database = FirebaseDatabase.getInstance().getReference();
-            gameRequestRef = FirebaseDatabase.getInstance().getReference().child("gameRequests");
-            ValueEventListener valueEventListener = new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        String uidSender = String.valueOf(ds.getKey());
-                        Log.d(TAG, "uidSender : " + uidSender);
+            gameRequestRef = FirebaseDatabase.getInstance().getReference("game_request");
+//            mFunctions = FirebaseFunctions.getInstance();
+//            ValueEventListener valueEventListener = new ValueEventListener() {
+//                @Override
+//                public void onDataChange(DataSnapshot dataSnapshot) {
+////                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+////                        String uidSender = String.valueOf(ds.getKey());
+////                        Log.d(TAG, "uidSender : " + uidSender);
+////
+////                        for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+////                            String uidReceiver = String.valueOf(dataSnapshot1.getKey());
+////                            Log.d(TAG, "uidReceiver : " + uidReceiver);
+////                            Log.d(TAG, "uidReceiver : " + dataSnapshot1.child("request_type").getValue());
+////
+////                            if (uidReceiver.equalsIgnoreCase(player)) {
+////                                Log.d(TAG, "aaaaaaaa: uidReceiver: " + uidReceiver);
+////                                Log.d(TAG, "aaaaaaaa: player: " + player);
+////                                Log.d(TAG, "aaaaaaaa: uidSender: " + uidSender);
+////                                playWithFriends();
+////                                return;
+////                            }
+////                        }
+////                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//                    Log.e(TAG, databaseError.getMessage());
+//                }
+//            };
 
-                        for(DataSnapshot dataSnapshot1 : ds.getChildren()){
-                            String uidReceiver = String.valueOf(dataSnapshot1.getKey());
-                            Log.d(TAG, "uidReceiver : " + uidReceiver);
-                            Log.d(TAG, "uidReceiver : " + dataSnapshot1.child("request_type").getValue());
-
-                            if(uidReceiver.equalsIgnoreCase(player)){
-                                Log.d(TAG, "aaaaaaaa: uidReceiver: "+uidReceiver);
-                                Log.d(TAG, "aaaaaaaa: player: "+player);
-                                Log.d(TAG, "aaaaaaaa: uidSender: "+uidSender);
-                                playWithFriends();
-                                return;
-                            }
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Log.e(TAG, databaseError.getMessage());
-                }
-            };
-            gameRequestRef.addValueEventListener(valueEventListener);
 //            gameRequestRef.child(player).addValueEventListener(valueEventListener);
 
             alertLayout.setVisibility(View.GONE);
             contentLayout.setVisibility(View.VISIBLE);
             timerLayout.setVisibility(View.GONE);
             setFirstPlayerData();
+
             tvSearchPlayer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -406,6 +412,8 @@ public class GetOpponentActivity extends AppCompatActivity {
                     SearchPlayerClickMethod();
                 }
             });
+
+
             tvJoinGame.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -417,12 +425,15 @@ public class GetOpponentActivity extends AppCompatActivity {
                     }
                 }
             });
+
+
             tvPlayWithFriend.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     playWithFriends();
                 }
             });
+
         } else {
             alertLayout.setVisibility(View.VISIBLE);
             contentLayout.setVisibility(View.GONE);
@@ -441,16 +452,16 @@ public class GetOpponentActivity extends AppCompatActivity {
         tvSearchPlayer.setVisibility(View.GONE);
         myRef = FirebaseDatabase.getInstance().getReference(Constant.DB_GAME_ROOM);
         getQuestionForComputer();
-        for (int i = 0; i < 100; i++) {
+//        for (int i = 0; i < 100; i++) {
             callGetRoomFunction(1);
-        }
+//        }
         startTimer();
         if (player2UserId.isEmpty()) {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is empty: " + player2UserId);
-            myRef.addValueEventListener(valueEventListener);
+//            myRef.addValueEventListener(valueEventListener);
         } else {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is not empty: " + player2UserId);
-            myRef.addValueEventListener(valueEventListener2);
+//            myRef.addValueEventListener(valueEventListener2);
         }
     }
 
@@ -465,10 +476,10 @@ public class GetOpponentActivity extends AppCompatActivity {
         startTimer();
         if (player2UserId.isEmpty()) {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is empty: " + player2UserId);
-            myRef.addValueEventListener(valueEventListener);
+//            myRef.addValueEventListener(valueEventListener);
         } else {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is not empty: " + player2UserId);
-            myRef.addValueEventListener(valueEventListener2);
+//            myRef.addValueEventListener(valueEventListener2);
         }
     }
 
@@ -709,6 +720,7 @@ public class GetOpponentActivity extends AppCompatActivity {
 //            databaseReference.removeValue();
 //        }
         try {
+            gameRequestRef = FirebaseDatabase.getInstance().getReference("game_request");
             final AlertDialog.Builder dialog = new AlertDialog.Builder(GetOpponentActivity.this);
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             @SuppressLint("InflateParams")
@@ -725,7 +737,12 @@ public class GetOpponentActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(int position) {
                     String uid = String.valueOf(usersList.get(position).getUser_id());
-                    sendRequestGame(uid);
+//                    sendRequestGame(uid)
+                    callGetRequestFunction(1);
+//                    Log.d(TAG, "onItemClick: 222333"+callCloudFunction());
+//                    callCloudFunction();
+                    Toast.makeText(mContext, "hh", Toast.LENGTH_SHORT).show();
+//                    gameRequestRef.addValueEventListener(valueEventListener);
                 }
             });
 
@@ -1050,6 +1067,74 @@ public class GetOpponentActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    void callGetRequestFunction(int num) {
+        Map<String, Object> registerMap = new HashMap<>();
+        registerMap.put(Constant.USER_ID, player);
+        registerMap.put(Constant.LANGUAGE_ID, "2");
+        registerMap.put(Constant.QUE_ID, numRandom);
+        registerMap.put(Constant.USER_ID_1, Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
+        registerMap.put(Constant.USER_ID_2, opponentId);
+        registerMap.put("timestamp", ServerValue.TIMESTAMP);
+        if (num == 1) {
+            registerMap.put("private_key", randomAlphaNumeric(8));
+        } else {
+            registerMap.put("private_key", privateKey);
+        }
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<Map> call = apiService.createRequest(registerMap);
+        call.enqueue(new retrofit2.Callback<Map>() {
+            @Override
+            public void onResponse(Call<Map> call, Response<Map> response) {
+                try {
+                    if (response.body() != null) {
+                        Log.e("game", response.body().toString());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Map> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+//    void callGetRequestFunction(String user_id_receiver) {
+//        Map<String, Object> registerMap = new HashMap<>();
+//        registerMap.put(Constant.USER_ID, player);
+//        registerMap.put("user_id_receiver", user_id_receiver);
+//        registerMap.put("timestamp", ServerValue.TIMESTAMP);
+//        registerMap.put("request_type", "request_type");
+//
+//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+//        Call<Map> call = apiService.createRequest(registerMap);
+//        call.enqueue(new retrofit2.Callback<Map>() {
+//            @Override
+//            public void onResponse(Call<Map> call, Response<Map> response) {
+////                try {
+//                    if (response.body() != null) {
+//                        Log.d(TAG, response.body().toString());
+//                        Toast.makeText(GetOpponentActivity.this, "1", Toast.LENGTH_SHORT).show();
+//                    }else {
+//                        Log.d(TAG,"ww");
+//                        Toast.makeText(GetOpponentActivity.this, "2", Toast.LENGTH_SHORT).show();
+//                    }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Map> call, Throwable t) {
+//                Log.e(TAG, "onFailure: 1111111111");
+//                Toast.makeText(GetOpponentActivity.this, "3", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+//    }
 
 
     /*

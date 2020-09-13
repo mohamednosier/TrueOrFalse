@@ -8,9 +8,11 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface ApiInterface {
-        @Headers("Content-Type: text/plain")
-        @POST("create")
-        Call<Map> create(@Body Map map);
-      //  Call<Map> createRoom(@Body Map map);
+    @Headers("Content-Type: text/plain")
+    @POST("create")
+    Call<Map> create(@Body Map map);
 
+    @Headers("Content-Type: text/plain")
+    @POST("create")
+    Call<Map> createRequest(@Body Map map);
 }
