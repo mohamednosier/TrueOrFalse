@@ -4,6 +4,7 @@ import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
@@ -13,6 +14,11 @@ public interface ApiInterface {
     Call<Map> create(@Body Map map);
 
     @Headers("Content-Type: text/plain")
-    @POST("create")
+    @POST("createRequest")
     Call<Map> createRequest(@Body Map map);
+
+
+//    @Headers("Content-Type: text/plain")
+    @POST("getTime")
+    Call<Map> getTime(@Body Map map);
 }

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
@@ -50,6 +51,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ServerValue;
@@ -57,9 +59,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.functions.FirebaseFunctions;
 import com.google.firebase.functions.HttpsCallableResult;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -121,6 +126,7 @@ public class GetOpponentActivity extends AppCompatActivity {
     private String privateKey;
     private List<User> usersList = new ArrayList<>();
     private FriendsListAdapter adapter;
+    private HashMap<String, Object> timestampCreated;
 
 
     @Override
@@ -147,6 +153,7 @@ public class GetOpponentActivity extends AppCompatActivity {
 
         // initialize reference to view
         adapter = new FriendsListAdapter(this);
+        mFunctions = FirebaseFunctions.getInstance();
         contentLayout = findViewById(R.id.contentLayout);
         timerLayout = findViewById(R.id.timerLayout);
         alertLayout = findViewById(R.id.alertLayout);
@@ -350,8 +357,10 @@ public class GetOpponentActivity extends AppCompatActivity {
             }
         };
 
-
+       
         getData();
+//        Log.d(TAG, "onCreate: getTime: "+callCloudFunction());
+
         sortDataUser();
 
     }
@@ -368,37 +377,52 @@ public class GetOpponentActivity extends AppCompatActivity {
             player = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
             database = FirebaseDatabase.getInstance().getReference();
             gameRequestRef = FirebaseDatabase.getInstance().getReference("game_request");
-//            mFunctions = FirebaseFunctions.getInstance();
-//            ValueEventListener valueEventListener = new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-////                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-////                        String uidSender = String.valueOf(ds.getKey());
-////                        Log.d(TAG, "uidSender : " + uidSender);
-////
-////                        for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
-////                            String uidReceiver = String.valueOf(dataSnapshot1.getKey());
-////                            Log.d(TAG, "uidReceiver : " + uidReceiver);
-////                            Log.d(TAG, "uidReceiver : " + dataSnapshot1.child("request_type").getValue());
-////
-////                            if (uidReceiver.equalsIgnoreCase(player)) {
-////                                Log.d(TAG, "aaaaaaaa: uidReceiver: " + uidReceiver);
-////                                Log.d(TAG, "aaaaaaaa: player: " + player);
-////                                Log.d(TAG, "aaaaaaaa: uidSender: " + uidSender);
-////                                playWithFriends();
-////                                return;
-////                            }
-////                        }
-////                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError databaseError) {
-//                    Log.e(TAG, databaseError.getMessage());
-//                }
-//            };
+            ValueEventListener valueEventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        String key = String.valueOf(ds.getKey());
+                        Log.d(TAG, "key : " + key);
+//                        long timeStamp = (long) ds.child("timestamp").getValue();
+//                        Date now = new Date();
+//                        long timestamp = now.getTime();
+                        callGetTime();
+                        
+//                        HashMap<String, Object> timestampNow = new HashMap<>();
+//                        timestampNow.put("timestamp", ServerValue.TIMESTAMP);
+//                        Iterator it = timestampNow.entrySet().iterator();
+//                        while (it.hasNext()) {
+//                            Map.Entry pairs = (Map.Entry) it.next();
+//                            System.out.println(pairs.getKey() + " = " + pairs.getValue());
+//                            Log.d(TAG, "pairs.getKey(): "+pairs.getKey()+"  pairs.getValue(): "+pairs.getValue());
+//                        }
+//                        Log.d(TAG, "onDataChange: x: "+getTimestampCreatedLong());
 
-//            gameRequestRef.child(player).addValueEventListener(valueEventListener);
+//                        Log.d(TAG, "onDataChange: dateStr: "+now +"========="+now.getTime());
+//                        Log.d(TAG, "uidReceiver : " + ds.child("timestamp").getValue());
+//                        if ((ServerValue.TIMESTAMP - timeStamp) <= 10 * 1000) {
+                            for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                                String uidReceiver = String.valueOf(dataSnapshot1.getKey());
+                                Log.d(TAG, "uidReceiver : " + uidReceiver);
+
+                                if (uidReceiver.equalsIgnoreCase(player)) {
+//                                    SearchPlayerClickMethod();
+                                    return;
+                                }
+                            }
+//                        }else {
+//                            Log.d(TAG, "uidReceiver : 111");
+//                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.e(TAG, "error : " + databaseError.getMessage());
+                }
+            };
+
+            gameRequestRef.addValueEventListener(valueEventListener);
 
             alertLayout.setVisibility(View.GONE);
             contentLayout.setVisibility(View.VISIBLE);
@@ -453,15 +477,15 @@ public class GetOpponentActivity extends AppCompatActivity {
         myRef = FirebaseDatabase.getInstance().getReference(Constant.DB_GAME_ROOM);
         getQuestionForComputer();
 //        for (int i = 0; i < 100; i++) {
-            callGetRoomFunction(1);
+        callGetRoomFunction(1);
 //        }
         startTimer();
         if (player2UserId.isEmpty()) {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is empty: " + player2UserId);
-//            myRef.addValueEventListener(valueEventListener);
+            myRef.addValueEventListener(valueEventListener);
         } else {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is not empty: " + player2UserId);
-//            myRef.addValueEventListener(valueEventListener2);
+            myRef.addValueEventListener(valueEventListener2);
         }
     }
 
@@ -476,10 +500,10 @@ public class GetOpponentActivity extends AppCompatActivity {
         startTimer();
         if (player2UserId.isEmpty()) {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is empty: " + player2UserId);
-//            myRef.addValueEventListener(valueEventListener);
+            myRef.addValueEventListener(valueEventListener);
         } else {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is not empty: " + player2UserId);
-//            myRef.addValueEventListener(valueEventListener2);
+            myRef.addValueEventListener(valueEventListener2);
         }
     }
 
@@ -710,6 +734,7 @@ public class GetOpponentActivity extends AppCompatActivity {
 
     }
 
+
     private void playWithFriends() {
 
 //        if (countDownTimer != null) {
@@ -738,7 +763,7 @@ public class GetOpponentActivity extends AppCompatActivity {
                 public void onItemClick(int position) {
                     String uid = String.valueOf(usersList.get(position).getUser_id());
 //                    sendRequestGame(uid)
-                    callGetRequestFunction(1);
+                    callGetRequestFunction(uid);
 //                    Log.d(TAG, "onItemClick: 222333"+callCloudFunction());
 //                    callCloudFunction();
                     Toast.makeText(mContext, "hh", Toast.LENGTH_SHORT).show();
@@ -1054,7 +1079,7 @@ public class GetOpponentActivity extends AppCompatActivity {
             public void onResponse(Call<Map> call, Response<Map> response) {
                 try {
                     if (response.body() != null) {
-                        Log.e("game room response****", response.body().toString());
+                        Log.e(TAG,"hhh : "+ response.body().toString());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1068,73 +1093,63 @@ public class GetOpponentActivity extends AppCompatActivity {
         });
     }
 
-
-    void callGetRequestFunction(int num) {
+    void callGetTime() {
         Map<String, Object> registerMap = new HashMap<>();
         registerMap.put(Constant.USER_ID, player);
-        registerMap.put(Constant.LANGUAGE_ID, "2");
-        registerMap.put(Constant.QUE_ID, numRandom);
-        registerMap.put(Constant.USER_ID_1, Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid());
-        registerMap.put(Constant.USER_ID_2, opponentId);
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<Map> call = apiService.getTime(registerMap);
+        call.enqueue(new retrofit2.Callback<Map>() {
+            @Override
+            public void onResponse(Call<Map> call, Response<Map> response) {
+
+                    if (response.body() != null) {
+                        Log.d(TAG,"callGetTime: " +response.body());
+                    }else {
+                        Log.d(TAG,"callGetTime: ");
+                    }
+
+            }
+
+            @Override
+            public void onFailure(Call<Map> call, Throwable t) {
+                Log.d(TAG,"callGetTime: " +t.getMessage());
+
+            }
+        });
+//        Log.d(TAG, "callGetTime: ========");
+    }
+
+
+    void callGetRequestFunction(String user_id_receiver) {
+        Map<String, Object> registerMap = new HashMap<>();
+        registerMap.put(Constant.USER_ID, player);
+        registerMap.put("user_id_receiver", user_id_receiver);
         registerMap.put("timestamp", ServerValue.TIMESTAMP);
-        if (num == 1) {
-            registerMap.put("private_key", randomAlphaNumeric(8));
-        } else {
-            registerMap.put("private_key", privateKey);
-        }
+        registerMap.put("request_type", "request_type");
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<Map> call = apiService.createRequest(registerMap);
         call.enqueue(new retrofit2.Callback<Map>() {
             @Override
             public void onResponse(Call<Map> call, Response<Map> response) {
-                try {
-                    if (response.body() != null) {
-                        Log.e("game", response.body().toString());
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (response.body() != null) {
+                    Log.d(TAG, response.body().toString());
+                    Toast.makeText(GetOpponentActivity.this, "1", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.d(TAG, "ww");
+                    Toast.makeText(GetOpponentActivity.this, "2", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Map> call, Throwable t) {
+                Log.e(TAG, "onFailure: 1111111111");
+                Toast.makeText(GetOpponentActivity.this, "3", Toast.LENGTH_SHORT).show();
 
             }
         });
     }
-
-
-//    void callGetRequestFunction(String user_id_receiver) {
-//        Map<String, Object> registerMap = new HashMap<>();
-//        registerMap.put(Constant.USER_ID, player);
-//        registerMap.put("user_id_receiver", user_id_receiver);
-//        registerMap.put("timestamp", ServerValue.TIMESTAMP);
-//        registerMap.put("request_type", "request_type");
-//
-//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-//        Call<Map> call = apiService.createRequest(registerMap);
-//        call.enqueue(new retrofit2.Callback<Map>() {
-//            @Override
-//            public void onResponse(Call<Map> call, Response<Map> response) {
-////                try {
-//                    if (response.body() != null) {
-//                        Log.d(TAG, response.body().toString());
-//                        Toast.makeText(GetOpponentActivity.this, "1", Toast.LENGTH_SHORT).show();
-//                    }else {
-//                        Log.d(TAG,"ww");
-//                        Toast.makeText(GetOpponentActivity.this, "2", Toast.LENGTH_SHORT).show();
-//                    }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Map> call, Throwable t) {
-//                Log.e(TAG, "onFailure: 1111111111");
-//                Toast.makeText(GetOpponentActivity.this, "3", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
-//    }
 
 
     /*
@@ -1420,20 +1435,7 @@ public class GetOpponentActivity extends AppCompatActivity {
     //---------------------------------------------------------------------------------------------------
 
 
-    private void sendRequestGame(final String receiverUserId) {
-        final String currentUser = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        gameRequestRef.child(currentUser).child(receiverUserId)
-                .child("request_type").setValue("sent")
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            gameRequestRef.child(currentUser).child(receiverUserId).child("timestamp").setValue(1);
-                            Toast.makeText(mContext, "Is successful", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
+
 
 
 }
