@@ -248,15 +248,37 @@ exports.deleteGameRequestID = functions.database.ref('/game_request/{pushId}').o
 });
 
 exports.getTime = functions.https.onRequest((req,res)=>{
-		// var data=JSON.parse(req.body);
-	// var user_id=data.user_id;
-	 // var milliseconds = new Date().getTime();
-	 // const now = Date.now();
-	 // var unix = Math.round(now /1000);
-  var d = new Date();
-  var n = d.getTime();
-     res.send({n});
+	
+	// var data=JSON.parse(req.body);
+	// var timestamp = data.timestamp;
+	
+	// console.log('now: ',timestamp);
+	
+	// var timeStamp = Date.now();
+	var d = new Date();
+	var n = d.getTime();
+	
+	
+	// console.log('now: ',timeStamp);
+	
+	// var date = new Date(timeStamp);
+	// Hours part from the timestamp
+	// var hours = date.getHours();
+	// var hours = date.getHours();
+	// Minutes part from the timestamp
+	// var minutes = "0" + date.getMinutes();
+	// Seconds part from the timestamp
+	// var seconds = "0" + date.getSeconds();
+	
+	// Will display time in 10:30:23 format
+	// var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+	
+	// console.log(formattedTime);
+	
+	res.send({n});
+	// res.send({timestamp});
 });
+
 
 
 

@@ -18,7 +18,7 @@ public interface ApiInterface {
     Call<Map> createRequest(@Body Map map);
 
 
-//    @Headers("Content-Type: text/plain")
+    @Headers("Content-Type: text/plain")
     @POST("getTime")
     Call<Map> getTime(@Body Map map);
 }

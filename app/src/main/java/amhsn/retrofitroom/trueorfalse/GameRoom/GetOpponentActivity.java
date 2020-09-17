@@ -10,23 +10,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -51,22 +44,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.functions.FirebaseFunctions;
-import com.google.firebase.functions.HttpsCallableResult;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
@@ -104,6 +89,7 @@ public class GetOpponentActivity extends AppCompatActivity {
     public static List<Question> battleQuestionList, questionArrayList;
     private static CountDownTimer countDownTimer;
     private FirebaseFunctions mFunctions;
+    long timeNow;
 
 
     // widgets
@@ -357,11 +343,10 @@ public class GetOpponentActivity extends AppCompatActivity {
             }
         };
 
-       
-        getData();
-//        Log.d(TAG, "onCreate: getTime: "+callCloudFunction());
 
-        sortDataUser();
+        getData();
+        callGetTime();
+        getAllFriends();
 
     }
 
@@ -373,56 +358,50 @@ public class GetOpponentActivity extends AppCompatActivity {
     public void getData() {
 
         if (Utils.isNetworkAvailable(GetOpponentActivity.this)) {
+
             progressBar.setVisibility(View.VISIBLE);
             player = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
             database = FirebaseDatabase.getInstance().getReference();
             gameRequestRef = FirebaseDatabase.getInstance().getReference("game_request");
-            ValueEventListener valueEventListener = new ValueEventListener() {
+            new Handler().postDelayed(new Runnable() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                        String key = String.valueOf(ds.getKey());
-                        Log.d(TAG, "key : " + key);
-//                        long timeStamp = (long) ds.child("timestamp").getValue();
-//                        Date now = new Date();
-//                        long timestamp = now.getTime();
-                        callGetTime();
-                        
-//                        HashMap<String, Object> timestampNow = new HashMap<>();
-//                        timestampNow.put("timestamp", ServerValue.TIMESTAMP);
-//                        Iterator it = timestampNow.entrySet().iterator();
-//                        while (it.hasNext()) {
-//                            Map.Entry pairs = (Map.Entry) it.next();
-//                            System.out.println(pairs.getKey() + " = " + pairs.getValue());
-//                            Log.d(TAG, "pairs.getKey(): "+pairs.getKey()+"  pairs.getValue(): "+pairs.getValue());
-//                        }
-//                        Log.d(TAG, "onDataChange: x: "+getTimestampCreatedLong());
+                public void run() {
+                    //Write whatever to want to do after delay specified (1 sec)
+                    ValueEventListener valueEventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            callGetTime();
+                            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                                String key = String.valueOf(ds.getKey());
+                                Log.d(TAG, "key : " + key);
+                                long timestamp = (long) ds.child("timestamp").getValue();
+                                Log.d(TAG, "timeStamps: " + timestamp);
+                                Log.d(TAG, "timeStamps: " + timeNow);
 
-//                        Log.d(TAG, "onDataChange: dateStr: "+now +"========="+now.getTime());
-//                        Log.d(TAG, "uidReceiver : " + ds.child("timestamp").getValue());
-//                        if ((ServerValue.TIMESTAMP - timeStamp) <= 10 * 1000) {
-                            for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
-                                String uidReceiver = String.valueOf(dataSnapshot1.getKey());
-                                Log.d(TAG, "uidReceiver : " + uidReceiver);
+                                if ((timeNow - timestamp) < 10 * 1000) {
+                                    for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                                        String uidReceiver = String.valueOf(dataSnapshot1.getKey());
 
-                                if (uidReceiver.equalsIgnoreCase(player)) {
+                                        if (uidReceiver.equalsIgnoreCase(player)) {
 //                                    SearchPlayerClickMethod();
-                                    return;
+                                            return;
+                                        }
+                                    }
+                                } else {
+                                    Log.d(TAG, "uidReceiver : 111");
                                 }
                             }
-//                        }else {
-//                            Log.d(TAG, "uidReceiver : 111");
-//                        }
-                    }
-                }
+                        }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Log.e(TAG, "error : " + databaseError.getMessage());
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Log.e(TAG, "error : " + databaseError.getMessage());
+                        }
+                    };
+                    gameRequestRef.addValueEventListener(valueEventListener);
                 }
-            };
+            }, 1000);
 
-            gameRequestRef.addValueEventListener(valueEventListener);
 
             alertLayout.setVisibility(View.GONE);
             contentLayout.setVisibility(View.VISIBLE);
@@ -476,9 +455,7 @@ public class GetOpponentActivity extends AppCompatActivity {
         tvSearchPlayer.setVisibility(View.GONE);
         myRef = FirebaseDatabase.getInstance().getReference(Constant.DB_GAME_ROOM);
         getQuestionForComputer();
-//        for (int i = 0; i < 100; i++) {
         callGetRoomFunction(1);
-//        }
         startTimer();
         if (player2UserId.isEmpty()) {
             Log.d(TAG, "SearchPlayerClickMethod: player2UserId is empty: " + player2UserId);
@@ -737,13 +714,6 @@ public class GetOpponentActivity extends AppCompatActivity {
 
     private void playWithFriends() {
 
-//        if (countDownTimer != null) {
-//            countDownTimer.cancel();
-//        }
-//        DatabaseReference databaseReference = myRef.child(roomKey);
-//        if (databaseReference != null) {
-//            databaseReference.removeValue();
-//        }
         try {
             gameRequestRef = FirebaseDatabase.getInstance().getReference("game_request");
             final AlertDialog.Builder dialog = new AlertDialog.Builder(GetOpponentActivity.this);
@@ -762,12 +732,7 @@ public class GetOpponentActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(int position) {
                     String uid = String.valueOf(usersList.get(position).getUser_id());
-//                    sendRequestGame(uid)
                     callGetRequestFunction(uid);
-//                    Log.d(TAG, "onItemClick: 222333"+callCloudFunction());
-//                    callCloudFunction();
-                    Toast.makeText(mContext, "hh", Toast.LENGTH_SHORT).show();
-//                    gameRequestRef.addValueEventListener(valueEventListener);
                 }
             });
 
@@ -1035,8 +1000,6 @@ public class GetOpponentActivity extends AppCompatActivity {
 
                     questionArrayList = questionList;
 
-//                    Log.i("TAG", "onResponse: battleQuestionList: " + battleQuestionList.size());
-
                 }
 
                 @Override
@@ -1079,7 +1042,7 @@ public class GetOpponentActivity extends AppCompatActivity {
             public void onResponse(Call<Map> call, Response<Map> response) {
                 try {
                     if (response.body() != null) {
-                        Log.e(TAG,"hhh : "+ response.body().toString());
+                        Log.e(TAG, "hhh : " + response.body().toString());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1093,9 +1056,11 @@ public class GetOpponentActivity extends AppCompatActivity {
         });
     }
 
+
     void callGetTime() {
+
         Map<String, Object> registerMap = new HashMap<>();
-        registerMap.put(Constant.USER_ID, player);
+        registerMap.put("timestamp", ServerValue.TIMESTAMP);
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<Map> call = apiService.getTime(registerMap);
@@ -1103,21 +1068,25 @@ public class GetOpponentActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Map> call, Response<Map> response) {
 
-                    if (response.body() != null) {
-                        Log.d(TAG,"callGetTime: " +response.body());
-                    }else {
-                        Log.d(TAG,"callGetTime: ");
-                    }
+                if (response.body() != null) {
+                    Log.d(TAG, "callGetTime: " + response.body().values().toString());
+                    String old = response.body().values().toString().replace(".", "");
+                    String news = old.substring(1, old.length() - 4);
+                    Log.d(TAG, "news: " + news);
+                    timeNow = Long.parseLong(news);
+                    Log.d(TAG, "onResponse: timeStamp:: " + timeNow);
+                } else {
+                    Log.d(TAG, "callGetTime: ");
+                }
 
             }
 
             @Override
             public void onFailure(Call<Map> call, Throwable t) {
-                Log.d(TAG,"callGetTime: " +t.getMessage());
+                Log.d(TAG, "callGetTime: " + t.getMessage());
 
             }
         });
-//        Log.d(TAG, "callGetTime: ========");
     }
 
 
@@ -1334,7 +1303,9 @@ public class GetOpponentActivity extends AppCompatActivity {
 //
 //        sortUserOrder.addValueEventListener(_valueEventListener);
 //    }
-    private void sortDataUser() {
+
+
+    private void getAllFriends() {
 
 
         UserViewModel viewModel = ViewModelProviders.of(this).get(UserViewModel.class);
@@ -1418,7 +1389,6 @@ public class GetOpponentActivity extends AppCompatActivity {
                 if (valueEventListener2 != null)
                     myRef.removeEventListener(valueEventListener2);
 
-                finish();
             }
         }
     }
@@ -1433,9 +1403,6 @@ public class GetOpponentActivity extends AppCompatActivity {
     }
 
     //---------------------------------------------------------------------------------------------------
-
-
-
 
 
 }
