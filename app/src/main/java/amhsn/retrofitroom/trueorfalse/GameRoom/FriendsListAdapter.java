@@ -24,7 +24,7 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
-        void onItemClick(int position);
+        void onItemClick(int position,View view);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -79,7 +79,7 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(position);
+                            listener.onItemClick(position,item_request);
                         }
                     }
                 }

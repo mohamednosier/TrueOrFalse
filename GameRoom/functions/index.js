@@ -181,6 +181,7 @@ exports.createRequest=functions.https.onRequest((req,res)=>{
 	var user_id_receiver=data.user_id_receiver;
 	var timestamp=data.timestamp;
 	var request_type = data.request_type;
+	var online_status = data.online_status;
 	
 	createGameRequest();
 	
@@ -189,12 +190,14 @@ exports.createRequest=functions.https.onRequest((req,res)=>{
 		ref.push({
 			"timestamp":timestamp,
 			"user_id_sender":user_id,
+			"user_id_receiver":user_id_receiver,
 			}).then(function(ref){
 			console.log(ref.key);
 			var key=ref.key;
 			console.log(key);
 			var ref= firebase.database().ref(`game_request/${key}/${user_id_receiver}`).update({
 				"request_type": request_type,
+				"online_status": online_status,
 			});
 		});
 	}

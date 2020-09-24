@@ -9,6 +9,7 @@ public class Constant {
     public static String QUIZ_URL = "https://quizdemo.wrteam.in/api-v2.php";  //api url
     public static String FIREBASE_URL = "https://us-central1-truefalse-4b498.cloudfunctions.net/";/*FireBase function URL*/
     /////// PARAMETERS  ///////
+    public static boolean flag = false;
     public static String accessKey = "access_key";
     public static String accessKeyValue = "6808";
     public static String name = "name";

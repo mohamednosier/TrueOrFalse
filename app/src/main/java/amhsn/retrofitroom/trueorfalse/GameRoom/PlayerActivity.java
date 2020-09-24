@@ -379,6 +379,7 @@ public class PlayerActivity extends AppCompatActivity {
                         if (dataSnapshot.child(player1Key).getValue() != null)
                             player1GameStatus = (boolean) dataSnapshot.child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child("status").getValue();
                         if (dataSnapshot.child(player2Key).getValue() != null) {
+                            Log.d(TAG, "onDataChange: player2Key: "+player2Key);
                             player2GameStatus = (boolean) dataSnapshot.child(player2Key).child("status").getValue();
                         }
                         if (player1GameStatus && player2GameStatus) {
@@ -459,7 +460,6 @@ public class PlayerActivity extends AppCompatActivity {
                                     } else {
                                         mHandler.postDelayed(mUpdateUITimerTask, 0);
                                     }
-
                                 }
 
                             }

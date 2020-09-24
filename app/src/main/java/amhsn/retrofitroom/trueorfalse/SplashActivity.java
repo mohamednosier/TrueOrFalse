@@ -4,8 +4,13 @@ package amhsn.retrofitroom.trueorfalse;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -52,6 +57,8 @@ import java.util.TimeZone;
 
 import amhsn.retrofitroom.trueorfalse.GameRoom.GetOpponentActivity;
 import amhsn.retrofitroom.trueorfalse.login.LoginActivity;
+import amhsn.retrofitroom.trueorfalse.notification.MyApplication;
+import amhsn.retrofitroom.trueorfalse.service.NetworkReceiver;
 import okhttp3.internal.Util;
 
 public class SplashActivity extends Activity {
@@ -74,6 +81,7 @@ public class SplashActivity extends Activity {
     private FirebaseUser mCurrentUser;
     private List<String> listOfFriendsNames = new ArrayList<>();
     private DatabaseReference database;
+    private BroadcastReceiver MyReceiver = null;
 
     @Override
     public void onBackPressed() {
@@ -138,6 +146,8 @@ public class SplashActivity extends Activity {
                 startActivity(intent);
             }
 
+            NetworkReceiver receiver = new NetworkReceiver();
+            broadcastIntent();
 
 //            responseObject();
 //            getListFriend();
@@ -146,6 +156,16 @@ public class SplashActivity extends Activity {
                 for (String list : listOfFriendsNames) {
                     Log.d(TAG, "onCreate: listOfFriendsNames: " + list);
                 }
+            }
+
+
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()) {
+                Toast.makeText(this, "connected", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "not connected", Toast.LENGTH_SHORT).show();
+
             }
 
 //			FileInputStream serviceAccount =
@@ -420,12 +440,21 @@ public class SplashActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
+
+        MyApplication.activityResumed();
+    }
+
+    public void broadcastIntent() {
+//        registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        MyApplication.activityPaused();
+//        unregisterReceiver(MyReceiver);
     }
+
 
 
 //    private void getListFriend() {
@@ -549,4 +578,7 @@ public class SplashActivity extends Activity {
 		}).executeAsync();
 		return friendslist;
 	}
+
+
+
 }
